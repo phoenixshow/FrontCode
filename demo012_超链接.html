@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title>超链接</title>
+	</head>
+	<body>
+		<h1>我是demo12</h1>
+		<!-- 
+			使用超链接可以让我们从一个页面跳转到另一个页面
+			使用a标签来创建一个超链接
+			属性：
+				href：指向链接跳转的目标地址，可以写一个相对路径，也可以写一个完整的地址
+		-->
+		<a href="http://www.baidu.com">我是一个超链接</a><br /><br />
+		
+		<a href="http://www.baidu1234567.com">我是一个超链接</a><br /><br />
+		
+		<!-- 
+			a标签中的target属性可以用来指定打开链接的位置
+			可选值：
+				_self：表示在当前窗口中打开（默认值）
+				_blank：在新的窗口中打开链接
+				可以设置一个内联框架的name属性值，链接将会在指定的内联框架中打开
+		-->
+		<a href="demo011_内联框架.html" target="tom">我是一个超链接</a><br /><br />
+		
+		<iframe src="demo010_XHTML的语法规范.html" name="tom"></iframe>
+		
+		<!-- 
+			center标签中的内容，会默认在页面中居中显示
+			我们可以将要居中的元素全都放到center中
+		-->
+		<center>
+			<p>我是一个p标签</p>
+		</center>
+	</body>
+</html>
