@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>子元素和后代元素选择器</title>
+	<style type="text/css">
+		/*为div中的span设置一个颜色为绿色*/
+		/*
+			后代元素选择器
+				作用：选中指定元素的指定后代元素
+				语法：祖先元素 后代元素{}
+		*/
+		#d1 span{
+			color: greenyellow;
+		}
+
+		/*选中id为d1的div中的p元素中的span元素*/
+		#d1 p span{
+			font-size: 50px;
+		}
+
+		/*为div的子元素span设置一个背景颜色为黄色*/
+		/*
+			子元素选择器
+				作用：选中指定父元素的指定子元素
+				语法：父元素 > 子元素
+			IE6及以下的浏览器不支持子元素选择器
+		*/
+		div > span{
+			background-color: yellow;
+		}
+	</style>
+</head>
+<body>
+	<!-- 
+		元素之间的关系
+			父元素：直接包含子元素的元素
+			子元素：直接被父元素包含的元素
+			祖先元素：直接或间接包含后代元素的元素，父元素也是祖先元素
+			后代元素：直接或间接被祖先元素包含的元素，子元素也是后代元素
+			兄弟元素：拥有相同父元素的元素叫做兄弟元素
+	 -->
+	<div id="d1">
+		<span>我是div标签中的span</span>
+		<p><span>我是p标签中的span</span></p>
+	</div>
+	<div>
+		<span>我是body标签中的span</span>
+	</div>
+</body>
+</html>
