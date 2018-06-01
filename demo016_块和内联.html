@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8" />
+	<title>块和内联</title>
+	
+</head>
+<body>
+	<!-- 
+		块元素和内联元素
+
+		块元素
+			所谓的块元素就是会独占一行的元素
+			无论它的内容有多少，它都会独占一整行
+			常见的块元素：div p h1 h2 h3……
+			div这个标签没有任何语义，就是一个纯粹的块元素
+			并且不会为它里边的元素设置任何的默认样式
+			div元素主要用来对页面进行布局的
+		内联元素（行内元素）
+			所谓的行内元素指的是只占自身大小的元素，不会占用一行
+			常见的内联元素：span a img iframe
+			span没有任何语义，span标签专门用来选中文字，然后为文字来设置样式
+		块元素主要用来做页面中的布局，内联元素主要用来选中文本设置样式
+			一般情况下只使用块元素去包含内联元素，而不会使用内联元素去包含一个块元素
+			a元素可以包含任意元素，除了他本身
+			p元素不可以包含任何其它的块元素
+	 -->
+
+	<p><div>我是一个span</div></p>
+
+	<a href="#"><a href="#">我是一个超链接</a></a>
+
+	<a href="#">
+		<div style="background-color: red; width: 200px;">
+			我是一个div
+		</div>
+	</a>
+	<div style="background-color: yellow; width: 200px;">
+		我是一个div
+	</div>
+
+	<p>我是一个p标签</p>
+	<p>我是一个p标签</p>
+
+	<hr />
+
+	<span>我是一个span</span>
+	<span>我是一个span</span>
+
+	<span style="color: red;">我是一段文字</span>
+</body>
+</html>
