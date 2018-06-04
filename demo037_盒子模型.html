@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>盒子模型</title>
+	<style type="text/css">
+		.box1{
+			/*
+			使用width来设置盒子内容区的宽度
+			使用height来设置盒子内容区的高度
+			width和height只是设置的盒子内容区的大小，而不是盒子的整个大小，盒子可见框的大小由内容区，内边距和边框共同决定
+			*/
+			width: 300px;
+			height: 300px;
+			/*设置背景颜色*/
+			background-color: #bfa;
+			/*为元素设置边框
+				要为一个元素设置边框必须指定三个样式
+					border-width:边框的宽度
+					border-color:边框颜色
+					border-style:边框的样式
+			*/
+			/*border-width: 10px;*/
+			/*
+			使用border-width可以分别指定四个边框的宽度
+			如果在border-width指定了四个值
+				则四个值会分别设置给上、右、下、左，按照顺时针的方向设置的
+			如果指定三个值
+				则三个值会分别设置给上、左右、下
+			如果指定两个值
+				则两个值会分别设置给上下、左右
+			如果指定一个值，则四边全都是该值
+
+			除了border-width，CSS中还提供了四个border-xxx-width
+				xxx的值可能是top right bottom left
+				专门用来设置指定边的宽度
+			*/
+			/*border-width:10px 20px 30px 40px;*/
+			/*border-width:10px 20px 30px;*/
+			/* border-width:10px 20px; */
+			border-width:10px;
+			/*border-top-width: 100px;*/
+
+			/*
+			 * 设置边框的颜色
+			 * 和宽度一样，color也提供四个方向的样式，可以分别指定颜色
+			 * border-xxx-color
+			 */
+			border-color: red;
+			/*border-color: red yellow orange blue;*/
+			/*border-color: red yellow orange;*/
+			/*border-color: red yellow;*/
+
+			/*
+			 * 设置边框的样式
+			 * 	可选值：
+			 * 		none，默认值，没有边框
+			 * 		solid 实线
+			 * 		dotted 点状边框
+			 * 		dashed 虚线
+			 * 		double 双线
+			 * 
+			 * style也可以分别指定四个边的边框样式，规则和width一致，同时它也提供border-xxx-style四个样式，来分别设置四个边
+			 */
+			/*border-style: double;*/
+			border-style: solid dotted dashed double;
+		}
+	</style>
+</head>
+<body>
+	<div class="box1"></div>
+</body>
+</html>

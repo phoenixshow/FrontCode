@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>字体的其它样式</title>
+	<style type="text/css">
+		.p1{
+			color: red;
+			font-size: 30px;
+			font-family: 微软雅黑;
+			/*
+			font-style可以用来设置文字的斜体
+				- 可选值：
+					normal 默认值，文字正常显示
+					italic 文字会以斜体显示
+					oblique 文字会以倾斜的效果显示
+				- 大部分浏览器都不会对倾斜和斜体做区分，也就是说我们设置italic和oblique效果是一样的
+				- 一般我们只会使用italic
+			*/
+			font-style: italic;
+			/*
+			font-weight可以用来设置文本的加粗效果
+				- 可选值：
+					normal 默认值，文字正常显示
+					bold 文字加粗显示
+			该样式也可以指定100-900之间的9个值
+				但是由于用户的计算机往往没有这么多级别的字体，所以200有可能比100粗，但也有可能是一样的
+			*/
+			font-weight: bold;
+			/*
+			font-variant可以用来设置小型大写字母
+				- 可选值：
+					normal 默认值，文字正常显示
+					small-caps 文本以小型大写字母显示
+			小型大写字母：
+				将所有的字母都以大写形式显示，但是小写字母的小型大写，要比大写字母小一些
+			*/
+			font-variant: small-caps;
+		}
+
+		.p2{
+			/*设置一个文字大小*/
+			font-size: 50px;
+			/*设置一个字体*/
+			font-family: 华文彩云;
+			/*设置文字斜体*/
+			font-style: italic;
+			/*设置文字加粗*/
+			font-weight: bold;
+			/*设置一个小型大写字母*/
+			font-variant: small-caps;
+		}
+
+		.p3{
+			/*
+			在CSS中还为我们提供了一个样式叫font，使用该样式可以同时设置字体相关的所有样式
+			可以将字体的样式值统一写在font样式中，不同的值之间使用空格隔开
+			使用font设置字体样式时，斜体 加粗 小大字母，没有顺序要求，甚至可写可不写，如果不写则使用默认值
+			但是要求文字的大小和字体必须写，而且字体必须是最后一个样式，大小必须是倒数第二个样式
+			实际上使用简写属性也会有一个比较好的性能
+			*/
+			font: bold italic small-caps 60px "微软雅黑";
+		}
+	</style>
+</head>
+<body>
+	<p class="p1">我是一段文字，ABCDEFGabcdefg</p>
+	<p class="p2">我是一段文字，ABCDEFGabcdefg</p>
+	<p class="p3">我是一段文字，ABCDEFGabcdefg</p>
+</body>
+</html>
