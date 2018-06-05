@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>display和visibility</title>
+	<style type="text/css">
+		a{
+			background-color: #bfa;
+			/*
+			将一个内联元素变成块元素
+			通过display样式可以修改元素的类型
+			可选值：
+				inline：可以将一个元素作为内联元素显示
+				block: 可以将一个元素设置块元素显示
+				inline-block：将一个元素转换为行内块元素
+					- 可以使一个元素既有行内元素的特点又有块元素的特点，既可以设置宽高，又不会独占一行
+				none: 不显示元素，并且元素不会在页面中继续占有位置
+			*/
+			display: none;
+			/*为其设置一个宽和高*/
+			width: 500px;
+			height: 500px;
+		}
+		.box{
+			width: 100px;
+			height: 100px;
+			background-color: orange;
+			/*
+			display: none;
+				使用该方式隐藏的元素，不会在页面中显示，并且不再占据页面的位置
+			*/
+			/*display: none;*/
+
+			/*
+			 * visibility
+			 * 	- 可以用来设置元素的隐藏和显示的状态
+			 * 	- 可选值：
+			 * 		visible 默认值，元素默认会在页面显示
+			 * 		hidden 元素会隐藏不显示	
+			 * 
+			 * 使用 visibility:hidden;隐藏的元素虽然不会在页面中显示，
+			 * 		但是它的位置会依然保持
+			 */
+			visibility: hidden;
+		}
+	</style>
+</head>
+<body>
+	<div class="box"></div>
+	<a href="#">我是一个大大的超链接</a>
+	<span>Hello</span>
+	<img src="" alt="" />
+</body>
+</html>

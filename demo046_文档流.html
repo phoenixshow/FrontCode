@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>文档流</title>
+</head>
+<body>
+	<!-- 
+	文档流
+		文档流处在网页的最底层，它表示的是一个页面中的位置，我们所创建的元素默认都处在文档流中
+		 
+	元素在文档流中的特点
+		块元素
+			1.块元素在文档流中会独占一行，块元素会自上向下排列
+			2.块元素在文档流中默认宽度是父元素的100%
+			3.块元素在文档流中的高度默认被内容撑开
+		内联元素
+			1.内联元素在文档流中只占自身的大小，会默认从左向右排列，如果一行中不足以容纳所有的内联元素，则换到下一行，继续自左向右。
+			2.在文档流中，内联元素的宽度和高度默认都被内容撑开
+	-->
+	
+	<!-- 
+	当元素的宽度的值为auto时，此时指定内边距不会影响可见框的大小，而是会自动修改宽度，以适应内边距
+	-->
+	<div style="background-color: #bfa;">
+		<div style="height: 50px;"></div>
+	</div>
+	<div style="width: 100px; height: 100px; background-color: #ff0;"></div>
+	
+	
+	<span style="background-color: yellowgreen;">我是一个span</span>
+	<span style="background-color: yellowgreen;">我是一个span</span>
+	<span style="background-color: yellowgreen;">我是一个span</span>
+	<span style="background-color: yellowgreen;">我是一个span</span>
+	<span style="background-color: yellowgreen;">我是一个span</span>
+	<span style="background-color: yellowgreen;">我是一个span</span>
+</body>
+</html>
