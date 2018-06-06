@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>高度塌陷</title>
+	<style type="text/css">
+		.box1{
+			/*为box1设置一个边框*/
+			border: 10px red solid;
+			height: 100px;
+		}
+		.box2{
+			width: 100px;
+			height: 100px;
+			background-color: blue;
+			/*
+			在文档流中，父元素的高度默认是被子元素撑开的，也就是子元素多高，父元素就多高
+			但是当为子元素设置浮动以后，子元素会完全脱离文档流，此时将会导致子元素无法撑起父元素的高度，导致父元素的高度塌陷
+			由于父元素的高度塌陷了，则父元素下的所有元素都会向上移动，这样将会导致页面布局混乱
+			所以在开发中一定要避免出现高度塌陷的问题,
+			我们可以将父元素的高度写死，以避免塌陷的问题出现，
+			但是一旦高度写死，父元素的高度将不能自动适应子元素的高度，所以这种方案是不推荐使用的
+			*/
+			/*为子元素设置向左浮动*/
+			float: left;
+		}
+		.box3{
+			height: 100px;
+			background-color: yellow;
+		}
+	</style>
+</head>
+<body>
+	<div class="box1">
+		<div class="box2"></div>
+	</div>
+	<div class="box3"></div>
+</body>
+</html>

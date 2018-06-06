@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>相对定位</title>
+	<style type="text/css">
+		.box1{
+			height: 200px;
+			background-color: red;
+			position: relative;
+		}
+		.box2{
+			width: 200px;
+			height: 200px;
+			background-color: yellow;
+			/*
+			定位：
+				- 定位指的就是将指定的元素摆放到页面的任意位置
+					通过定位可以任意的摆放元素
+				- 通过position属性来设置元素的定位
+				-可选值：
+					static：默认值，元素没有开启定位
+					relative：开启元素的相对定位
+					absolute：开启元素的绝对定位
+				 	fixed：开启元素的固定定位（也是绝对定位的一种）
+			*/
+			/*
+			当元素的position属性设置为relative时，则开启了元素的相对定位
+				1.当开启了元素的相对定位以后，而不设置偏移量时，元素不会发生任何变化
+				2.相对定位是相对于元素在文档流中原来的位置进行定位
+				3.相对定位的元素不会脱离文档流
+				4.相对定位会使元素提升一个层级
+				5.相对定位不会改变元素的性质，块还是块，内联还是内联
+			*/
+			position: relative;
+			/*
+			当开启了元素的定位（position属性值是一个非static的值）时，可以通过left right top bottom四个属性来设置元素的偏移量
+				left：元素相对于其定位位置的左侧偏移量
+				right：元素相对于其定位位置的右侧偏移量
+				top：元素相对于其定位位置的上边的偏移量
+				bottom：元素相对于其定位位置下边的偏移量
+			通常偏移量只需要使用两个就可以对一个元素进行定位，
+			一般选择水平方向的一个偏移量和垂直方向的偏移量来为一个元素进行定位
+			*/
+			left: 100px;
+			top: 200px;
+		}
+		.box3{
+			width: 200px;
+			height: 200px;
+			background-color: yellowgreen;
+		}
+
+		.s1{
+			position: relative;
+			width: 200px;
+			height: 200px;
+			background-color: yellow;
+		}
+	</style>
+</head>
+<body>
+	<div class="box1"></div>
+	<div class="box2"></div>
+	<div class="box3"></div>
+
+	<span class="s1">我是一个span</span>
+</body>
+</html>

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>浮动</title>
+	<style type="text/css">
+		.box1{
+			/*在文档流中，子元素的宽度默认占父元素的全部*/
+			/*height: 100px;*/
+			background-color: #bfa;
+			/*
+			当元素设置浮动以后，会完全脱离文档流.
+			块元素脱离文档流以后，高度和宽度都被内容撑开
+			*/
+			/*float: left;*/
+		}
+		.s1{
+			/*
+			开启span的浮动
+			内联元素脱离文档流以后会变成块元素
+			 */
+			float: left;
+			width: 100px;
+			height: 100px;
+			background-color: yellow;
+		}
+	</style>
+</head>
+<body>
+	<div class="box1">a</div>
+	<span class="s1">hello</span>
+</body>
+</html>

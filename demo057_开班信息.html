@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>开班信息</title>
+	<style type="text/css">
+		/*清除默认样式*/
+		*{
+			margin: 0;
+			padding: 0;
+		}
+
+		/*统一页面中的字体*/
+		body{
+			font: 12px/1 宋体;
+		}
+
+		/*设置outer的大小*/
+		.outer{
+			width: 300px;
+			/*height: 473px;*/
+			/*background-color: #bfa;*/
+			/*设置outer居中效果*/
+			margin: 50px auto;
+		}
+
+		/*设置title的边框*/
+		.title{
+			/*设置上边框*/
+			border-top: 2px #019e8b solid;
+			/*设置盒子的高度*/
+			height: 36px;
+			/*设置背景样式*/
+			background-color: #f5f5f5;
+			/*设置title的行高*/
+			line-height: 36px;
+			/*设置title的内边距*/
+			padding: 0px 22px 0px 16px;
+		}
+		/*设置title中的超链接*/
+		.title a{
+			float: right;
+			/*设置字体颜色*/
+			color: red;
+		}
+
+		/*设置h3*/
+		.title h3{
+			font: 16px/36px "微软雅黑";
+		}
+
+		/*设置内容*/
+		.content{
+			border: 1px solid #deddd9;
+			/*设置内边距*/
+			padding: 0px 28px 0px 20px;
+		}
+
+		/*设置内容中的超链接*/
+		.content a{
+			color: black;
+			text-decoration: none;
+			/*设置字体大小*/
+			font-size: 12px;
+		}
+
+		/*为超链接添加一个hover伪类*/
+		.content a:hover{
+			color: red;
+			/*为超链接添加下划线*/
+			text-decoration: underline;
+		}
+
+		/*设置内容中的标题*/
+		.content h3{
+			margin-top: 14px;
+			margin-bottom: 16px;
+		}
+
+		/*设置右侧a的样式*/
+		.content .right{
+			/*设置向右浮动*/
+			float: right;
+		}
+
+		/*设置ul的样式*/
+		.content ul{
+			/*去除项目符号*/
+			list-style: none;
+			/*为ul设置一个下边框*/
+			border-bottom: 1px dashed #deddd9;
+		}
+
+		/*取消最后一个ul的边框*/
+		.content .no-border{
+			border: none;
+		}
+
+		/*设置内容中的红色字体*/
+		.content .redfont{
+			color: red;
+			font-weight: bold;
+		}
+
+		/*设置内容中的li*/
+		.content li{
+			margin-bottom: 15px;
+		}
+	</style>
+</head>
+<body>
+	<!-- 创建一个外层div，容纳整个内容 -->
+	<div class="outer">
+		<!-- 开班信息的头部 -->
+		<div class="title">
+			<a href="#">18年面授开班计划</a>
+			<h3>近期开班</h3>
+		</div>
+
+		<!-- 开班信息的主要内容 -->
+		<div class="content">
+			<h3><a href="#">人工智能+Python-高薪就业班</a></h3>
+			<ul>
+				<li>
+					<a class="right" href="#"><span class="redfont">预约报名</span></a>
+					<a href="#">开班时间：<span class="redfont">2018-04-26</span></a>
+				</li>
+				<li>
+					<a class="right" href="#"><span class="redfont">无座，名额爆满</span></a>
+					<a href="#">开班时间：<span class="redfont">2018-03-23</span></a>
+				</li>
+				<li>
+					<a class="right" href="#"><span>开班盛况</span></a>
+					<a href="#">开班时间：<span>2018-01-23</span></a>
+				</li>
+				<li>
+					<a class="right" href="#"><span>开班盛况</span></a>
+					<a href="#">开班时间：<span>2017-12-20</span></a>
+				</li>
+				<li>
+					<a class="right" href="#"><span>开班盛况</span></a>
+					<a href="#">开班时间：<span>2017-11-18</span></a>
+				</li>
+			</ul>
+			<h3><a href="#">Android开发+测试-高薪就业班</a></h3>
+			<ul>
+				<li>
+					<a class="right" href="#"><span class="redfont">预约报名</span></a>
+					<a href="#">开班时间：<span class="redfont">2018-04-26</span></a>
+				</li>
+				<li>
+					<a class="right" href="#"><span>开班盛况</span></a>
+					<a href="#">开班时间：<span>2018-03-23</span></a>
+				</li>
+				<li>
+					<a class="right" href="#"><span>开班盛况</span></a>
+					<a href="#">开班时间：<span>2018-01-23</span></a>
+				</li>
+				<li>
+					<a class="right" href="#"><span>开班盛况</span></a>
+					<a href="#">开班时间：<span>2017-12-20</span></a>
+				</li>
+			</ul>
+			<h3><a href="#">大数据软件开发-青芒工作室</a></h3>
+			<ul class="no-border">
+				<li>
+					<a class="right" href="#"><span class="redfont">预约报名</span></a>
+					<a href="#">开班时间：<span class="redfont">2018-04-26</span></a>
+				</li>
+				<li>
+					<a class="right" href="#"><span>开班盛况</span></a>
+					<a href="#">开班时间：<span>2018-01-23</span></a>
+				</li>
+			</ul>
+		</div>
+	</div>
+</body>
+</html>
