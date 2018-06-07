@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>按钮练习</title>
+	<style type="text/css">
+	/*
+	做完功能以后，发现在第一次切换图片时，会发现图片有一个非常快的闪烁，这个闪烁会造成一次不佳的用户体验
+
+	产生问题的原因：
+		背景图片是以外部资源的形式加载进网页的，浏览器每加载一个外部资源就需要单独的发送一次请求
+		但是我们的外部资源并不是同时加载，浏览器会在资源被使用时才去加载资源
+		我们这个练习，一上来浏览器只会加载link.png
+		由于hover和active的状态没有马上触发，所以hover.png和active.png并不是立即加载的
+		当hover被触发时，浏览器才去加载hover.png
+		当active被触发时，浏览器才去加载active.png
+		由于加载图片需要一定的时间，所以在加载和显示过程会有一段时间，背景图片无法显示，导致出现闪烁的情况
+
+	为了解决该问题，可以将三个图片整合为一张图片，这样可以同时将三张图片一起加载，就不会出现闪烁的问题了
+	然后再通过background-position来切换要显示的图片的位置，这种技术叫做图片整合技术（CSS-Sprite）
+	优点：
+		1 将多个图片整合为一张图片里，浏览器只需要发送一次请求，可以同时加载多个图片，提高访问效率，提高了用户体验。
+		2 将多个图片整合为一张图片，减小了图片的总大小，提高请求的速度，增加了用户体验
+	*/
+		.btn:link{
+			/*将a转换为块元素*/
+			display: block;
+			/*设置宽高*/
+			width: 93px;
+			height: 29px;
+			/*设置背景图片*/
+			background-image: url(img/btn/btn2.png);
+			/*设置背景图片不重复*/
+			background-repeat: no-repeat;
+		}
+		.btn:hover{
+			/*当是hover状态时，希望图片可以向左移动*/
+			background-position: -93px 0px;
+		}
+		.btn:active{
+			/*当是active状态时，希望图片再向左移动*/
+			background-position: -186px 0px;
+		}
+	</style>
+</head>
+<body>
+	<!-- 创建一个超链接 -->
+	<a href="#" class="btn"></a>
+</body>
+</html>
