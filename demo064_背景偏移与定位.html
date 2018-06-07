@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>背景偏移与定位</title>
+	<style type="text/css">
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		.box1{
+			/*width: 500px;*/
+			height: 500px;
+			margin: 0 auto;
+			/*设置一个背景颜色*/
+			background-color: #bfa;
+			/*设置一个背景图片*/
+			background-image: url(img/4.png);
+			/*设置图片不重复*/
+			background-repeat: no-repeat;
+			/*
+			背景图片默认是贴着元素的左上角显示
+			通过background-position可以调整背景图片在元素中的位置
+			可选值：
+				该属性可以使用 top right left bottom center中的两个值来指定一个背景图片的位置
+				top left 左上
+				bottom right 右下
+				如果只给出一个值，则第二个值默认是center
+			也可以直接指定两个偏移量
+				第一个值是水平偏移量
+					- 如果指定的是一个正值，则图片会向右移动指定的像素
+					- 如果指定的是一个负值，则图片会向左移动指定的像素
+				第二个是垂直偏移量
+					- 如果指定的是一个正值，则图片会向下移动指定的像素
+					- 如果指定的是一个负值，则图片会向上移动指定的像素
+			*/
+			/*background-position: -50px -50px;*/
+			background-attachment: fixed;
+		}
+		body{
+			height: 5000px;
+			background-image: url(img/3.png);
+			background-repeat: no-repeat;
+			/*
+			background-attachment用来设置背景图片是否随页面一起滚动
+			可选值：
+				scroll，默认值，背景图片随着窗口滚动
+				fixed，背景图片会固定在某一位置，不随页面滚动
+			不随窗口滚动的图片，我们一般都是设置给body，而不设置给其他元素
+			*/
+			background-attachment: fixed;
+		}
+	</style>
+</head>
+<body>
+	<div class="box1"></div>
+</body>
+</html>
