@@ -4,10 +4,54 @@
 	<meta charset="UTF-8">
 	<title>图片翻面</title>
 	<style type="text/css">
-		
+		.con{
+			width: 300px;
+			height: 272px;
+			margin: 100px auto 0;
+			position: relative;
+			/*
+			以下两句是为了演示图片和文字层重叠的效果
+			transform-style: preserve-3d;
+			transform: perspective(800px) rotateY(45deg);初始旋转45度
+			*/
+		}
+		.pic, .info{
+			width: 300px;
+			height: 272px;
+			position: absolute;
+			left: 0;
+			top: 0;
+			/*图片和文字背面不可见，文字初始已翻转，所以隐藏露出底层图片*/
+			backface-visibility: hidden;
+			transform-style: preserve-3d;
+			transform: perspective(800px) rotateY(0deg);
+			transition: all 500ms ease;
+		}
+		.info{
+			background-color: gold;
+			text-align: center;
+			line-height: 272px;
+			/*transform: translateZ(10px);初始文字浮起10像素方便查看图片与文字分层的效果*/
+
+			/*初始文字翻转，鼠标移入时才翻正显示*/
+			transform: translateZ(2px) rotateY(180deg);
+		}
+		/*鼠标移入时图片翻为背面隐藏*/
+		.con:hover .pic{
+			transform: perspective(800px) rotateY(180deg);
+		}
+		/*鼠标移入时文字翻为正面显示*/
+		.con:hover .info{
+			transform: perspective(800px) rotateY(0deg);
+		}
 	</style>
 </head>
 <body>
-	
+	<div class="con">
+		<div class="pic">
+			<img src="img/location_bg.jpg" alt="玫瑰花">
+		</div>
+		<div class="info">玫瑰花的文字说明</div>
+	</div>
 </body>
 </html>
