@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>ie6png的修复</title>
+	<style type="text/css">
+		.box1{
+			width: 200px;
+			height: 200px;
+			background-image: url(img/3_1.png);
+			background-repeat: no-repeat;
+		}
+		.box2{
+			width: 200px;
+			height: 200px;
+			background-image: url(img/3.png);
+			background-repeat: no-repeat;
+		}
+	</style>
+</head>
+<body style="background-color: #bfa;">
+	<!-- 
+	在IE6中对图片格式png24支持度不高，如果使用的图片格式是png24，则会导致透明效果无法正常显示
+
+	解决方法：
+		1.可以使用png8来代替png24，即可解决问题，但是使用png8代替png24以后，图片的清晰图会有所下降
+		2.使用JavaScript来解决该问题，需要向页面中引入一个外部的JavaScript文件，然后在写一下简单的JS代码，来处理该问题
+	 -->
+	<div class="box1"></div>
+	<div class="box2"></div>
+	<img src="img/3.png" alt="大脸猫">
+
+	<!-- 在body标签的最后引入外部的JS文件 -->
+	<!--再创建一个新的script标签，并且编写一些js代码 -->
+
+	<!-- 以下代码只会在IE6中执行，其他浏览器中无效 -->
+	<!--[if IE 6]>
+		<script type="text/javascript" src="js/DD_belatedPNG_0.0.8a-min.js"></script>
+		<script type="text/javascript">
+			DD_belatedPNG.fix("div,img");
+		</script>
+	<![endif]-->
+</body>
+</html>

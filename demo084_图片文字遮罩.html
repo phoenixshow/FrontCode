@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>图片文字遮罩</title>
+	<style type="text/css">
+		.box{
+			width: 200px;
+			height: 300px;
+			margin: 50px auto 0;
+			border: 1px solid #000;
+			position: relative;
+			/*默认文字不可见*/
+			overflow: hidden;
+		}
+		.box img{
+			width: 200px;
+			height: 300px;
+		}
+		.box .pic_info{
+			width: 200px;
+			height: 200px;
+			background-color: rgba(0,0,0,0.5);
+			color: #fff;
+
+			/*定位使色块在图片正下方*/
+			position: absolute;
+			left: 0;
+			top: 300px;
+
+			transition: all 500ms cubic-bezier(0.470, -0.485, 0.460, 1.435);
+		}
+		.box:hover .pic_info{
+			/*色块上移*/
+			top:150px;
+		}
+		/*间距用p标签的margin，而不直接给.pic_info用padding，因为padding会改变盒子大小*/
+		.box .pic_info p{
+			margin: 20px;
+			line-height: 30px;
+		}
+	</style>
+</head>
+<body>
+	<div class="box">
+		<img src="img/location_bg.jpg" alt="玫瑰花">
+		<div class="pic_info">
+			<p>图片说明：这是一朵玫瑰花图片说明：这是一朵玫瑰花图片说明：这是一朵玫瑰花图片说明：这是一朵玫瑰花</p>
+		</div>
+	</div>
+</body>
+</html>

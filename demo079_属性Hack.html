@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>属性Hack</title>
+	<style type="text/css">
+		body{
+			background-color: #bfa;
+			/*
+			假设在IE6中需要将背景颜色设置为黄色才能达到和其它浏览器相同的效果
+			*/
+			/*
+			希望黄色背景只在IE6中生效
+				在样式前添加一个下划线，则该样式只有IE6及以下的浏览器才可以识别
+			*/
+			/*_background-color: yellow;*/
+
+			/*添加了*的样式只有IE7及以下的浏览器认识*/
+			/**background-color: yellow;*/
+
+			/*在样式最后添加一个\0，则只有IE8及以上的浏览器才能识别*/
+			/*background-color: yellow\0;*/
+
+			/*
+			CSS Hack不到万不得已的情况尽量不要使用
+			*/
+		}
+	</style>
+</head>
+<body>
+</body>
+</html>

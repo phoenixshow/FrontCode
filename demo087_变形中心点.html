@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>变形中心点</title>
+	<style type="text/css">
+		div{
+			width: 200px;
+			height: 200px;
+			background-color: gold;
+			float: left;
+			margin: 30px;
+			transition: all 500ms ease;
+		}
+		div:hover{
+			transform: rotate(-90deg);
+		}
+		div:nth-child(1){
+			/*设置变形的中心点*/
+			transform-origin: left center;
+		}
+		div:nth-child(2){
+			transform-origin: left top;
+		}
+		div:nth-child(3){
+			transform-origin: 50px 50px;
+		}
+	</style>
+</head>
+<body>
+	<div></div>
+	<div></div>
+	<div></div>
+</body>
+</html>

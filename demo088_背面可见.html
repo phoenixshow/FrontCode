@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>背面可见</title>
+	<style type="text/css">
+		.con{
+			width: 300px;
+			height: 300px;
+			margin: 50px auto 0;
+			border: 1px solid #000;
+		}
+		.box{
+			width: 300px;
+			height: 300px;
+			background-color: gold;
+			text-align: center;
+			line-height: 300px;
+			font-size: 50px;
+			transition: all 500ms ease;
+			/*设置盒子按3d空间显示*/
+			transform-style: preserve-3d;
+			/*设置透视距离、三维旋转的初始角度*/
+			transform: perspective(800px) rotateY(0deg);
+			/*设置盒子背面是否可见*/
+			backface-visibility: hidden;
+		}
+		.con:hover .box{
+			transform: rotateY(180deg);
+		}
+	</style>
+</head>
+<body>
+	<div class="con">
+		<div class="box">div元素</div>
+	</div>
+</body>
+</html>

@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>运动曲线</title>
+	<style type="text/css">
+		div{
+			width: 50px;
+			height: 50px;
+			background-color: gold;
+			margin-bottom: 20px;
+		}
+		div:nth-child(1){
+			/*匀速*/
+			transition: all 1s linear;
+		}
+		div:nth-child(2){
+			/*开始和结束慢速，中间加速*/
+			transition: all 1s ease;
+		}
+		div:nth-child(3){
+			/*开始慢速，结尾突然停止*/
+			transition: all 1s ease-in;
+		}
+		div:nth-child(4){
+			/*突然开始，结束时慢速*/
+			transition: all 1s ease-out;
+		}
+		div:nth-child(5){
+			/*开始和结束时慢速*/
+			transition: all 1s ease-in-out;
+		}
+		div:nth-child(6){
+			/*贝塞尔（贝兹）曲线*/
+			/*transition: all 1s cubic-bezier(0.250,0.250,0.750,0.750);匀速*/
+			/*超出再缩回的弹性效果*/
+			transition: all 1s cubic-bezier(0.470, -0.485, 0.460, 1.435);
+		}
+		div:hover{
+			width: 1000px;
+		}
+	</style>
+</head>
+<body>
+	<div>linear</div>
+	<div>ease</div>
+	<div>ease-in</div>
+	<div>ease-out</div>
+	<div>ease-in-out</div>
+	<div>bezier</div>
+</body>
+</html>

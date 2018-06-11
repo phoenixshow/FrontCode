@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>变形</title>
+	<style type="text/css">
+		.box,.box2,.box3,.box4{
+			width: 200px;
+			height: 200px;
+			background-color: gold;
+			margin: 50px auto 0;
+			transition: all 1s ease;
+		}
+		.box:hover{
+			/*box的动画不会影响到box2*/
+			/*位移*/
+			transform: translate(50px,50px);
+		}
+		.box2:hover{
+			/*沿Z轴旋转360度*/
+			transform: rotate(360deg);
+		}
+		.box3:hover{
+			/*缩放*/
+			transform: scale(0.5,0.2);
+		}
+		.box4:hover{
+			/*斜切*/
+			/*transform: skew(45deg,0);*/
+			transform: skew(0,45deg);
+		}
+	</style>
+</head>
+<body>
+	<div class="box"></div>
+	<div class="box2"></div>
+	<div class="box3"></div>
+	<div class="box4"></div>
+</body>
+</html>

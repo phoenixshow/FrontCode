@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>条件Hack</title>
+	<link rel="stylesheet" type="text/css" href="css/style-normal.css">
+	<!--[if IE 8]>
+		<link rel="stylesheet" type="text/css" href="css/style-ie8.css">
+	<![endif]-->
+</head>
+<body>
+	<!-- 
+	有一些情况，有一些特殊的代码我们只需要在某些特殊的浏览器中执行，而在其他的浏览器中不需要执行，这时就可以使用CSS Hack来解决该问题
+	CSS Hack实际上指的是一种特殊的代码，这段代码只在某些浏览器中可以识别，而其他浏览器不能识别，通过这种方式，来为一些浏览器设置特殊的代码
+	 -->
+
+	<!-- 
+	条件Hack
+		它只对IE浏览器有效，其它的浏览器都会将它识别为注释
+		IE10及以上的浏览器已经不支持这种方式
+	 -->
+
+	<!-- 以下内容只会出现在IE6中 -->
+	<!--[if IE 6]>
+		<p>为了您和家人的健康，请远离IE6！！</p>
+	<![endif]-->
+
+	<!--[if IE 8]>
+		<p>当前浏览器是IE8！！</p>
+	<![endif]-->
+
+	<!--[if lt IE 9]>
+		<p>该标签会在IE9以下的浏览器中显示</p>
+	<![endif]-->
+
+	<!--[if gte IE 9]>
+		<p>该标签会在IE9及以上的浏览器中显示</p>
+	<![endif]-->
+
+	<!--[if lte IE 9]>
+		<p>该标签会在IE9及以下的浏览器中显示</p>
+	<![endif]-->
+
+	<!--[if ! IE 6]>
+		<p>你的浏览器不是IE6</p>
+	<![endif]-->
+</body>
+</html>
