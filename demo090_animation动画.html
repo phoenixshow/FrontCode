@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>animation动画</title>
+	<style type="text/css">
+		.box{
+			width: 100px;
+			height: 100px;
+			background-color: gold;
+			/*动画名称、时间、曲线、延迟、播放次数、结束后是否返回、动画前后的状态
+			infinite不限制次数
+			alternate动画结束后返回，返回也算次数
+			animation-fill-mode 动画前后的状态
+				forwards动画完成保持在最后一帧
+				backwards在延迟时间内，在动画显示之前，应用from开始属性值（例如box宽100，from宽200，在延迟1s内显示200）
+				both向前和向后填充模式都被应用（例如起始按200，结束停在最后一帧）
+			*/
+			animation: moving 1s ease 1s 5 alternate both;
+			/*动画暂停*/
+			/*animation-play-state: paused;*/
+		}
+		.box:hover{
+			/*动画运行*/
+			/*animation-play-state: running;*/
+		}
+		/*定义一个动画，名称为moving*/
+		@keyframes moving{
+			/*初始状态*/
+			from{
+				width: 200px;
+			}
+			/*结束状态*/
+			to{
+				width: 500px;
+			}
+		}
+	</style>
+</head>
+<body>
+	<div class="box"></div>
+</body>
+</html>

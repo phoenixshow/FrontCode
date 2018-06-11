@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>人物走路动画</title>
+	<style type="text/css">
+		.box{
+			width: 120px;
+			height: 182px;
+			border: 1px solid #000;
+			margin: 50px auto 0;
+			overflow: hidden;
+			position: relative;
+		}
+		.box img{
+			position: absolute;
+			left: 0;
+			top: 0;
+			/*steps动画步数，图片有8帧，所以设置为8步*/
+			animation: walking 1s steps(8) infinite;
+		}
+		@keyframes walking{
+			from{
+				left: 0px;
+			}
+			to{
+				left: -960px;
+			}
+		}
+	</style>
+</head>
+<body>
+	<div class="box">
+		<img src="img/walking.png" alt="人物走路">
+	</div>
+</body>
+</html>
