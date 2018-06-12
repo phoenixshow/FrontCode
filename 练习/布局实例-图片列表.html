@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>图片列表布局</title>
+	<style type="text/css">
+		/* 重置样式 */
+		body,ul,h3{
+			margin: 0;
+			padding: 0;
+		}
+		ul{
+			list-style: none;
+		}
+		/* 清除浮动 */
+		.clearfix:before,.clearfix:after{
+			content: "";
+			display: table;
+		}
+		.clearfix:after{
+			clear: both;
+		}
+		.clearfix{
+			zoom: 1;
+		}
+
+		.pic_list_con{
+			width: 958px;
+			border: 1px solid #ddd;/* 外边框 */
+			margin: 50px auto 0;
+			overflow: hidden;
+		}
+		.pic_list_con h3{
+			width: 918px;
+			height: 50px;
+			border-bottom: 1px solid #ddd;/* 标题与图片间的分隔线 */
+			margin: 0 auto;
+		}
+		.pic_list_con h3 span{
+			display: inline-block;
+			height: 50px;
+			border-bottom: 2px solid red;/* 红线 */
+			font: 18px/50px 'Microsoft Yahei';/* 行高居中 */
+			color: #000;
+			padding: 0 15px;
+		}
+		.pic_list_con ul{
+			width: 950px;
+			/*background-color: cyan;排版时为了方便观看*/
+			/* 图片整体左侧留出20外填充，图片整体上方留出20外填充，下方共38，去掉li的margin-bottom有25，还要留出13 */
+			margin: 20px 0 13px 20px;
+		}
+		.pic_list_con ul li{
+			width: 160px;
+			height: 68px;
+			float: left;/* 采用浮动的方式做，好处是不用处理小间隙，但需要清除浮动，以便撑开父容器 */
+			margin: 0 29px 25px 0;
+		}
+	</style>
+</head>
+<body>
+	<div class="pic_list_con">
+		<h3><span>图片展示</span></h3>
+		<ul class="clearfix">
+			<li><a href=""><img src="../img/goods.jpg" alt="商品图片"></a></li>
+			<li><a href=""><img src="../img/goods.jpg" alt="商品图片"></a></li>
+			<li><a href=""><img src="../img/goods.jpg" alt="商品图片"></a></li>
+			<li><a href=""><img src="../img/goods.jpg" alt="商品图片"></a></li>
+			<li><a href=""><img src="../img/goods.jpg" alt="商品图片"></a></li>
+			<li><a href=""><img src="../img/goods.jpg" alt="商品图片"></a></li>
+			<li><a href=""><img src="../img/goods.jpg" alt="商品图片"></a></li>
+			<li><a href=""><img src="../img/goods.jpg" alt="商品图片"></a></li>
+			<li><a href=""><img src="../img/goods.jpg" alt="商品图片"></a></li>
+			<li><a href=""><img src="../img/goods.jpg" alt="商品图片"></a></li>
+		</ul>
+	</div>
+</body>
+</html>
