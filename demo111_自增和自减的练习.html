@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>自增和自减的练习</title>
+	<script type="text/javascript">
+		var n1=10;
+		var n2=20;
+		
+		var n = n1++; //先赋值n=10  后自增n1=11
+		
+		console.log('n=' + n);  //10
+		console.log('n1=' + n1); //11
+		
+		n = ++n1; //先自增n1=12  后赋值n=12
+		console.log('n=' + n); //12
+		console.log('n1=' + n1); //12
+		
+		n = n2--;//先赋值n=20 后自减n2=19 
+		console.log('n=' + n); //20
+		console.log('n2=' + n2); //19
+		
+		n = --n2; //先自减n2=18 后赋值n=18
+		console.log('n=' + n); //18
+		console.log('n2=' + n2); //18
+	</script>
+</head>
+<body>
+
+</body>
+</html>

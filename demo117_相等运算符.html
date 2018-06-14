@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>相等运算符</title>
+	<script type="text/javascript">
+		/*
+		相等运算符用来比较两个值是否相等，
+			如果相等会返回true，否则返回false
+		
+		使用 == 来做相等运算
+			- 当使用==来比较两个值时，如果值的类型不同，则会自动进行类型转换，将其转换为相同的类型，然后再比较
+		不相等
+			不相等用来判断两个值是否不相等，如果不相等返回true，否则返回false
+				- 使用 != 来做不相等运算
+				- 不相等也会对变量进行自动的类型转换，如果转换后相等它也会返回false
+		
+		===
+			全等
+			- 用来判断两个值是否全等，它和相等类似，不同的是它不会做自动的类型转换
+				如果两个值的类型不同，直接返回false
+		!==
+			不全等
+			- 用来判断两个值是否不全等，和不等类似，不同的是它不会做自动的类型转换
+				如果两个值的类型不同，直接返回true
+		*/
+		
+		//console.log(1 == 1); //true
+		
+		var a = 10;
+		
+		//console.log(a == 4); //false
+		
+		//console.log("1" == 1); //true
+		
+		//console.log(true == "1"); //true
+		
+		//console.log(null == 0); //false
+		
+		/*
+		undefined 衍生自 null
+			所以这两个值做相等判断时，会返回true
+		 */
+		//console.log(undefined == null);//true
+		
+		/*
+		NaN不和任何值相等，包括他本身
+		 */
+		//console.log(NaN == "1"); //false
+		//console.log(NaN == "undefined"); //false
+		//console.log(NaN == NaN); //false
+		
+		var b = NaN;
+		
+		//判断b的值是否是NaN
+		//console.log(b == NaN);//无法判断，只会返回false
+		/*
+		可以通过isNaN()函数来判断一个值是否是NaN
+			如果该值是NaN则返回true，否则返回false
+		 */
+		//console.log(isNaN(b)); //true
+		
+		//console.log(10 != 5); //true
+		//console.log(10 != 10); //false
+		//console.log("abcd" != "abcd"); //false
+		//console.log("1" != 1);//false
+		
+		//console.log("123" === 123);//false
+		//console.log(null === undefined);//false
+		
+		console.log(1 != "1"); //true
+	</script>
+</head>
+<body>
+
+</body>
+</html>

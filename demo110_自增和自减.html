@@ -50,7 +50,27 @@
 		//20 + 22 + 22
 		var result = d++ + ++d + d ;
 
-		console.log("result = " + result);
+		// console.log("result = " + result);
+		
+		d = 20
+		d = d++;
+		/*
+		相当于
+		var e = d++;
+		d = e;
+		 */
+		
+		// console.log("d = "+d);
+		
+		var num = 10;
+		
+		//num--;
+		//--num;
+		
+		// console.log(num--);
+		console.log(--num);
+		
+		console.log("num = "+num);
 	</script>
 </head>
 <body>
