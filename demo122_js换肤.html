@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>js换肤</title>
+	<link rel="stylesheet" type="text/css" href="css/1.css" id="link1">
+
+	<script type="text/javascript">
+		window.onload = function(){
+			var oLink = document.getElementById('link1');
+			oLink.href = "css/2.css";
+
+			alert(oLink.id);
+		}
+	</script>
+</head>
+<body>
+	<div class="box01"></div>
+	<div class="box02"></div>
+</body>
+</html>

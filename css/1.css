@@ -1,0 +1,17 @@
+body{
+	background-color: gold;
+}
+.box01{
+	width: 200px;
+	height: 200px;
+	background-color: green;
+	float: left;
+	margin: 20px;
+}
+.box02{
+	width: 200px;
+	height: 200px;
+	background-color: pink;
+	float: left;
+	margin: 20px;
+}

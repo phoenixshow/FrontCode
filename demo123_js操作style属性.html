@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>js操作style属性</title>
+	<script type="text/javascript">
+		window.onload = function() {
+			var oDiv = document.getElementById('div1');
+			/*style属性中的样式属性，没有"-"号的，写法相同*/
+			oDiv.style.color = 'red';
+			oDiv.style.background = 'gold';
+			/*
+			style属性中的样式属性，带"-"号的需要去掉"-"号，写成小驼峰式
+				例如：font-size属性要写为fontSize
+			*/
+			oDiv.style.fontSize = '30px';
+		}
+	</script>
+</head>
+<body>
+	<div id="div1">这是一个div元素</div>
+</body>
+</html>

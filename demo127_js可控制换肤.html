@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>js换肤</title>
+	<link rel="stylesheet" type="text/css" href="css/1.css" id="link1">
+
+	<script type="text/javascript">
+		window.onload = function(){
+			/* 提取行间事件 */
+			var oBtn01 = document.getElementById('btn01');
+			var oBtn02 = document.getElementById('btn02');
+
+			oBtn01.onclick = skin01;//这里不能写skin01()，这样写就马上执行了
+			oBtn02.onclick = skin02;
+		}
+		function skin01(){
+			var oLink = document.getElementById('link1');
+			oLink.href = "css/1.css";
+		}
+		function skin02(){
+			var oLink = document.getElementById('link1');
+			oLink.href = "css/2.css";
+		}
+	</script>
+</head>
+<body>
+	<!-- 
+	行间调用函数
+	<input type="button" name="" value="皮肤01" onclick="skin01()" />
+	<input type="button" name="" value="皮肤02" onclick="skin02()" /> -->
+	<input type="button" name="" value="皮肤01" id="btn01" />
+	<input type="button" name="" value="皮肤02" id="btn02" />
+	<div class="box01"></div>
+	<div class="box02"></div>
+</body>
+</html>

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>js操作属性</title>
+	<script type="text/javascript">
+		/*
+		DOM是为了操作文档（网页）的API，document是它的一个对象
+		BOM是为了操作浏览器的API，window是它的一个对象
+			常用BOM对象还有：alert、定时器等
+		*/
+		//整个文档加载完之后执行一个匿名函数
+		window.onload = function(){
+			document.getElementById('div1').title = "我看到了！";
+
+			//变量oA代表整个a标签
+			var oA = document.getElementById('link1');
+			oA.href = "http://www.tencent.com";
+			oA.title = "跳转到腾讯网"
+
+			alert(oA.id);
+			alert(oA.title);
+		}
+	</script>
+</head>
+<body>
+	<div id="div1" class="div1" title="这是div元素，看到了吗？">这是一个div元素</div>
+
+	<a href="#" id="link1">腾讯网</a>
+
+
+	<!-- <script type="text/javascript">
+		document.getElementById('div1').title = "我看到了！";
+	</script> -->
+</body>
+</html>
