@@ -28,8 +28,14 @@
 			alert(oDiv.innerHTML);//读取标签里面包裹的元素，即“这是一个div元素”
 
 			var oDiv2 = document.getElementById('div2');
-			// oDiv2.innerHTML = '这是第二个div元素';
-			oDiv2.innerHTML = "<a href='http://www.baidu.com'>百度网</a>";
+			// oDiv2.innerHTML = '这是第二个div元素';//向div标签中插入内容
+			oDiv2.innerHTML = "<a href='http://www.baidu.com'>百度网</a>";//向div标签中插入超链接标签
+
+			/*
+			document.write和innerHTML的区别
+			document.write只能重绘整个页面
+			innerHTML可以重绘页面的一部分
+			*/
 		}
 	</script>
 </head>
