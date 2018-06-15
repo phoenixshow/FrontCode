@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>函数return关键字</title>
+	<script type="text/javascript">
+		window.onload = function(){
+			var oInput01 = document.getElementById('input01');
+			var oInput02 = document.getElementById('input02');
+			var oBtn = document.getElementById('btn');
+
+			//写入值
+			// oInput01.value = 10;
+			// oInput02.value = 5;
+
+			oBtn.onclick = function(){
+				var val01 = oInput01.value;
+				var val02 = oInput02.value;
+				var rs = add(val01, val02);
+				alert(rs);
+			}
+
+			function add(a, b){
+				var c = parseInt(a) + parseInt(b);
+				// alert('计算完成');//执行
+				return c;//返回函数设定的值，同时结束函数的运行
+				// return;//不返回值，仅结束函数的运行
+				// alert('计算完成');//不执行
+			}
+		}
+	</script>
+</head>
+<body>
+	<input id="input01" type="text" name="">
+	<input id="input02" type="text" name="">
+	<input id="btn" type="button" name="" value="相加">
+</body>
+</html>

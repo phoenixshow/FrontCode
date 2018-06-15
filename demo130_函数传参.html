@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>函数传参</title>
+	<script type="text/javascript">
+		window.onload = function(){
+			var oDiv = document.getElementById('div1');
+
+			changeStyle('color', 'gold');
+			changeStyle('background', 'red');
+			changeStyle('width', '300px');
+			changeStyle('height', '300px');
+			changeStyle('fontSize', '30px');
+
+			function changeStyle(styl, val){
+				oDiv.style[styl] = val;
+			}
+		}
+	</script>
+</head>
+<body>
+	<div id="div1">这是一个div元素</div>
+</body>
+</html>

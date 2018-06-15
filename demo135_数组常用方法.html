@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>数组常用方法</title>
+	<script type="text/javascript">
+		var aRr = [1,2,3,4];
+		//用-连接数组元素并转为字符串
+		//var sTr = aRr.join("-");//用-连接数组元素并转为字符串，弹出1-2-3-4
+
+		// var sTr = aRr.join('');//用空串连接
+		// alert(sTr);//弹出1234
+
+		//向数组最后追加元素
+		// aRr.push(5);
+		// alert(aRr);//1,2,3,4,5
+
+		//删除末尾元素
+		// aRr.pop();
+		// alert(aRr);//1,2,3
+
+		//向最前面插入元素0
+		// aRr.unshift(0);
+		// alert(aRr);//0,1,2,3,4
+
+		//删除第一个（索引为0的）元素
+		// aRr.shift();
+		// alert(aRr);//2,3,4
+
+		//反转
+		// aRr.reverse();
+		// alert(aRr);//4,3,2,1
+
+		//查找字母'b'第一次出现的索引
+		var aRr2 = ['a','b','c','d','a','b','c','d'];
+		var num = aRr2.indexOf('b');
+		// alert(num);//1
+
+		//从第2索引元素开始，删除1个元素
+		// aRr2.splice(2,1);//删除c
+		// alert(aRr2);//a,b,d,a,b,c,d
+
+		//从第2索引元素开始，删除1个元素，再插入e
+		// aRr2.splice(2,1,'e');//把c替换成e
+		// alert(aRr2);//a,b,e,d,a,b,c,d
+
+		//删除后面的abcd，改为fghi
+		aRr2.splice(4,4,'f','g','h','i');
+		alert(aRr2);//a,b,c,d,f,g,h,i
+	</script>
+</head>
+<body>
+	
+</body>
+</html>

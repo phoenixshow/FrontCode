@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>匿名函数</title>
+	<script type="text/javascript">
+		window.onload = function(){
+			var oDiv = document.getElementById('div1');
+
+			/*有名字的函数*/
+			// oDiv.onclick = myalert;
+
+			// function myalert(){
+			// 	alert('hello');
+			// }
+
+			/*匿名函数*/
+			oDiv.onclick = function(){
+				alert('hello');
+			}
+		}
+	</script>
+</head>
+<body>
+	<div id="div1">这是一个div元素</div>
+</body>
+</html>

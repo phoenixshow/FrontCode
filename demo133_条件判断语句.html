@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>条件判断语句</title>
+	<style type="text/css">
+		.box{
+			width: 300px;
+			height: 300px;
+			background-color: gold;
+		}
+	</style>
+	<script type="text/javascript">
+		/*
+		条件判断语句：
+			- 使用条件判断语句可以在执行某个语句之前进行判断，
+				如果条件成立才会执行语句，条件不成立则语句不执行。
+			- if语句
+				- 语法一：
+					if(条件表达式){
+						语句...
+					}
+					
+				if语句在执行时，会先对条件表达式进行求值判断，
+				如果条件表达式的值为true，则执行if后的语句，
+				如果条件表达式的值为false，则不会执行if后的语句。
+					if语句只能控制紧随其后的那个语句,
+						如果希望if语句可以控制多条语句，
+						可以将这些语句统一放到代码块中
+					if语句后的代码块（即{}）不是必须的，但是在开发中尽量写上代码块，即使if后只有一条语句
+
+				- 语法二:
+					if(条件表达式){
+						语句...
+					}else{
+						语句...
+					}
+			
+				if...else...语句
+					当该语句执行时，会先对if后的条件表达式进行求值判断，
+						如果该值为true，则执行if后的语句
+						如果该值为false，则执行else后的语句
+		*/
+		window.onload = function(){
+			var oBtn = document.getElementById('btn');
+			var oDiv = document.getElementById('box');
+
+			/*oBtn.onclick = function(){
+				if(oDiv.style.display == 'none'){
+					oDiv.style.display = 'block';
+				}else{
+					oDiv.style.display = 'none';
+				}
+			}*/
+			
+			// alert(oDiv.style.display);//弹出空白提示框，因为div没设置过style属性
+
+			oBtn.onclick = function(){
+				if(oDiv.style.display == 'block' || oDiv.style.display == ''){
+					oDiv.style.display = 'none';
+				}else{
+					oDiv.style.display = 'block';
+				}
+			}
+		}
+	</script>
+</head>
+<body>
+	<input type="button" value="切换" id="btn">
+	<br>
+	<div class="box" id="box"></div>
+</body>
+</html>

@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>数组</title>
+	<script type="text/javascript">
+		//面向对象的方式创建
+		var aRr01 = new Array(1,2,3,'abc');
+		//直接创建
+		var aRr02 = [1,2,3,'def'];//推荐使用，性能更高
+
+		//获取数组的成员数量（长度）
+		// alert(aRr02.length);//弹出4
+		// alert(aRr02[3]);//弹出cdf
+
+		var aRr03 = [[1,2,3],['a','b','c','d'],[true,false]];
+		// alert(aRr03.length);//弹出3
+		// alert(aRr03[1].length);//弹出3
+		alert(aRr03[1][2]);//弹出c
+	</script>
+</head>
+<body>
+	
+</body>
+</html>

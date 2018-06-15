@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>多重条件判断语句</title>
+	<script type="text/javascript">
+		/*
+		if语句
+			语法三：
+				if(条件表达式){
+					语句...
+				}else if(条件表达式){
+					语句...
+				}else if(条件表达式){
+					语句...
+				}else{
+					语句...
+				}
+		
+				if...else if...else
+					当该语句执行时，会从上到下依次对条件表达式进行求值判断
+					如果值为true，则执行当前语句。
+					如果值为false，则继续向下判断。
+					如果所有的条件都不满足，则执行最后一个else后的语句
+					该语句中，只会有一个代码块被执行，一旦代码块执行了，则直接结束语句
+		 */
+
+		/*
+		条件分支语句也叫switch语句
+			语法：
+				switch(条件表达式){
+					case 表达式:
+						语句...
+						break;
+		 		case 表达式:
+						语句...
+						break;
+					default:
+						语句...
+						break;
+				}
+		
+			执行流程：
+				switch...case..语句
+				在执行时会依次将case后的表达式的值和switch后的条件表达式的值进行全等比较，
+					如果比较结果为true，则从当前case处开始执行代码。
+						当前case后的所有的代码都会执行，我们可以在case的后边跟着一个break关键字，
+						这样可以确保只会执行当前case后的语句，而不会执行其他的case
+					如果比较结果为false，则继续向下比较
+					如果所有的比较结果都为false，则只执行default后的语句
+		
+			switch语句和if语句的功能实际上有重复的，使用switch可以实现if的功能，同样使用if也可以实现switch的功能，所以我们使用时，可以根据自己的习惯选择。
+		*/
+		var today = 4;
+		// if(today == 1){
+		// 	alert('语文');
+		// }else if(today == 2){
+		// 	alert('数学');
+		// }else if(today == 3){
+		// 	alert('英语');
+		// }else if(today == 4){
+		// 	alert('美术');
+		// }else if(today == 5){
+		// 	alert('舞蹈');
+		// }else{
+		// 	alert('不补习');
+		// }
+
+		switch(today){
+			case 1:
+				alert('语文');
+				break;//结束整个switch语句
+			case 2:
+				alert('数学');
+				break;
+			case 3:
+				alert('英语');
+				break;
+			case 4:
+				alert('美术');
+				break;
+			case 5:
+				alert('舞蹈');
+				break;
+			default:
+				alert('不补习');
+				break;//最后一个default可以不写break，但建议写上
+		}
+	</script>
+</head>
+<body>
+	
+</body>
+</html>

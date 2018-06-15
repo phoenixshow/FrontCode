@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>变量和函数预解析</title>
+	<script type="text/javascript">
+		/*变量预解析*/
+		/*alert(a);//只把变量a的声明提前，赋值不提前，所以弹出undefined，表示它的值未定义
+		// alert(c);//报错，c没有声明，这是真正的未定义
+		var a = 123;
+
+
+		/*函数预解析*/
+		myalert();//弹出hello!
+
+		function myalert(){
+			alert('hello!');
+		}
+	</script>
+</head>
+<body>
+	
+</body>
+</html>
