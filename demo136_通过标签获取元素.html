@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>通过标签获取元素</title>
+	<script type="text/javascript">
+		window.onload = function(){
+			// //获取页面上所有的li
+			// var aLi = document.getElementsByTagName('li');
+
+			//获取id为list01的ul
+			var oList = document.getElementById('list01');
+			//再获取这个ul下的所有li
+			var aLi = oList.getElementsByTagName('li');
+			alert(aLi.length);//8
+			// aLi.pop();//错误用法，aLi是一个类似数组的选择集，没有数组通用的一些方法
+
+			aLi[0].style.backgroundColor = 'gold';
+			aLi[1].style.backgroundColor = 'gold';
+		}
+	</script>
+</head>
+<body>
+	<ul id="list01">
+		<li>1</li>
+		<li>2</li>
+		<li>3</li>
+		<li>4</li>
+		<li>5</li>
+		<li>6</li>
+		<li>7</li>
+		<li>8</li>
+	</ul>
+
+	<ul id="list02">
+		<li>9</li>
+		<li>10</li>
+		<li>11</li>
+		<li>12</li>
+	</ul>
+</body>
+</html>

@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>循环语句</title>
+	<script type="text/javascript">
+		/*
+		循环语句：
+			通过循环语句可以反复的执行一段代码多次
+		
+		while循环
+			- 语法：
+				while(条件表达式){
+					语句...
+				}
+		
+			- while语句在执行时，
+				先对条件表达式进行求值判断，
+					如果值为true，则执行循环体，
+						循环体执行完毕以后，继续对表达式进行判断
+						如果为true，则继续执行循环体，以此类推
+					如果值为false，则终止循环
+		
+		do...while循环
+			- 语法：
+				do{
+					语句...
+				}while(条件表达式)
+		
+			- 执行流程：
+				do...while语句在执行时，会先执行循环体，
+					循环体执行完毕以后，在对while后的条件表达式进行判断，
+					如果结果为true，则继续执行循环体，执行完毕继续判断以此类推
+					如果结果为false，则终止循环
+		
+				实际上这两个语句功能类似，不同的是while是先判断后执行，
+					而do...while会先执行后判断，
+				do...while可以保证循环体至少执行一次，
+					而while不能
+
+		for语句，也是一个循环语句，也称为for循环
+			在for循环中，为我们提供了专门的位置用来放三个表达式：
+				1.初始化表达式
+				2.条件表达式
+				3.更新表达式
+		
+		for循环的语法：
+				for(①初始化表达式;②条件表达式;④更新表达式){
+					③语句...
+				}
+		
+				for循环的执行流程：
+					①执行初始化表达式，初始化变量（初始化表达式只会执行一次）
+					②执行条件表达式，判断是否执行循环。
+						如果为true，则执行循环③
+						如果为false，终止循环
+					④执行更新表达式，更新表达式执行完毕继续重复②
+
+		任意一种循环都可以互相嵌套
+		*/
+		window.onload = function(){
+			var oList = document.getElementById('list01');
+			var aLi = oList.getElementsByTagName('li');
+			/*for (var i = 0; i < aLi.length; i++) {
+				if(i % 2 == 0){
+					aLi[i].style.background = 'gold';
+				}
+			}*/
+
+			/*for(var j in aLi){
+				aLi[j].style.background = 'red';
+			}*/
+
+			//创建一个循环，往往需要三个步骤
+			//1.创初始化一个变量
+			var j = 0;
+			//2.在循环中设置一个条件表达式
+			while(j < aLi.length){
+				aLi[j].style.background = 'gold';
+				//3.定义一个更新表达式，每次更新初始化变量
+				j++;
+			}
+
+			/*
+			以下是死循环的写法
+			像这种将条件表达式写死为true的循环，叫做死循环
+			该循环不会停止，除非浏览器关闭，死循环在开发中慎用
+			可以使用break，来终止循环
+			*/
+			/*while(true){
+				if(j>10){
+					break;//退出整个循环
+				}
+				j++;
+			}
+			//for循环的死循环写法
+			for(;;){
+
+			}*/
+
+			/*
+			break关键字可以用来退出switch或循环语句
+				不能在if语句中使用break和continue
+				break关键字，会立即终止离他最近的那个循环语句
+			continue关键字可以用来跳过当次循环
+				同样continue也是默认只会对离他最近的循环循环起作用
+			 */
+			/*
+			可以为循环语句创建一个label，来标识当前的循环
+				label:循环语句
+			使用break语句时，可以在break后跟着一个label，
+				这样break将会结束指定的循环，而不是最近的
+			 */
+
+			outer:
+			for(var i=0 ; i<5 ; i++){
+				console.log("@外层循环"+i);
+				for(var j=0 ; j<5; j++){
+					console.log("内层循环:"+j);
+					break outer;
+				}
+			}
+		} 
+	</script>
+</head>
+<body>
+	<ul id="list01">
+		<li>1</li>
+		<li>2</li>
+		<li>3</li>
+		<li>4</li>
+		<li>5</li>
+		<li>6</li>
+		<li>7</li>
+		<li>8</li>
+		<li>9</li>
+	</ul>
+</body>
+</html>
