@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title>if练习1</title>
+		<script type="text/javascript">
+			/*
+			从键盘输入小明的期末成绩:
+			当成绩为100时，'奖励一辆BMW'
+			当成绩为[80-99]时，'奖励一台iphone15s'
+			当成绩为[60-80]时，'奖励一本参考书'
+			其他时，什么奖励也没有
+			 */
+			
+			/*
+			prompt()可以弹出一个提示框，该提示框中会带有一个文本框，
+			用户可以在文本框中输入一段内容，该函数需要一个字符串作为参数，该字符串将会作为提示框的提示文字
+			
+			用户输入的内容将会作为函数的返回值返回，可以定义一个变量来接收该内容
+			 */
+			//score就是小明的期末成绩
+			var score = prompt("请输入小明的期末成绩(0-100):");
+			
+			
+			//判断值是否合法
+			if(score > 100 || score < 0 || isNaN(score)){
+				alert("拉出去毙了~~~");
+			}else{
+				//根据score的值来决定给小明什么奖励
+				if(score == 100){
+					//奖励一台宝马
+					alert("宝马，拿去开~~~");
+				}else if(score >= 80){
+					//奖励一个手机
+					alert("手机，拿去玩~~~");
+				}else if(score >= 60){
+					//奖励一本参考书
+					alert("参考书，拿去看~~~");
+				}else{
+					alert("棍子一根~~");
+				}
+			}
+		</script>
+	</head>
+	<body>
+		
+	</body>
+</html>

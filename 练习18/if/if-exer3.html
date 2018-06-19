@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title>if练习3</title>
+		<script type="text/javascript">
+			/*
+			 * 	编写程序，由键盘输入三个整数分别存入变量num1、num2、num3，
+			 * 	对他们进行排序，并且从小到大输出。
+			 */
+
+			//获取用户输入的三个数
+			/*
+			 * prompt()函数的返回值是String类型的
+			 */
+			var num1 = +prompt("请输入第一个数:");
+			var num2 = +prompt("请输入第二个数:");
+			var num3 = +prompt("请输入第三个数:");
+
+			alert(typeof num1);
+			
+			//找到三个数中最小的数
+			if(num1 < num2 && num1 < num3){
+				//num1最小，比较num2和num3
+				if(num2 < num3){
+					//num1 num2 num3
+					alert(num1 +","+num2 + ","+num3);
+				}else{
+					//num1 num3 num2
+					alert(num1 +","+num3 + ","+num2);
+				}
+				
+			}else if(num2 < num1 && num2 < num3){
+				//num2最小，比较num1和num3
+				if(num1 < num3){
+					//num2 num1 num3
+					alert(num2 +","+num1 + ","+num3);
+				}else{
+					//num2 num3 num1
+					alert(num2 +","+num3 + ","+num1);
+				}
+				
+			}else{
+				//num3最小,比较num1和num2
+				if(num1 < num2){
+					// num3 num1 num2
+					alert(num3 +","+num1 + ","+num2);
+				}else{
+					//num3 num2 num1
+					alert(num3 +","+num2 + ","+num1);
+				}
+				
+			}
+		</script>
+	</head>
+	<body>
+		
+	</body>
+</html>

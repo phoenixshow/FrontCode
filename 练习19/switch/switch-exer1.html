@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>switch练习1</title>
+		<script type="text/javascript">
+			/*
+			对于成绩大于等于60分的，输出'合格'。低于60分的，输出'不合格'
+			
+			6x  /  10 = 6
+			7x  /  10 = 7
+			8x  /  10 = 8
+			9x  /  10 = 9
+			100 /  10 = 10
+			
+			还可以除以60来进行判断
+			 */
+			var score = 75;
+			
+			/*switch(parseInt(score/10)){
+				case 10:
+				case 9:
+				case 8:
+				case 7:
+				case 6:
+					console.log("合格");
+					break;
+				default:
+					console.log("不合格");
+					break;
+			}*/
+			
+			switch(true){
+				case score >= 60 && score <=100:
+					console.log("合格");
+					break;
+				case score < 60 && score >=0:
+					console.log("不合格");
+					break;
+				default:
+					console.log("不合法");
+					break;
+			}
+			
+			
+			
+		</script>
+	<body>
+	</body>
+</html>

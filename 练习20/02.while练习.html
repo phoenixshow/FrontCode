@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>投资的年利率</title>
+	<script type="text/javascript">
+		/*
+		 * 	从键盘输入小明的期末成绩:
+		 *	当成绩为100时，'奖励一辆BMW'
+		 *	当成绩为[80-99]时，'奖励一台iphone15s'
+		 *	当成绩为[60-80]时，'奖励一本参考书'
+		 *	其他时，什么奖励也没有
+		 */
+		//将prompt放入到一个循环中
+		while(true){
+			//score就是小明的期末成绩
+			var score = prompt("请输入小明的期末成绩(0-100):");
+
+			//判断值是否合法
+			if(score <= 100 && score >= 0){
+				//满足该条件则证明用户的输入合法，退出循环
+				break;
+			}
+			alert('请输入有效的分数！！！');
+		}
+		
+		
+		//根据score的值来决定给小明什么奖励
+		if(score == 100){
+			//奖励一台宝马
+			alert("宝马，拿去开~~~");
+		}else if(score >= 80){
+			//奖励一个手机
+			alert("手机，拿去玩~~~");
+		}else if(score >= 60){
+			//奖励一本参考书
+			alert("参考书，拿去看~~~");
+		}else{
+			alert("棍子一根~~");
+		}
+	</script>
+</head>
+<body>
+	
+</body>
+</html>

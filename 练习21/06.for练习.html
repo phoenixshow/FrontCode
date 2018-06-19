@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>1-100之间所有的质数</title>
+	<script type="text/javascript">
+		/*打印出1-100之间所有的质数
+		36
+		1 36
+		2 18
+		3 12
+		4 9
+		6 6
+		 */
+		//测试如下的程序的性能
+		//在程序执行之前，开启计时器
+		//console.time("计时器的名字")可以用来开启一个计时器
+		//它需要一个字符串作为参数，这个字符串将会作为计时器的标识
+		console.time("test");
+
+		for(var i=2; i<=10000; i++){
+			//创建一个布尔值，用来保存结果，默认i是质数
+			var flag = true;
+
+			//判断i是否是质数
+			//获取2-i之间的数//可以通过Math.sqrt()对一个数进行开方
+			for(var j=2; j<=Math.sqrt(i); j++){
+				// console.log(i);
+				//判断i是否能被j整除
+				if(i % j ==0){
+					//如果能整除，说明i一定不是质数,修改flag值为false
+					flag = false;
+					//一旦进入判断，则证明i不可能是质数了，此时循环再执行已经没有任何意义了
+					//使用break来结束循环
+					break;
+					
+					//不加242ms 加29ms 加开方2ms
+				}
+			}
+
+			//如果i是质数则输出
+			//console.timeEnd()用来停止一个计时器，需要一个计时器的名字作为参数
+			if(flag){
+				console.log(i);
+			}
+		}
+
+		//终止计时器
+		console.timeEnd("test");
+	</script>
+</head>
+<body>
+	
+</body>
+</html>

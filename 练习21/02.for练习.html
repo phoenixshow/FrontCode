@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>7的倍数</title>
+	<script type="text/javascript">
+		/*打印1-100之间所有7的倍数的个数及总和*/
+
+		//定义一个变量，来保存总和
+		var sum = 0;
+		//定义一个计数器，来记录数量
+		var count = 0;
+
+		//打印1-100之间的数
+		for(var i=1; i<=100; i++){
+			//判断i是否是7的倍数
+			if (i % 7 == 0) {
+				// console.log(i);
+				sum += i;
+				//使计数器自增
+				count++;
+			}
+		}
+
+		console.log("总和为：" + sum);
+		console.log("个数为：" + count);
+	</script>
+</head>
+<body>
+	
+</body>
+</html>

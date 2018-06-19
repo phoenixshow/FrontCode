@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>是否是质数</title>
+	<script type="text/javascript">
+		/*
+		在页面中接收一个用户输入的数字，并判断该数是否是质数。
+		质数：只能被1和它自身整除的数，1不是质数也不是合数，质数必须是大于1的自然数
+		*/
+
+		var num = prompt("请输入一个大于1的整数：");
+
+		//判断这个值是否合法
+		if(num <= 1 || isNaN(num)){
+			alert('该值不合法！');
+		}else{
+			//创建一个变量来保存当前的数的状态，默认当前num是质数
+			var flag = true;
+
+			//判断num是否是质数
+			//获取2-num之间的数
+			for(var i=2; i<num; i++){
+				// console.log(i);
+				//判断num是否能被i整除
+				if(num % i ==0){
+					//如果能整除，说明num一定不是质数
+					flag = false;
+				}
+			}
+
+			//如果num是质数则输出
+			if(flag){
+				alert(num + "是质数！");
+			}else{
+				alert(num + "不是质数！");
+			}
+		}
+	</script>
+</head>
+<body>
+	
+</body>
+</html>
