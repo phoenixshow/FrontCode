@@ -75,11 +75,16 @@
 			//1.创初始化一个变量
 			var j = 0;
 			//2.在循环中设置一个条件表达式
-			while(j < aLi.length){
+			/*while(j < aLi.length){
 				aLi[j].style.background = 'gold';
 				//3.定义一个更新表达式，每次更新初始化变量
 				j++;
-			}
+			}*/
+
+			do{
+				aLi[j].style.background = 'gold';
+				j++;
+			}while(j < 0)
 
 			/*
 			以下是死循环的写法
