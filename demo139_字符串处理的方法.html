@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>字符串处理的方法</title>
+	<script type="text/javascript">
+		/*字符串切断转成数组*/
+		var sTr = '2018-06-20';
+		var aRr = sTr.split('-');
+		// alert(aRr);//2018,06,20
+		// console.log(aRr);
+
+		var aRr2 = sTr.split('');
+		// console.log(aRr2);
+
+		/*实际上就是修改了<title>标签的内容*/
+		// document.title = aRr2;
+
+		var sTr2 = '#div1';
+		var sTr3 = '.div1';
+
+		/*获取指定索引的字符*/
+		var sTr4 = sTr2.charAt(0);
+		if(sTr4 == '#'){
+			// alert('id选择器');
+		}
+
+		/*查看子串第一次出现的位置*/
+		var sTr5 = 'Microsoft Yahei';
+		var num = sTr5.indexOf('Yahei');
+		// alert(num);//10
+
+		var num2 = sTr5.indexOf('xihei');
+		// alert(num2);//没有找到就弹出-1
+
+		/*substring截取子串*/
+		//从10开始，截到15（包括开始位置，不包括结束位置）
+		// var sTr6 = sTr5.substring(10,15);//Yahei
+		//从10开始截取到末尾
+		var sTr6 = sTr5.substring(10);//Yahei
+		// alert(sTr6);
+
+		/*全部转为大写字母*/
+		// alert(sTr6.toUpperCase());//YAHEI
+		/*全部转为小写字母*/
+		alert(sTr6.toLowerCase());//yahei
+	</script>
+</head>
+<body>
+	
+</body>
+</html>

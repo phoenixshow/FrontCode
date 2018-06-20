@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>数组去重</title>
+	<script type="text/javascript">
+		var aRr = [1,3,4,1,6,9,1,2,5,3,1,6,5,4,4];
+		var aRr2 = [];
+
+		for(var i=0; i<aRr.length; i++){
+			//判断元素第一次出现的位置，恰好是当前索引时，就将元素放入新数组
+			if(aRr.indexOf(aRr[i]) == i){
+				aRr2.push(aRr[i]);
+			}
+		}
+
+		alert(aRr2);//1,3,4,6,9,2,5
+	</script>
+</head>
+<body>
+	
+</body>
+</html>

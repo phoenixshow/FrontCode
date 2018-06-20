@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>定时器的基本用法</title>
+	<style type="text/css">
+		
+	</style>
+	<script type="text/javascript">
+		//单次定时器
+		var timer = setTimeout(function(){
+			alert('hello!');
+		}, 3000);
+
+		//清除单次定时器
+		clearTimeout(timer);
+
+		//反复循环定时器
+		var timer2 = setInterval(function(){
+			alert('hi~~~');
+		}, 2000);
+
+		//清除反复循环定时器
+		clearInterval(timer2);
+	</script>
+</head>
+<body>
+	
+</body>
+</html>

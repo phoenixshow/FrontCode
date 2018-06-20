@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>时钟</title>
+	<style type="text/css">
+		
+	</style>
+	<script type="text/javascript">
+		window.onload = function(){
+			var oBox = document.getElementById('box');
+
+			function timeGo(){
+				var now = new Date();
+				// alert(now);//弹出美式时间：Wed Jun 20 2018 15:27:13 GMT+0800 (中国标准时间)
+				var year = now.getFullYear();//2018年
+				var month = now.getMonth() + 1;//6月弹出5//范围0-11
+				var date = now.getDate();//20号
+				var week = now.getDay();//3//星期几，西半球时间，范围0-6，星期日为一周的第一天，为0
+
+				var hour = now.getHours();
+				var minute = now.getMinutes();
+				var second = now.getSeconds();
+
+				// alert(hour + ":" + minute + ":" + second);//15:33:9
+
+				oBox.innerHTML = '当前时间是：' + year + '年' + toDouble(month) + '月' + toDouble(date) + '日 ' + toWeek(week) + ' ' + toDouble(hour) + ":" + toDouble(minute) + ":" + toDouble(second);
+			}
+
+			timeGo();
+			setInterval(timeGo, 1000);
+		}
+
+		//此函数将星期的数字转为汉字表示
+		function toWeek(num){
+			switch(num){
+				case 0:
+					return '星期天'; 
+					break;
+				case 1:
+					return '星期一'; 
+					break;
+				case 2:
+					return '星期二'; 
+					break;
+				case 3:
+					return '星期三'; 
+					break;
+				case 4:
+					return '星期四'; 
+					break;
+				case 5:
+					return '星期五'; 
+					break;
+				case 6:
+					return '星期六'; 
+					break;
+			}
+		}
+
+		//此函数将不足两位的数字前面补0
+		function toDouble(num){
+			if(num < 10){
+				return '0' + num;
+			}else{
+				return num;
+			}
+		}
+	</script>
+</head>
+<body>
+	<div id="box"></div>
+</body>
+</html>

@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>定时器弹框</title>
+	<style type="text/css">
+		.pop{
+			width: 400px;
+			height: 300px;
+			background-color: #fff;
+			border: 1px solid #000;
+			/*固定定位*/
+			position: fixed;
+			/*左上角位于页面中心*/
+			left: 50%;
+			top: 50%;
+			/*让div向左偏移半个宽度、向上偏移半个高度，使div位于页面中心*/
+			margin-left: -200px;
+			margin-top: -150px;
+			/*弹窗在最上面*/
+			z-index: 9999;
+		}
+		/*遮罩样式*/
+		.mask{
+			position: fixed;
+			width: 100%;
+			height: 100%;
+			background-color: #000;
+			left: 0;
+			top: 0;
+			/*设置透明度30%*/
+			opacity: 0.3;
+			filter: alpha(opacity=30);/*兼容IE6、7、8*/
+			/*遮罩在弹窗的下面，在网页所有内容的上面*/
+			z-index: 9990;
+		}
+		.pop_con{
+			display: none;/*默认不显示，用定时器显示*/
+		}
+	</style>
+	<script type="text/javascript">
+		/*
+		setTimeout		只执行一次的定时器
+		clearTimeout	关闭只执行一次的定时器
+		setInterval		反复执行的定时器
+		clearInterval	关闭反复执行的定时器
+		*/
+
+		window.onload = function(){
+			var oPop = document.getElementById('pop');
+			var oShut = document.getElementById('shutOff');
+
+			/*setTimeout(showPop, 3000);//开启定时器，3秒后调用函数showPop()弹框
+
+			function showPop(){
+				oPop.style.display = 'block';//显示弹框和遮罩
+			}*/
+			//开启定时器的简写方式：调用匿名函数
+			setTimeout(function(){
+				oPop.style.display = 'block';
+			}, 3000);
+
+			oShut.onclick = function(){
+				oPop.style.display = 'none';//关闭弹框和遮罩
+			}
+		}
+	</script>
+</head>
+<body>
+	<h1>首页标题</h1>
+	<p>页面内容</p>
+	<a href="http://www.baidu.com">百度网</a>
+
+
+	<div class="pop_con" id="pop">
+		<div class="pop">
+			<h3>提示信息！</h3>
+			<a href="#" id="shutOff">关闭</a>
+		</div>
+		<div class="mask"></div>
+	</div>
+</body>
+</html>
