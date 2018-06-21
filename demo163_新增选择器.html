@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>新增选择器</title>
+	<script type="text/javascript">
+		window.onload = function(){
+			var oDiv = document.querySelector('#div1');
+			alert(oDiv);//弹出[object HTMLDivElement]，表示选择了该Div
+
+			//如果要选择多个元素用querySelectorAll
+			var aLi = document.querySelectorAll('.list li');
+			alert(aLi.length);//8
+		}
+	</script>
+</head>
+<body>
+	<div id="div1">这是一个div元素</div>
+	<ul class="list">
+		<li>1</li>
+		<li>2</li>
+		<li>3</li>
+		<li>4</li>
+		<li>5</li>
+		<li>6</li>
+		<li>7</li>
+		<li>8</li>
+	</ul>
+</body>
+</html>

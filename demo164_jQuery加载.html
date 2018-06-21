@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>jQuery加载</title>
+	<script type="text/javascript" src="js/jquery-1.12.4.min.js"></script>
+	<script type="text/javascript">
+		// alert($);//弹出function (a,b){return new n.fn.init(a,b)}表示JQuery已经引进来了，这是它的一个构造函数
+
+		//JS写法
+		window.onload = function(){
+			var oDiv = document.getElementById('div');
+			alert(oDiv.innerHTML);//这是一个div元素
+		}
+
+		//jQuery的完整写法
+		//比上面JS写法先弹出，因为window.onload是把页面元素加载、渲染完才弹出，而ready()是把所有页面的节点加载完之后就弹出了，不用等渲染了
+		/*$(document).ready(function(){
+			var $div = $('#div');
+			alert('jQuery:' + $div.html());//jQuery:这是一个div元素
+		})*/
+
+		//简写方式
+		$(function(){
+			var $div = $('#div');//CSS样式怎么写，这里就怎么写
+			//html()方法相当于原生JS的innerHTML
+			alert($div.html() + 'jQuery');
+		})
+	</script>
+</head>
+<body>
+	<div id="div">这是一个div元素</div>
+</body>
+</html>

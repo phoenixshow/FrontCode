@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>构造函数</title>
+	<script type="text/javascript">
+		function Person(name,age,job){
+			this.name = name;
+			this.age = age;
+			this.job = job;
+
+			this.showName = function(){
+				alert(this.name);
+			}
+			this.showAge = function(){
+				alert(this.age);
+			}
+			this.showJob = function(){
+				alert(this.job);
+			}
+		}
+
+		//new的作用就相当于工厂模式中最开始创建了一个空对象，最后把对象返回
+		var Bob = new Person('bob',18,'产品汪');
+		Bob.showJob();
+
+		var Alex = new Person('alex',19,'运营喵');
+		Alex.showJob();
+
+		alert(Bob.showName == Alex.showName);//false
+	</script>
+</head>
+<body>
+	
+</body>
+</html>

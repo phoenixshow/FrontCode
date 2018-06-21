@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Math</title>
+	<script type="text/javascript">
+		// var num = Math.random();
+		// alert(num);//弹出0-1之间的随机数
+
+		var a = 10;
+		var b = 20;
+		// var num = Math.random()*(b-a)+a;
+		// alert(num);//弹出10-20之间的随机数
+
+		var arr = [];
+		for(var i=0; i<20; i++){
+			// var num = Math.floor(Math.random()*(b-a)+a);//向下取整，10-19
+			var num = Math.floor(Math.random()*(b-a + 1)+a);//向下取整，10-20
+			
+			arr.push(num);//生成一个数就放进数组
+		}
+		alert(arr);//17,20,20,11,11,19,17,16,10,11,16,11,18,13,13,11,17,14,19,19
+	</script>
+</head>
+<body>
+	
+</body>
+</html>

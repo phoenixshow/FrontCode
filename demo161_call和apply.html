@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>call和apply</title>
+	<script type="text/javascript">
+		/*
+		call和apply的区别
+
+		二者都可以改变当前的this，区别在于apply方法要将参数放入数组中再传参
+		*/
+		function aa(a,b){
+			alert('我的this是' + this + ',我的a是' + a + ',我的b是' + b);
+		}
+
+		//我的this是[object Window],我的a是2,我的b是3
+		// aa(2,3);
+
+		//我的this是abc,我的a是2,我的b是3
+		// aa.call('abc',2,3);
+
+		//我的this是abc,我的a是2,我的b是3
+		aa.apply('abc', [2,3]);
+	</script>
+</head>
+<body>
+	
+</body>
+</html>
