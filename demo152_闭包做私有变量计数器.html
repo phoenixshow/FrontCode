@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>闭包做私有变量计数器</title>
+	<script type="text/javascript">
+		//闭包的用途：私有变量计数器
+		var count = (function(){
+			var a = 0;
+
+			function bb(){
+				a++;
+				return a;
+			}
+
+			return bb;
+		})();
+		
+		//每调用一次count，a就自增一次
+		alert(count());//1
+		alert(count());//2
+
+		var c = count();
+		alert(c);//3
+	</script>
+</head>
+<body>
+	
+</body>
+</html>

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>闭包存循环的索引值</title>
+	<style type="text/css">
+		li{
+			height: 30px;
+			background-color: gold;
+			margin-bottom: 10px;
+		}
+	</style>
+	<script type="text/javascript">
+		//闭包的用途：存循环的索引值
+		window.onload = function(){
+			var aLi = document.getElementsByTagName('li');
+			// alert(aLi.length);//8
+
+			for(var i=0; i<aLi.length; i++){
+				/*
+				aLi[i].onclick = function(){
+					alert(i);//每个li都弹出8，因为点击时循环已完毕，i最后为8
+				}
+				*/
+
+				(function(k){//这里的k是形参
+					aLi[k].onclick = function(){
+						alert(k);//弹出每个li的索引值
+					}
+				})(i);//这里的i是实参
+			}
+		}
+	</script>
+</head>
+<body>
+	<ul>
+		<li>1</li>
+		<li>2</li>
+		<li>3</li>
+		<li>4</li>
+		<li>5</li>
+		<li>6</li>
+		<li>7</li>
+		<li>8</li>
+	</ul>
+</body>
+</html>

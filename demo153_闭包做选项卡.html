@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>闭包做选项卡</title>
+	<style type="text/css">
+		.btns{
+			width: 500px;
+			height: 50px;
+		}
+		/*选项卡的样式*/
+		.btns input{
+			width: 100px;
+			height: 50px;
+			background-color: #ddd;/*默认灰色*/
+			color: #666;
+			border: 0px;
+		}
+		/*被选中的选项卡的样式*/
+		.btns input.cur{
+			background-color: gold;
+		}
+		/*内容区的样式*/
+		.contents div{
+			width: 500px;
+			height: 300px;
+			background-color: gold;
+			display: none;/*默认隐藏*/
+			line-height: 300px;
+			text-align: center;
+		}
+		/*被选中的内容区的样式*/
+		.contents div.active{
+			display: block;
+		}
+	</style>
+	<script type="text/javascript">
+		//闭包做选项卡
+		window.onload = function(){
+			var aBtn = document.getElementById('btns').getElementsByTagName('input');
+			var aCon = document.getElementById('contents').getElementsByTagName('div');
+			// alert(aCon.length);
+
+			//循环所有的选项卡按钮
+			for(var i=0; i<aBtn.length; i++){
+				(function(i){
+					//给每个选项卡按钮添加点击事件
+					aBtn[i].onclick = function(){
+						//遍历所有选项卡按钮
+						for(var j=0; j<aBtn.length; j++){
+							//将每个选项卡按钮都设为灰色
+							aBtn[j].className = '';
+							//将每个内容区都隐藏
+							aCon[j].className = '';
+						}
+						//this代表当前点击的Button对象
+						this.className = 'cur';//当前点击的按钮为金色
+
+						// alert(i);//不加闭包时，不管点哪个按钮，i都等于3
+
+						//加闭包保存了索引值才有效
+						aCon[i].className = 'active';//当前点击的按钮对应的内容显示
+					}
+				})(i);
+			}
+		}
+	</script>
+</head>
+<body>
+	<div class="btns" id="btns">
+		<input type="button" value="tab01" class="cur">
+		<input type="button" value="tab02">
+		<input type="button" value="tab03">
+	</div>
+	<div class="contents" id="contents">
+		<div class="active">tab文字内容一</div>
+		<div>tab文字内容二</div>
+		<div>tab文字内容三</div>
+	</div>
+</body>
+</html>

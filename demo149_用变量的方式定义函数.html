@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>用变量的方式定义函数</title>
+	<script type="text/javascript">
+		/*
+		原来的写法：可以提前
+		myAlert();
+
+		function myAlert(){
+			alert('hello!');
+		}*/
+
+		//函数用变量方式定义：先定义再使用
+		// myalert();//提前会报错
+		var myAlert = function(){
+			alert('hello!');
+		}
+
+		myAlert();//放在下面可以执行
+
+	</script>
+</head>
+<body>
+	
+</body>
+</html>
