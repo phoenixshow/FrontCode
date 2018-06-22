@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>jQuery做选项卡</title>
+	<style type="text/css">
+		.btns{
+			width: 500px;
+			height: 50px;
+		}
+		/*选项卡的样式*/
+		.btns input{
+			width: 100px;
+			height: 50px;
+			background-color: #ddd;/*默认灰色*/
+			color: #666;
+			border: 0px;
+		}
+		/*被选中的选项卡的样式*/
+		.btns input.cur{
+			background-color: gold;
+		}
+		/*内容区的样式*/
+		.contents div{
+			width: 500px;
+			height: 300px;
+			background-color: gold;
+			display: none;/*默认隐藏*/
+			line-height: 300px;
+			text-align: center;
+		}
+		/*被选中的内容区的样式*/
+		.contents div.active{
+			display: block;
+		}
+	</style>
+	<script type="text/javascript" src="js/jquery-1.12.4.min.js"></script>
+	<script type="text/javascript">
+		$(function(){
+			$('#btns input').click(function() {
+				//this是原生的对象
+				// alert(this);//弹出[object HTMLInputElement]，说明this就是当前点击的input元素
+
+				//jQuery的this对象使用时要用$()包起来，这样就可以调用jQuery的方法了
+				//给当前元素添加选中样式，为兄弟元素移除选中样式
+				$(this).addClass('cur').siblings().removeClass('cur');
+
+				//$(this).index()获取当前按钮所在层级范围的索引值
+				//显示对应索引的内容区，隐藏其它兄弟内容区
+				$('#contents div').eq($(this).index()).addClass('active').siblings().removeClass('active');
+			});
+		})
+	</script>
+</head>
+<body>
+	<div class="btns" id="btns">
+		<input type="button" value="tab01" class="cur">
+		<input type="button" value="tab02">
+		<input type="button" value="tab03">
+	</div>
+	<div class="contents" id="contents">
+		<div class="active">tab文字内容一</div>
+		<div>tab文字内容二</div>
+		<div>tab文字内容三</div>
+	</div>
+</body>
+</html>

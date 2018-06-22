@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>jQuery样式操作</title>
+	<style type="text/css">
+		.div2{
+			color: red;
+		}
+		.big{
+			font-size: 30px;
+		}
+	</style>
+	<script type="text/javascript" src="js/jquery-1.12.4.min.js"></script>
+	<script type="text/javascript">
+		$(function(){
+			/*jQuery用同一个函数即可以取值、也可以赋值*/
+			//读取样式
+			alert($('#div1').css('fontSize'));//16px
+			//设置（写入）样式
+			$('#div1').css({background:'gold'});
+
+			//增加行间样式
+			$('#div1').addClass('big');
+			//减少行间样式，多个样式用空格分开
+			$('#div1').removeClass('div2 big');
+		})
+	</script>
+</head>
+<body>
+	<div id="div1" class="div2">这是一个div元素</div>
+</body>
+</html>

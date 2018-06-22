@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>jQuery选择器</title>
+	<style type="text/css">
+		#div1{
+			color: red;
+		}
+		.box{
+			color: green;
+		}
+		.list li{
+			margin-bottom: 10px;
+		}
+	</style>
+	<script type="text/javascript" src="js/jquery-1.12.4.min.js"></script>
+	<script type="text/javascript">
+		$(function(){
+			//选择元素的规则和css样式相同
+			$('#div1').css({color: 'pink'});
+			$('.box').css({fontSize: '30px'});
+			$('.list li').css({
+				background: 'green',
+				color: '#fff',
+				fontSize: '20px',
+				marginBottom: '10px'
+			});
+		})
+	</script>
+</head>
+<body>
+	<div id="div1">这是一个div元素</div>
+	<div class="box">这是第二个div元素</div>
+	<ul class="list">
+		<li>1</li>
+		<li>2</li>
+		<li>3</li>
+		<li>4</li>
+		<li>5</li>
+		<li>6</li>
+		<li>7</li>
+		<li>8</li>
+	</ul>
+</body>
+</html>

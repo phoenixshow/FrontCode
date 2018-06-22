@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>click事件</title>
+	<style type="text/css">
+		.box{
+			width: 200px;
+			height: 200px;
+			background-color: gold;
+		}
+		.sty{
+			background-color: green;
+		}
+	</style>
+	<script type="text/javascript" src="js/jquery-1.12.4.min.js"></script>
+	<script type="text/javascript">
+		$(function(){
+			// 给按钮绑定click事件
+			$('#btn').click(function(){
+				//重复切换sty样式
+				$('.box').toggleClass('sty');
+			})
+		})
+	</script>
+</head>
+<body>
+	<input type="button" value="切换" id="btn">
+	<div class="box"></div>
+</body>
+</html>

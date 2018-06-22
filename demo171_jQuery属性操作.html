@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>jQuery属性操作</title>
+	<style type="text/css">
+		
+	</style>
+	<script type="text/javascript" src="js/jquery-1.12.4.min.js"></script>
+	<script type="text/javascript">
+		$(function(){
+			/*
+			alert($('.box').html());//这是一个div元素
+			$('.box').html('<a href="http://www.baidu.com">百度网</a>');
+			*/
+
+			/*
+			读写值为布尔类型的属性用prop方法
+			读写值为非布尔类型的属性用attr方法
+			*/
+
+			/*
+			$('.box').attr({title:'这是一个div!'});//写入title属性，并赋值
+			alert($('.box').attr('class'));//读属性class的值，弹出box
+			*/
+
+			/*
+			var $src = $('#img1').attr('src');
+			alert($src);//img/1.png
+
+			$('#img1').attr({
+				src:'img/2.gif',
+				alt:'图片二'
+			});
+			*/
+
+			/*
+			alert($('#check').prop('checked'));//选中为true，非选中为false
+			$('#check').prop({checked:true});//设置默认勾选
+			*/
+
+			// alert($('.box2').html());//<span>这是div元素内的span</span>
+			alert($('.box2').text());//这是div元素内的span
+		})
+	</script>
+</head>
+<body>
+	<div class="box">这是一个div元素</div>
+
+	<img id="img1" src="img/1.png" alt="一张图片">
+
+	<input type="checkbox" id="check">多选
+
+	<div class="box2">
+		<span>这是div元素内的span</span>
+	</div>
+</body>
+</html>
