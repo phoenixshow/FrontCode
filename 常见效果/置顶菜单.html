@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>置顶菜单</title>
+	<style type="text/css">
+		body{margin:0px;}
+		.logo_bar{
+			width:960px;
+			height:200px;
+			background-color:#f0f0f0;
+			margin:0 auto;
+			
+		}
+		.menu,.menu_pos{
+			width:960px;
+			height:50px;
+			margin:0 auto;
+			background-color:gold;
+			text-align:center;
+			line-height:50px;
+		}
+		.menu_pos{
+			display:none;
+		}
+
+		.down_con{
+			width:960px;
+			height:1800px;
+			margin:0 auto;
+		}
+
+		.down_con p{
+			margin-top:100px;
+			text-align:center;
+		}
+		.totop{
+			width:50px;
+			height:50px;
+			background:url(images/up.png) center center no-repeat #000;
+			border-radius:50%;
+			position:fixed;
+			right:50px;
+			bottom:50px;
+			display: none;
+		}
+	</style>
+	<script type="text/javascript" src="../js/jquery-1.12.4.min.js"></script>
+	<script type="text/javascript">
+		$(function(){
+			$(window).scroll(function() {
+				//获取页面滚动时，超出浏览器窗口上方的高度
+				var nowTop = $(document).scrollTop();
+				// console.log(nowTop);
+
+				if(nowTop > 200){
+					//将菜单置顶显示
+					$('.menu').css({
+						position: 'fixed',
+						left: '50%',
+						top:0,
+						marginLeft: '-480px'
+					});
+					//显示占位层，避免页面跳动
+					$('.menu_pos').show();
+				}else{
+					//取消置顶菜单，菜单归入文档流
+					$('.menu').css({
+						position: 'static',//取消定位
+						marginLeft: 'auto'
+					});
+					//隐藏点位层
+					$('.menu_pos').hide();
+				}
+
+				//滚动到顶部按钮的显示和隐藏
+				if(nowTop > 400){
+					$('.totop').fadeIn();
+				}else{
+					$('.totop').fadeOut();
+				}
+			});
+
+			//动画的方式滚动到页面顶部
+			$('.totop').click(function() {
+				$('html,body').animate({scrollTop: 0});
+			});
+		})
+	</script>
+</head>
+<body>
+	<div class="logo_bar">顶部logo</div>
+	<div class="menu">置顶菜单</div>
+	<!-- 占位层，如果菜单显示，它就隐藏，菜单浮动，它就显示，顶替菜单的位置，避免页面跳动 -->
+	<div class="menu_pos"></div>
+	<div class="down_con">
+		<p style="color: red">网站主内容</p>
+		<p>网站主内容</p>
+		<p>网站主内容</p>
+		<p>网站主内容</p>
+		<p>网站主内容</p>
+	</div>
+	<!-- 点击超链接时，不想跳转页面的href写法 -->
+	<a href="javascript:;" class="totop"></a>
+</body>
+</html>

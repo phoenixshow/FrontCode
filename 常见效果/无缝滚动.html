@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>无缝滚动</title>
+	<style type="text/css">
+		body,ul,li{margin:0;padding:0}
+		ul{list-style:none;}
+		.slide{
+			width:500px;
+			height:100px;
+			border:1px solid #ddd;
+			margin:20px auto 0;
+			position:relative;
+			overflow:hidden;
+		}
+		.slide ul{
+			position:absolute;/*相对于slide进行绝对定位*/
+			width:1000px;/*比slide宽度大一倍，做这种连续滚动效果的时候，要在后面把内容复制一份*/
+			height:100px;
+			left:0;/*可以改变该值让其动起来*/
+			top:0;
+		}
+		.slide ul li{
+			width:90px;
+			height:90px;
+			margin:5px;
+			background-color:#ccc;
+			line-height:90px;
+			text-align: center;
+			font-size:30px;
+			float:left;
+		}
+		.btns{
+			width:500px;
+			height:50px;
+			margin:10px auto 0;
+		}
+	</style>
+	<script type="text/javascript" src="../js/jquery-1.12.4.min.js"></script>
+	<script type="text/javascript">
+		$(function(){
+			var $ul = $('#slide ul');
+			var left = 0;
+			var deraction = 2;//每次滚动的距离
+
+			//内容为两套li
+			$ul.html($ul.html() + $ul.html());
+
+			//反复循环定时器，30ms动一下可以看起来比较平滑
+			var timer = setInterval(move, 30);
+
+			function move(){
+				left -= deraction;
+				//当第2套li完全显示出来的时候，整个移回原点重新移动，实现向左连续滚动
+				if(left < -500){
+					left = 0;
+				}
+				//瞬间跳回，实现向右连续滚动
+				if(left > 0){
+					left = -500;
+				}
+
+				$ul.css({left: left});
+			}
+
+			$('#btn1').click(function() {
+				deraction = 2;
+			});
+			$('#btn2').click(function() {
+				deraction = -2;
+			});
+
+			$('#slide').mouseover(function() {
+				clearInterval(timer);
+			});
+			$('#slide').mouseout(function() {
+				timer = setInterval(move,30);
+			});
+		})
+	</script>
+</head>
+<body>
+	<div class="btns">
+		<input type="button" name="" value="向左" id="btn1">
+		<input type="button" name="" value="向右" id="btn2">
+	</div>
+	<div class="slide" id="slide">
+		<ul>
+			<li>1</li>
+			<li>2</li>
+			<li>3</li>
+			<li>4</li>
+			<li>5</li>			
+		</ul>
+	</div>
+</body>
+</html>

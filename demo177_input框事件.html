@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>input框事件</title>
+	<style type="text/css">
+		
+	</style>
+	<script type="text/javascript" src="js/jquery-1.12.4.min.js"></script>
+	<script type="text/javascript">
+		$(function(){
+			// //一开始就获取焦点，相当于设置了autofocus自动获取焦点了（HTML5 新增表单控件）
+			// $('#txt01').focus();
+
+			// //文本框获取焦点的时候（有光标闪烁的时候）
+			// $('#txt01').focus(function() {
+			// 	alert('focus');
+			// });
+
+			// //失去焦点的时候（光标离开的时候）
+			// $('#txt01').blur(function() {
+			// 	alert('blur');
+			// });
+
+			// //输入框内容发生变化的时候，失去触点后触发，可用于注册时验证用户名是否已存在
+			// $('#txt01').change(function() {
+			// 	alert('change');
+			// });
+
+			//松开按钮就触发
+			$('#txt01').keyup(function() {
+				alert('keyup');
+			});
+		})
+	</script>
+</head>
+<body>
+	<input type="text" id="txt01">
+</body>
+</html>

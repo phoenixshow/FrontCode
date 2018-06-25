@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>元素绝对位置</title>
+	<style type="text/css">
+		.con{
+			width: 600px;
+			height: 600px;
+			margin: 50px auto 0;
+		}
+		.box{
+			width: 100px;
+			height: 100px;
+			background-color: gold;
+			margin-bottom: 10px;
+		}
+		.pos{
+			margin-left: 500px;
+		}
+		.pop{
+			width: 100px;
+			height: 100px;
+			background-color: red;
+			position: fixed;
+			left:0;
+			top: 0;
+			display: none;
+		}
+	</style>
+	<script type="text/javascript" src="js/jquery-1.12.4.min.js"></script>
+	<script type="text/javascript">
+		$(function(){
+			var $pos = $('.pos');
+			//offset()是获取相对于页面左上角的绝对位置，即使外面再包一层con居中层，也不影响效果
+			var pos = $pos.offset();
+			// console.log(pos);
+			// alert(pos.left + "," + pos.top);
+			var w = $pos.outerWidth();
+			var h = $pos.outerHeight();
+			// alert(w);
+
+			$('.pop').css({left:pos.left + w,top:pos.top});
+
+			$pos.mouseover(function() {
+				$('.pop').show();
+			});
+			$pos.mouseout(function() {
+				$('.pop').hide();
+			});
+		})
+	</script>
+</head>
+<body>
+	<div class="con">
+		<div class="box"></div>
+		<div class="box"></div>
+		<div class="box pos"></div>
+		<div class="box"></div>
+	</div>
+
+	<div class="pop">提示信息！</div>
+</body>
+</html>

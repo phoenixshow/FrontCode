@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>自定义事件</title>
+	<style type="text/css">
+		
+	</style>
+	<script type="text/javascript" src="js/jquery-1.12.4.min.js"></script>
+	<script type="text/javascript">
+		$(function(){
+			//自定义事件只能用bind方式绑定，第一个参数是事件的名字，第二个参数是事件发生时执行的函数
+			$('#btn1').bind('hello', function(){
+				alert('hello');
+			})
+			$('#btn1').bind('click', function(){
+				alert('click');
+			})
+			$('#btn2').click(function() {
+				// trigger即可以触发自定义事件，也可以触发原始的事件
+				$('#btn1').trigger('hello');
+				$('#btn1').trigger('click');
+			});
+		})
+	</script>
+</head>
+<body>
+	<input type="button" value="按钮" id="btn1">
+	<input type="button" value="按钮2" id="btn2">
+</body>
+</html>

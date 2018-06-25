@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>jQuery其他事件</title>
+	<style type="text/css">
+		
+	</style>
+	<script type="text/javascript" src="js/jquery-1.12.4.min.js"></script>
+	<script type="text/javascript">
+		// //JS原生写法
+		// window.onload = function(){
+
+		// }
+
+		// //jQuery写法，等同于上面写法
+		// $(window).load(function(){
+
+		// })
+
+		// //ready的写法
+		// $(document).ready(function(){
+
+		// })
+
+		// //ready的简写
+		// $(function(){
+
+		// })
+
+		// 窗口改变尺寸的时候，会高频触发
+		$(window).resize(function() {
+			console.log('3');
+		});
+	</script>
+</head>
+<body>
+	<div id="div1"></div>
+</body>
+</html>

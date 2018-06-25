@@ -38,6 +38,8 @@
 	<script type="text/javascript">
 		$(function(){
 			$('#btns input').click(function() {
+				//失去焦点，避免出现默认的蓝框
+				$(this).blur();
 				//this是原生的对象
 				// alert(this);//弹出[object HTMLInputElement]，说明this就是当前点击的input元素
 

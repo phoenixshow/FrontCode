@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>鼠标移入移出</title>
+	<style type="text/css">
+		.box{
+			width: 200px;
+			height: 200px;
+			background-color: gold;
+			margin: 100px auto 0;
+		}
+		.son{
+			width: 100px;
+			height: 100px;
+			background-color: green;
+		}
+	</style>
+	<script type="text/javascript" src="js/jquery-1.12.4.min.js"></script>
+	<script type="text/javascript">
+		$(function(){
+			/*进入子元素也触发*/
+			/*$('#div1').mouseover(function() {
+				$(this).animate({marginTop: 50});//.stop()
+			});
+			$('#div1').mouseout(function() {
+				$(this).animate({marginTop: 100});//.stop()
+			});*/
+
+			/*进入子元素不触发*/
+			/*$('#div1').mouseenter(function() {
+				$(this).stop().animate({marginTop: 50});//
+			});
+			$('#div1').mouseleave(function() {
+				$(this).stop().animate({marginTop: 100});//
+			});*/
+
+			/*通过hover（mouseenter+mouseleave）实现简写*/
+			$('#div1').hover(function() {
+				$(this).stop().animate({marginTop: 50});
+			}, function() {
+				$(this).stop().animate({marginTop: 100});
+			});
+		})
+	</script>
+</head>
+<body>
+	<div id="div1" class="box">
+		<div class="son"></div>
+	</div>
+</body>
+</html>

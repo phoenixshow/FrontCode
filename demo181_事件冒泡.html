@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>事件冒泡</title>
+	<style type="text/css">
+		.grandfather{
+			width: 300px;
+			height: 300px;
+			background-color: green;
+			position: relative;
+		}
+		.father{
+			width: 200px;
+			height: 200px;
+			background-color: gold;
+		}
+		.son{
+			width: 100px;
+			height: 100px;
+			background-color: red;
+			position: absolute;
+			left: 0;
+			top: 400px;
+		}
+	</style>
+	<script type="text/javascript" src="js/jquery-1.12.4.min.js"></script>
+	<script type="text/javascript">
+		$(function(){
+			$('body').click(function() {
+				alert(4);
+			});
+			$('.grandfather').click(function() {
+				alert(3);
+			});
+			$('.father').click(function() {
+				alert(2);
+			});
+			$('.son').click(function(event) {//event代表当前事件
+				alert(1);
+				// console.log(event);//显示很多属性，其中clientX、clientY就是点击的坐标
+				// alert("X轴坐标：" + event.clientX);
+
+				// //阻止事件冒泡
+				// event.stopPropagation();
+
+				//合并阻止操作：把阻止冒泡和阻止默认行为合并
+				return false;
+			});
+
+			//阻止右键菜单
+			$(document).contextmenu(function(event){
+				// //阻止默认行为
+				// event.preventDefault();
+
+				//合并阻止
+				return false;
+			})
+		})
+	</script>
+</head>
+<body>
+	<div class="grandfather">
+		<div class="father">
+			<div class="son"></div>
+		</div>
+	</div>
+</body>
+</html>
