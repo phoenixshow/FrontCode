@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>jQuery动画</title>
+	<style type="text/css">
+		.box{
+			width: 100px;
+			height: 100px;
+			background-color: gold;
+		}
+	</style>
+	<script type="text/javascript" src="js/jquery-1.12.4.min.js"></script>
+	<script type="text/javascript">
+		$(function(){
+			/*
+			参数：
+			1、什么属性做动画，属性设置{param1: value1, param2: value2}
+			2、动画执行的时间，单位毫秒
+			3、动画曲线：
+				swing（默认值）开始和结束慢，中间快
+				linear匀速
+				可省略不写
+			4、回调函数，动画完成之后要做的事情，可无限嵌套
+			*/
+			$('#div1').animate({
+				width: 200,
+				height: 200},
+				1000,
+				function(){
+					// alert('动画完了！');
+					$(this).animate(
+						{marginLeft: 500},
+						1000,
+						function(){
+							$(this).animate(
+								{marginTop: 500},
+								1000
+							)
+						}
+					)
+				}
+			);
+		})
+	</script>
+</head>
+<body>
+	<div id="div1" class="box"></div>
+</body>
+</html>

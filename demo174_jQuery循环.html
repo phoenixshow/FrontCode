@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>jQuery循环</title>
+	<style type="text/css">
+		
+	</style>
+	<script type="text/javascript" src="js/jquery-1.12.4.min.js"></script>
+	<script type="text/javascript">
+		$(function(){
+			// //给全部的li设置内容和样式
+			// $('.list li').html('111');
+			// $('.list li').css({background:'gold'});
+
+			//第一个参数index是索引值
+			$('.list li').each(function(index) {
+				// alert(index);//弹出索引值
+				
+				//$(this)是每一个li
+				$(this).html(index);
+			});
+		})
+	</script>
+</head>
+<body>
+	<ul class="list">
+		<li></li>
+		<li></li>
+		<li></li>
+		<li></li>
+		<li></li>
+		<li></li>
+		<li></li>
+		<li></li>
+	</ul>
+</body>
+</html>
