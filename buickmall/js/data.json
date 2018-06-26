@@ -1,0 +1,17 @@
+{
+	"code":200,
+	"data":{
+		"name":"李念",
+		"age":18,
+		"info":
+		[
+			"female",
+			"student",
+			{
+				"front":["js","css","html"],
+				"back":["Python"]
+			}
+		]
+	},
+	"msg":"成功"
+}

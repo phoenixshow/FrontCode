@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>ajax</title>
+	<style type="text/css">
+		
+	</style>
+	<script type="text/javascript" src="js/jquery-1.12.4.min.js"></script>
+	<script type="text/javascript">
+		$.ajax({
+			url: 'data.json',//请求的服务器路径，实际开发中写文档接口的路径
+			type: 'get',//分get/post请求
+			dataType: 'json',//要读取什么格式的数据，xml script html upload
+			// data:{page:1}//请求时要携带的参数
+		})
+		.done(function(data){//成功的时候会执行的函数
+			alert(data.name);
+			console.log(data);
+		})
+		.fail(function(){//失败的时候
+			console.log("error");
+		})
+		/*.always(function(){//不论成功与否都会执行
+			console.log("always");
+		})*/;
+	</script>
+</head>
+<body>
+	
+</body>
+</html>

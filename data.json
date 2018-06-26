@@ -1,0 +1,5 @@
+{
+	"name":"tom",
+	"age":18,
+	"info":["male","dev",{"html":"A","js":"B"}]
+}

@@ -1,0 +1,397 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+
+		<title>别克汇-首页</title>
+
+		<link rel="stylesheet" href="css/bootstrap.css" />
+		<link rel="stylesheet" href="css/index.css" />
+		<script type="text/javascript" src="js/jquery.js"></script>
+		<script type="text/javascript" src="js/bootstrap.js"></script>
+		<script type="text/javascript">
+			$.ajax({
+				url:'js/data.json',
+				type: 'get',
+				dataType: 'json'
+			})
+			.done(function(data){
+				if(data.code == 200){
+					$('#logout em').html(data.data.name);
+					$('#login').addClass('hidden');
+					$('#logout').addClass('show');
+				}
+			})
+			.fail(function(){
+				// console.log("error");
+				alert('连接超时！请重试');
+			})
+		</script>
+	</head>
+
+	<body class="index_bg">
+		<div class="titlebar">
+			<div class="container">
+
+				<div class="row">
+					<div class="col-lg-4 col-lg-offset-2 col-md-4 col-md-offset-2 col-sm-4 col-sm-offset-2 col-xs-4 col-xs-offset-2">
+						<span class="glyphicon glyphicon-map-marker"></span>北京
+					</div>
+					<div class="col-lg-6 col-md-6 col-sm-6 col-xs-6" id="login">
+						<a href="login.html">你好，请登陆</a> |
+						<a href="register.html" class="style-red">免费注册</a>
+					</div><!--  -->
+					<!--  -->
+					<div class="col-lg-6 col-md-6 col-sm-6 col-xs-6" id="logout">
+						<a href="login.html">欢迎你，<em></em></a> |
+						<a href="orders.html" class="jd-red">我的订单</a> |
+						<a href="#">退出</a>
+					</div>
+				</div>
+
+			</div>
+		</div>
+		<div class="container">
+			<form class="navbar-form navbar-left top-seach">
+				<div class="form-group">
+					<div class="input-group">
+						<input type="text" class="form-control" placeholder="搜索别客汇商城商品">
+						<span class="input-group-btn">
+				            <button class="btn btn-danger"><span class="glyphicon glyphicon-search"></span></button>
+				        </span>
+					</div>
+				</div>
+			</form>
+		</div>
+		<div class="container">
+			<div class="row">
+				<div class="col-md-2 hidden-xs column modify-padding">
+					<ul class="list-group">
+						<a href="list.html" class="list-group-item modify-bg-color">家用电器</a>
+						<a href="list.html" class="list-group-item modify-bg-color">手机 / 运营商 / 数码</a>
+						<a href="list.html" class="list-group-item modify-bg-color">电脑 / 办公</a>
+						<a href="list.html" class="list-group-item modify-bg-color">家居 / 家具</a>
+						<a href="list.html" class="list-group-item modify-bg-color">美妆 / 宠物</a>
+						<a href="list.html" class="list-group-item modify-bg-color">运动 / 户外</a>
+						<a href="list.html" class="list-group-item modify-bg-color">汽车 / 汽车用品</a>
+						<a href="list.html" class="list-group-item modify-bg-color">礼品鲜花 / 农资绿植</a>
+						<a href="list.html" class="list-group-item modify-bg-color">图书 / 电子书</a>
+						<a href="list.html" class="list-group-item modify-bg-color">机票 / 酒店 / 旅游</a>
+						<a href="list.html" class="list-group-item modify-bg-color">理财 / 众筹</a>
+					</ul>
+				</div>
+				<div class="col-md-8 column modify-padding">
+					<div class="row">
+						<div class="col-md-12">
+							<div id="myCarousel" class="carousel slide" data-ride="carousel">
+
+								<ol class="carousel-indicators">
+									<li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+									<li data-target="#myCarousel" data-slide-to="1"></li>
+									<li data-target="#myCarousel" data-slide-to="2"></li>
+									<li data-target="#myCarousel" data-slide-to="3"></li>
+								</ol>
+
+								<div class="carousel-inner">
+									<div class="item active">
+										<img class="lunbo" src="img/banner1.jpg" alt="First slide">
+
+									</div>
+									<div class="item">
+										<img class="lunbo" src="img/banner2.jpg" alt="Second slide">
+
+									</div>
+									<div class="item">
+										<img class="lunbo" src="img/banner3.jpg" alt="Third slide">
+
+									</div>
+									<div class="item">
+										<img class="lunbo" src="img/banner4.jpg" alt="Fourth slide">
+
+									</div>
+								</div>
+
+								<a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev">
+								    <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+								    <span class="sr-only">Previous</span>
+								</a>
+								<a class="right carousel-control" href="#myCarousel" role="button" data-slide="next">
+								    <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+								    <span class="sr-only">Next</span>
+								</a>
+							</div>
+
+						</div>
+						<div class="col-md-6">
+							<a href="list.html" class="thumbnail thumbnail_anim thumbnail_anim border-padding">
+								<img src="img/small-2.jpg" alt="...">
+
+							</a>
+						</div>
+						<div class="col-md-6">
+							<a href="list.html" class="thumbnail thumbnail_anim thumbnail_anim border-padding">
+								<img src="img/small-1.jpg" alt="...">
+
+							</a>
+						</div>
+					</div>
+				</div>
+				<div class="col-md-2 hidden-xs column modify-padding white_bg">
+
+					<center class="show">
+						<img src="img/4.jpg" alt="头像" class="img-circle">
+					</center>
+					<center class="hidden">
+						<img src="img/4-4.jpg" alt="头像" class="img-circle">
+					</center>
+					<center class="margin-tb-ten show">
+						<a href="login.html" class="btn btn-primary active">登陆</a>
+						<a href="register.html" class="btn btn-danger active">注册</a>
+					</center>
+					<center class="margin-tb-ten hidden">
+						<a href="#" class="btn btn-primary active">个人中心</a>
+						<a href="register.html" class="btn btn-danger active">我的订单</a>
+					</center>
+					<center>
+						<div class="service">
+							<div class="service_entry">
+								<ul class="service_list">
+									<li class="col-md-4 col-xs-1 service_item service_frame mod_tab_head_item"><a href="" class="service_lk"><span class="service_ico service_ico_huafei"></span><span class="service_txt">话费</span></a></li>
+									<li class="col-md-4 col-xs-1 service_item service_frame mod_tab_head_item"><a href="" class="service_lk"><span class="service_ico service_ico_jipiao"></span><span class="service_txt">机票</span></a></li>
+									<li class="col-md-4 col-xs-1 service_item service_frame mod_tab_head_item"><a href="" class="service_lk"><span class="service_ico service_ico_jiudian"></span><span class="service_txt">酒店</span></a></li>
+									<li class="col-md-4 col-xs-1 service_item service_frame mod_tab_head_item"><a href="" class="service_lk"><span class="service_ico service_ico_huoche"></span><span class="service_txt">火车票</span></a></li>
+									<li class="col-md-4 col-xs-1 service_item"><a href="" class="service_lk"><span class="service_ico service_ico_qyg"></span><span class="service_txt">企业购</span></a></li>
+									<li class="col-md-4 col-xs-1 service_item"><a href="" class="service_lk"><span class="service_ico service_ico_jiayou"></span><span class="service_txt">加油卡</span></a></li>
+									<li class="col-md-4 col-xs-1 service_item"><a href="" class="service_lk"><span class="service_ico service_ico_dianying"></span><span class="service_txt">电影票</span></a></li>
+									<li class="col-md-4 col-xs-1 service_item"><a href="" class="service_lk"><span class="service_ico service_ico_youxi"></span><span class="service_txt">游戏</span></a></li>
+									<li class="col-md-4 col-xs-1 service_item"><a href="" class="service_lk"><span class="service_ico service_ico_zhongchou"></span><span class="service_txt">众筹</span></a></li>
+									<li class="col-md-4 col-xs-1 service_item"><a href="" class="service_lk"><span class="service_ico service_ico_licai"></span><span class="service_txt">理财</span></a></li>
+									<li class="col-md-4 col-xs-1 service_item"><a href="" class="service_lk"><span class="service_ico service_ico_lipin"></span><span class="service_txt">礼品卡</span></a></li>
+									<li class="col-md-4 col-xs-1 service_item"><a href="" class="service_lk"><span class="service_ico service_ico_baitiao"></span><span class="service_txt">白条</span></a></li>
+								</ul>
+							</div>
+						</div>
+					</center>
+				</div>
+			</div>
+
+		</div>
+		<div class="container">
+			<div class="row">
+				<div class="col-md-6 pding_noleft chn_col1">
+					<div class="panel panel-danger">
+						<div class="panel-heading jd-style-head">
+							<h3 class="jd-style-font panel-title">爆款推荐</h3>
+						</div>
+						<div class="panel-body">
+
+							<div class="col-md-4 col-xs-6 column modify-padding border-right more_info">
+								<a href="detail.html" class="thumbnail thumbnail_anim border-padding">
+									<img src="img/1.jpg" alt="...">
+									<div class="caption">
+
+										<p>欧莱雅（LOREAL）奇焕光彩粉嫩透亮修颜霜 30ml（欧莱雅彩妆 BB霜 粉BB 遮瑕疵 隔离）</p>
+										<p class="info_price">￥119.00</p>
+									</div>
+								</a>
+							</div>
+							<div class="col-md-4 col-xs-6 column modify-padding border-right more_info">
+								<a href="detail.html" class="thumbnail thumbnail_anim border-padding">
+									<img src="img/1.jpg" alt="...">
+									<div class="caption">
+
+										<p>欧莱雅（LOREAL）奇焕光彩粉嫩透亮修颜霜 30ml（欧莱雅彩妆 BB霜 粉BB 遮瑕疵 隔离）</p>
+										<p class="info_price">￥119.00</p>
+									</div>
+								</a>
+							</div>
+							<div class="col-md-4 col-xs-6 column modify-padding more_info">
+								<a href="detail.html" class="thumbnail thumbnail_anim border-padding">
+									<img src="img/1.jpg" alt="...">
+									<div class="caption">
+
+										<p>欧莱雅（LOREAL）奇焕光彩粉嫩透亮修颜霜 30ml（欧莱雅彩妆 BB霜 粉BB 遮瑕疵 隔离）</p>
+										<p class="info_price">￥119.00</p>
+									</div>
+								</a>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="col-md-6 pding_noright chn_col2">
+					<div class="panel panel-danger ">
+						<div class="panel-heading jd-style-head">
+							<h3 class="jd-style-font panel-title">车载必备</h3>
+						</div>
+						<div class="panel-body">
+							<div class="col-md-4 col-xs-6 column modify-padding border-right more_info">
+								<a href="detail.html" class="thumbnail thumbnail_anim border-padding">
+									<img src="img/1.jpg" alt="...">
+									<div class="caption">
+										<p>欧莱雅（LOREAL）奇焕光彩粉嫩透亮修颜霜 30ml（欧莱雅彩妆 BB霜 粉BB 遮瑕疵 隔离）</p>
+										<p class="info_price">￥119.00</p>
+									</div>
+								</a>
+							</div>
+							<div class="col-md-4 col-xs-6 column modify-padding border-right more_info">
+								<a href="detail.html" class="thumbnail thumbnail_anim border-padding">
+									<img src="img/1.jpg" alt="...">
+									<div class="caption">
+										<p>欧莱雅（LOREAL）奇焕光彩粉嫩透亮修颜霜 30ml（欧莱雅彩妆 BB霜 粉BB 遮瑕疵 隔离）</p>
+										<p class="info_price">￥119.00</p>
+									</div>
+								</a>
+							</div>
+							<div class="col-md-4 col-xs-6 column modify-padding more_info">
+								<a href="detail.html" class="thumbnail thumbnail_anim border-padding">
+									<img src="img/1.jpg" alt="...">
+									<div class="caption">
+										<p>欧莱雅（LOREAL）奇焕光彩粉嫩透亮修颜霜 30ml（欧莱雅彩妆 BB霜 粉BB 遮瑕疵 隔离）</p>
+										<p class="info_price">￥119.00</p>
+									</div>
+								</a>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="row">
+				<div class="panel panel-danger chn_col3">
+					<div class="panel-heading jd-style-head">
+						<h3 class="jd-style-font panel-title">品质生活</h3>
+					</div>
+					<div class="panel-body">
+						<div class="col-md-2 col-xs-6 column modify-padding more_info">
+							<a href="detail.html" class="thumbnail thumbnail_anim border-padding">
+								<img src="img/1.jpg" alt="...">
+								<div class="caption">
+									<p>欧莱雅（LOREAL）奇焕光彩粉嫩透亮修颜霜 30ml（欧莱雅彩妆 BB霜 粉BB 遮瑕疵 隔离）</p>
+								<p class="info_price">￥119.00</p>
+								</div>
+							</a>
+						</div>
+						<div class="col-md-2 col-xs-6 column modify-padding more_info">
+							<a href="detail.html" class="thumbnail thumbnail_anim border-padding">
+								<img src="img/1.jpg" alt="...">
+								<div class="caption">
+									<p>欧莱雅（LOREAL）奇焕光彩粉嫩透亮修颜霜 30ml（欧莱雅彩妆 BB霜 粉BB 遮瑕疵 隔离）</p>
+								<p class="info_price">￥119.00</p>
+								</div>
+							</a>
+						</div>
+						<div class="col-md-2 col-xs-6 column modify-padding more_info">
+							<a href="detail.html" class="thumbnail thumbnail_anim border-padding">
+								<img src="img/1.jpg" alt="...">
+								<div class="caption">
+									<p>欧莱雅（LOREAL）奇焕光彩粉嫩透亮修颜霜 30ml（欧莱雅彩妆 BB霜 粉BB 遮瑕疵 隔离）</p>
+								<p class="info_price">￥119.00</p>
+								</div>
+							</a>
+						</div>
+						<div class="col-md-2 col-xs-6 column modify-padding more_info">
+							<a href="detail.html" class="thumbnail thumbnail_anim border-padding">
+								<img src="img/1.jpg" alt="...">
+								<div class="caption">
+									<p>欧莱雅（LOREAL）奇焕光彩粉嫩透亮修颜霜 30ml（欧莱雅彩妆 BB霜 粉BB 遮瑕疵 隔离）</p>
+								<p class="info_price">￥119.00</p>
+								</div>
+							</a>
+						</div>
+						<div class="col-md-2 col-xs-6 column modify-padding more_info">
+							<a href="detail.html" class="thumbnail thumbnail_anim border-padding">
+								<img src="img/1.jpg" alt="...">
+								<div class="caption">
+									<p>欧莱雅（LOREAL）奇焕光彩粉嫩透亮修颜霜 30ml（欧莱雅彩妆 BB霜 粉BB 遮瑕疵 隔离）</p>
+								<p class="info_price">￥119.00</p>
+								</div>
+							</a>
+						</div>
+						<div class="col-md-2 col-xs-6 column modify-padding more_info">
+							<a href="detail.html" class="thumbnail thumbnail_anim border-padding">
+								<img src="img/1.jpg" alt="...">
+								<div class="caption">
+									<p>欧莱雅（LOREAL）奇焕光彩粉嫩透亮修颜霜 30ml（欧莱雅彩妆 BB霜 粉BB 遮瑕疵 隔离）</p>
+								<p class="info_price">￥119.00</p>
+								</div>
+							</a>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="row ftit">
+				<div class="ftit_inner">
+					<h3>猜你喜欢</h3>
+				</div>
+				<div class="col-md-2 col-xs-4 column modify-padding">
+					<a href="#" class="thumbnail thumbnail_anim">
+						<img src="img/1.jpg" alt="...">
+						<div class="caption">
+							<center>
+							<p>欧莱雅（LOREAL）奇焕光彩粉嫩透亮修颜霜 30ml（欧莱雅彩妆 BB霜 粉BB 遮瑕疵 隔离）</p>
+							<p class="info_price">￥119.00</p>
+							</center>
+						</div>
+					</a>
+				</div>
+				<div class="col-md-2 col-xs-4 column modify-padding">
+					<a href="#" class="thumbnail thumbnail_anim">
+						<img src="img/1.jpg" alt="...">
+						<div class="caption">
+							<center>
+							<p>欧莱雅（LOREAL）奇焕光彩粉嫩透亮修颜霜 30ml（欧莱雅彩妆 BB霜 粉BB 遮瑕疵 隔离）</p>
+							<p class="info_price">￥119.00</p>
+							</center>
+						</div>
+					</a>
+				</div>
+				<div class="col-md-2 col-xs-4 column modify-padding">
+					<a href="#" class="thumbnail thumbnail_anim">
+						<img src="img/1.jpg" alt="...">
+						<div class="caption">
+							<center>
+							<p>欧莱雅（LOREAL）奇焕光彩粉嫩透亮修颜霜 30ml（欧莱雅彩妆 BB霜 粉BB 遮瑕疵 隔离）</p>
+							<p class="info_price">￥119.00</p>
+							</center>
+						</div>
+					</a>
+				</div>
+				<div class="col-md-2 col-xs-4 column modify-padding">
+					<a href="#" class="thumbnail thumbnail_anim">
+						<img src="img/1.jpg" alt="...">
+						<div class="caption">
+							<center>
+							<p>欧莱雅（LOREAL）奇焕光彩粉嫩透亮修颜霜 30ml（欧莱雅彩妆 BB霜 粉BB 遮瑕疵 隔离）</p>
+							<p class="info_price">￥119.00</p>
+							</center>
+						</div>
+					</a>
+				</div>
+				<div class="col-md-2 col-xs-4 column modify-padding">
+					<a href="#" class="thumbnail thumbnail_anim">
+						<img src="img/1.jpg" alt="...">
+						<div class="caption">
+							<center>
+							<p>欧莱雅（LOREAL）奇焕光彩粉嫩透亮修颜霜 30ml（欧莱雅彩妆 BB霜 粉BB 遮瑕疵 隔离）</p>
+							<p class="info_price">￥119.00</p>
+							</center>
+						</div>
+					</a>
+				</div>
+				<div class="col-md-2 col-xs-4 column modify-padding">
+					<a href="#" class="thumbnail thumbnail_anim">
+						<img src="img/1.jpg" alt="...">
+						<div class="caption">
+							<center>
+							<p>欧莱雅（LOREAL）奇焕光彩粉嫩透亮修颜霜 30ml（欧莱雅彩妆 BB霜 粉BB 遮瑕疵 隔离）</p>
+							<p class="info_price">￥119.00</p>
+							</center>
+						</div>
+					</a>
+				</div>
+			</div>
+		</div>
+	</body>
+
+</html>
