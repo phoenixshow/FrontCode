@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>事件委托</title>
+	<style type="text/css">
+		.list{
+			list-style: none;
+		}
+
+		.list li{
+			height: 30px;
+			background-color: green;
+			margin-bottom: 10px;
+			color: #fff;
+		}
+	</style>
+	<script type="text/javascript" src="js/jquery-1.12.4.min.js"></script>
+	<script type="text/javascript">
+		$(function(){
+			/*
+			给每个li绑定事件，一共绑定了8次，性能不高
+			$('.list li').click(function() {
+				alert($(this).html());
+			});
+			*/
+
+			/*
+			事件委托：方法delegate，只绑定一次事件，冒泡触发
+				参数：
+					selector选择器：写入ul下面的所有要发生事件的元素，多个元素用空格隔开，例如‘li a span’
+					eventType事件
+					function要执行的操作
+			
+			$('.list').delegate('li', 'click', function() {
+				//$(this)指发生事件的子集，即每个li
+				alert($(this).html());
+
+				//取消委托
+				$('.list').undelegate();
+			});
+		})
+	</script>
+</head>
+<body>
+	<ul class="list">
+		<li>1</li>
+		<li>2</li>
+		<li>3</li>
+		<li>4</li>
+		<li>5</li>
+		<li>6</li>
+		<li>7</li>
+		<li>8</li>
+	</ul>
+</body>
+</html>
