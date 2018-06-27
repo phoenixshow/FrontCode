@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>jsonp公开接口</title>
+	<style type="text/css">
+		
+	</style>
+	<script type="text/javascript" src="js/jquery-1.12.4.min.js"></script>
+	<script type="text/javascript">
+		//360搜索的公开接口
+		//https://sug.so.360.cn/suggest?callback=suggest_so&encodein=utf-8&encodeout=utf-8&format=json&fields=word&word=s
+
+		$(function(){
+			$('#txt01').keyup(function(){
+				var val = $(this).val();
+
+				$.ajax({
+					url: 'https://sug.so.360.cn/suggest?',//请求360搜索的公开接口
+					type: 'get',
+					dataType: 'jsonp',//跨域请求
+					data: {word: val}//携带参数
+				})
+				.done(function(data) {
+					console.log(data);
+					// alert(data.s.length);//10条数据
+
+					$('.list').empty();//先清空列表
+
+					//模拟搜索联想，循环插入新列表
+					for(var i=0; i<data.s.length; i++){
+						var $li = $('<li>'+data.s[i]+'</li>');
+						$li.prependTo('.list');
+					}
+				})
+				.fail(function() {
+					console.log("error");
+				});
+			})
+		})
+		
+	</script>
+</head>
+<body>
+	<input type="text" id="txt01">
+	<ul class="list"></ul>
+</body>
+</html>

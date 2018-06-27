@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>jQuery-jsonp</title>
+	<style type="text/css">
+		
+	</style>
+	<script type="text/javascript" src="js/jquery-1.12.4.min.js"></script>
+	<script type="text/javascript">
+		$.ajax({
+			url: 'http://localhost:8080/1803/js/data.js',//跨域请求的地址，也可用相对路径js/data.js
+			type: 'get',
+			dataType: 'jsonp',//使用jsonp跨域请求
+			jsonpCallback:'aa'
+		})
+		.done(function(data) {
+			alert(data.name);
+		})
+		.fail(function() {
+			console.log("error");
+		});
+	</script>
+</head>
+<body>
+	
+</body>
+</html>
