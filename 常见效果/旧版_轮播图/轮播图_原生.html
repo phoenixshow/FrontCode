@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>焦点轮播图</title>
+  <style type="text/css">
+    /*去除内边距,没有链接下划线*/
+    * {
+      margin: 0;
+      padding: 0;
+      text-decoration: none;
+    }
+
+    /*让<body有20px的内边距*/
+    body {
+      padding: 20px;
+    }
+
+    /*最外围的div*/
+    #container {
+      width: 600px;
+      height: 400px;
+      overflow: hidden;
+      position: relative; /*相对定位*/
+      margin: 0 auto;
+    }
+
+    /*包含所有图片的<div>*/
+    #list {
+      width: 4200px; /*7张图片的宽*/
+      height: 400px;
+      position: absolute; /*绝对定位*/
+      z-index: 1; /*???*/
+    }
+
+    /*所有的图片<img>*/
+    #list img {
+      float: left; /*浮在左侧*/
+    }
+
+    /*包含所有圆点按钮的<div>*/
+    #buttons {
+      position: absolute;
+      height: 10px;
+      width: 100px;
+      z-index: 2;
+      bottom: 20px;
+      left: 250px;
+    }
+
+    /*所有的圆点<span>*/
+    #buttons span {
+      cursor: pointer;
+      float: left;
+      border: 1px solid #fff;
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background: #333;
+      margin-right: 5px;
+    }
+
+    /*第一个<span>*/
+    #buttons .on {
+      background: orangered;
+    }
+
+    /*切换图标<a>*/
+    .arrow {
+      cursor: pointer;
+      display: none;
+      line-height: 39px;
+      text-align: center;
+      font-size: 36px;
+      font-weight: bold;
+      width: 40px;
+      height: 40px;
+      position: absolute;
+      z-index: 2;
+      top: 180px;
+      background-color: RGBA(0, 0, 0, 0.3);
+      color: #fff;
+    }
+
+    /*鼠标移到切换图标上时*/
+    .arrow:hover {
+      background-color: RGBA(0, 0, 0, 0.7);
+    }
+
+    /*鼠标移到整个div区域时*/
+    #container:hover .arrow {
+      display: block; /*显示*/
+    }
+
+    /*上一个切换图标的左外边距*/
+    #prev {
+      left: 20px;
+    }
+
+    /*下一个切换图标的右外边距*/
+    #next {
+      right: 20px;
+    }
+  </style>
+</head>
+<body>
+
+<div id="container">
+  <div id="list" style="left: -600px;">
+    <img src="img/5.jpg" alt="1"/>
+    <img src="img/1.jpg" alt="1"/>
+    <img src="img/2.jpg" alt="2"/>
+    <img src="img/3.jpg" alt="3"/>
+    <img src="img/4.jpg" alt="4"/>
+    <img src="img/5.jpg" alt="5"/>
+    <img src="img/1.jpg" alt="5"/>
+  </div>
+  <div id="buttons">
+    <span index="1" class="on"></span>
+    <span index="2"></span>
+    <span index="3"></span>
+    <span index="4"></span>
+    <span index="5"></span>
+  </div>
+  <a href="javascript:;" id="prev" class="arrow">&lt;</a>
+  <a href="javascript:;" id="next" class="arrow">&gt;</a>
+</div>
+<script type="text/javascript">
+  /*
+   功能说明:
+   1. 点击向右(左)的图标, 平滑切换到下(上)一页
+   2. 无限循环切换: 第一页的上一页为最后页, 最后一页的下一页是第一页
+   3. 每隔3s自动滑动到下一页
+   4. 当鼠标进入图片区域时, 自动切换停止, 当鼠标离开后,又开始自动切换
+   5. 切换页面时, 下面的圆点也同步更新
+   6. 点击圆点图标切换到对应的页
+   */
+  /**
+   * 根据id得到对应的标签对象
+   * @param {Object} id
+   */
+  function $(id) {
+    return document.getElementById(id);
+  }
+  /**
+   * 给指定id对应的元素绑定点击监听
+   * @param {Object} id
+   * @param {Object} callback
+   */
+  function click(id, callback) {
+    $(id).onclick = callback;
+  }
+
+  window.onload = function () {
+
+    var listDiv = $("list");
+    var totalTime = 400;//换页的总时间
+    var intervalTime = 20;//移动的间隔时间
+    var intervalId;//循环定时器的id(翻页中的不移动)
+    var imgCount = 5; //图片的个数
+    var moveing = false; //是否正在移动中
+    var index = 0;//当前显示图片的下标(从0开始到imgCount-1)
+    var buttonSpans = $("buttons").children; //所有标识圆点标签的集合
+    var containerDiv = $("container");
+    var intervalId2; //循环定时器的id(自动翻页)
+
+    //给下一页绑定点击监听
+    click("next", function () {
+      //切换到下一页
+      nextPage(true);
+    });
+
+    //给上一页绑定点击监听
+    click("prev", function () {
+      //切换到上一页
+      nextPage(false);
+    });
+
+    //给所有的提示圆点绑定点击监听
+    clickButtons();
+
+    //启动定时自动翻页
+    autoNextPage();
+    //给容器div绑定鼠标移入的监听: 停止自动翻页
+    containerDiv.onmouseover = function () {
+      clearInterval(intervalId2);
+    }
+    //给容器div绑定鼠标移出的监听: 启动自动翻页
+    containerDiv.onmouseout = function () {
+      autoNextPage();
+    };
+
+    /**
+     * 启动定时自动翻页
+     */
+    function autoNextPage() {
+      intervalId2 = setInterval(function () {
+        nextPage(true);
+      }, 3000);
+    }
+
+    /**
+     * 切换到下一页/上一页
+     * true 下
+     * false 上
+     * index 目标页
+     * @param {Object} next true
+     */
+    function nextPage(next) {
+
+      //如果正在移动, 直接结束
+      if (moveing) {
+        return;
+      }
+      //标识正在移动
+      moveing = true;
+
+      //需要进行的总偏移量
+      var offset;
+      if (typeof next === 'boolean') {
+        offset = next ? -600 : 600;
+      } else {
+        offset = -600 * (next - index);
+      }
+      //var offset = next ? -600 : 600;
+      //每个小移动需要做的偏移量
+      var itemOffset = offset / (totalTime / intervalTime);
+      //切换完成时div的left的坐标
+      var targetLeft = listDiv.offsetLeft + offset;
+      //循环定时器
+      intervalId = setInterval(function () {
+        //var currentLeft = listDiv.offsetLeft;
+        //得到当前这次偏移的样式left坐标
+        var left = listDiv.offsetLeft + itemOffset;
+        //如果已经到达目标位置
+        if (left == targetLeft) {
+          //移除定时器
+          clearInterval(intervalId);
+
+          //如果当前到达的是最左边的图片, 跳转到右边第二张图片的位置
+          if (left == 0) {
+            left = -imgCount * 600;
+          } else if (left == -600 * (imgCount + 1)) {//如果当前到达的是最右边的图片, 跳转到左边第二张图片的位置
+            left = -600;
+          }
+          //标识没有移动了
+          moveing = false;
+        }
+        //指定div新的left坐标
+        listDiv.style.left = left + "px";
+      }, intervalTime);
+
+      //更新标识圆点
+      updateButtons(next);
+    }
+
+    /**
+     * 更新标识圆点
+     * @param {Object} next
+     */
+    function updateButtons(next) {
+      //将当前的圆点更新为一般圆点
+      buttonSpans[index].removeAttribute("class");
+      //计算出目标圆点的下标
+      var targetIndex;
+      if (typeof next == 'boolean') {
+        if (next) {
+          targetIndex = index + 1;
+          if (targetIndex == imgCount) {
+            targetIndex = 0;
+          }
+        } else {
+          targetIndex = index - 1;
+          if (targetIndex == -1) {
+            targetIndex = imgCount - 1;
+          }
+        }
+      } else {
+        targetIndex = next;
+      }
+      //将标圆点的下标更新为当前下标
+      index = targetIndex;
+      //将目标圆点设置为当前圆点
+      buttonSpans[index].className = 'on';
+    }
+
+    /**
+     * 给所有的圆点设置点击监听
+     */
+    function clickButtons() {
+      for (var i = 0, length = buttonSpans.length; i < length; i++) {
+
+        buttonSpans[i].index = i;
+        buttonSpans[i].onclick = function () {
+          nextPage(this.index);
+        };
+
+        /*
+         (function (index) {
+         buttonSpans[index].onclick = function () {
+         nextPage(index);
+         };
+         })(i);
+         */
+      }
+    }
+  };
+</script>
+</body>
+</html>
