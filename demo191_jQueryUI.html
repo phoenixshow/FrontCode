@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>jQueryUI</title>
+	<style type="text/css">
+		.con{
+			width: 300px;
+			height: 300px;
+			border: 1px solid #000;
+			margin: 50px auto 0;
+		}
+		.box{
+			width: 50px;
+			height: 50px;
+			background-color: gold;
+			cursor: pointer;/*鼠标经过时指针为手的形状*/
+		}
+	</style>
+	<script type="text/javascript" src="js/jquery-1.12.4.min.js"></script>
+	<script type="text/javascript" src="js/jquery-ui.min.js"></script>
+	<script type="text/javascript">
+		$(function(){
+			//draggable()使盒子可以任意拖动
+			$('.box').draggable({
+				//约束元素在父级内拖动
+				containment:'parent',
+				//限制在X轴方向上可以拖动
+				axis:'x',
+				//拖动时透明度变为60%
+				opacity:0.6,
+				//可以返回拖动的参数
+				drag:function(ev,ui){
+					// console.log(ui);//json格式的对象，offset是绝对位置，position是相对父级的位置
+					console.log(ui.position.left);//从左到右是1到250
+				}
+			});
+		})
+	</script>
+</head>
+<body>
+	<div class="con">
+		<div class="box"></div>
+	</div>
+</body>
+</html>

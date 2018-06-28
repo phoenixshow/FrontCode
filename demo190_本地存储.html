@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>本地存储</title>
+	<style type="text/css">
+		
+	</style>
+	<script type="text/javascript" src="js/jquery-1.12.4.min.js"></script>
+	<script type="text/javascript">
+		//写入
+		//[{"id":1,"num":2,....},{}..]
+		localStorage.setItem('mystorage','ok!');
+
+		//读取
+		alert(localStorage.mystorage);//ok!
+
+		//写入
+		// sessionStorage.setItem('name','tom');
+
+		//读取
+		alert(sessionStorage.name);//tom//没有弹undefined
+
+
+		localStorage.setItem('mystorage','{"goods":["1","2"]}');
+	</script>
+</head>
+<body>
+	
+</body>
+</html>

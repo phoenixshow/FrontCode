@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>cookie</title>
+	<style type="text/css">
+		
+	</style>
+	<script type="text/javascript" src="js/jquery-1.12.4.min.js"></script>
+	<script type="text/javascript" src="js/jquery.cookie.js"></script>
+	<script type="text/javascript">
+		//cookie的读和写需要在服务器环境下
+		
+		//写cookie
+		//参数：名称、值、有效期几天、路径
+		$.cookie('mycookie','ok!',{expires:7,path:'/'});
+
+		//读cookie
+		var val = $.cookie('mycookie');
+		alert(val);//ok!
+	</script>
+</head>
+<body>
+	
+</body>
+</html>

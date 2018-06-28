@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+
+		<title>别克汇-注册</title>
+
+		<link rel="stylesheet" href="css/bootstrap.css" />
+		<link rel="stylesheet" href="css/index.css" />
+		<script type="text/javascript" src="js/jquery.min.js"></script>
+		<script type="text/javascript" src="js/bootstrap.js"></script>
+		<script type="text/javascript" src="js/register.js"></script>
+	</head>
+
+	<body>
+		<div class="header">
+			<div class="container">
+				<a href="index.html" class="logo"></a>
+				<div class="logo-title">欢迎注册</div>
+				<div class="have-account">
+					已有账号？&nbsp;&nbsp;<a href="login.html">请登录</a>
+				</div>
+			</div>
+		</div>
+		<div class="jumbotron">
+			<div class="container">
+			<form action="../075.target.html" method="post" class="form">
+				
+				<div class="form-group">
+					 <label for="username">注册账户：</label><span class="error_tip">提示信息</span>
+					 <input name="username" class="form-control" id="username" placeholder="注册账户"> 
+				</div>
+				
+				 <div class="form-group">
+					<label for="password1">密码：</label><span class="error_tip">提示信息</span>
+					<input name="password1" type="password" class="form-control" id="password1" placeholder="密码">
+				</div>
+				<div class="form-group">
+					<label for="password2">重复密码：</label><span class="error_tip">提示信息</span>
+					<input name="password2" type="password" class="form-control" id="password2" placeholder="重复密码">
+				</div> 
+				<div class="form-group">
+					<label for="email">邮箱：</label><span class="error_tip">提示信息</span>
+					<input name="email" type="text" class="form-control" id="email" placeholder="邮箱">
+				</div> 
+				<div class="form-group">
+					<input type="checkbox" name="allow" id="allow" checked="checked">
+					<label>同意“别克汇用户使用协议”</label>
+					<span class="error_tip2">提示信息</span>
+				</div> 
+				
+				<button type="submit" class="btn btn-default center-block">注册</button>
+			</form>
+			</div>
+		</div>
+		<div class="tail">
+			<center>
+				<p class="text-center">Copyright ©  2013-2015, All Rights Reserved版权所有 车享</p>
+				<p>沪ICP备14000481号</p>
+			</center>
+		</div>
+	</body>
+
+</html>
