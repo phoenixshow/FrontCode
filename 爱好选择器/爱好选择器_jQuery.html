@@ -1,0 +1,79 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <title>全选练习</title>
+</head>
+<body>
+
+<form>
+  你爱好的运动是？<input type="checkbox" id="checkedAllBox"/>全选/全不选
+
+  <br/>
+  <input type="checkbox" name="items" value="足球"/>足球
+  <input type="checkbox" name="items" value="篮球"/>篮球
+  <input type="checkbox" name="items" value="羽毛球"/>羽毛球
+  <input type="checkbox" name="items" value="乒乓球"/>乒乓球
+  <br/>
+  <input type="button" id="checkedAllBtn" value="全　选"/>
+  <input type="button" id="checkedNoBtn" value="全不选"/>
+  <input type="button" id="checkedRevBtn" value="反　选"/>
+  <input type="button" id="sendBtn" value="提　交"/>
+</form>
+
+<script type="text/javascript" src="js/jquery-1.12.4.js"></script>
+<script type="text/javascript">
+  /*
+   功能说明:
+   1. 点击'全选': 选中所有爱好
+   2. 点击'全不选': 所有爱好都不勾选
+   3. 点击'反选': 改变所有爱好的勾选状态
+   4. 点击'提交': 提示所有勾选的爱好
+   5. 点击'全选/全不选': 选中所有爱好, 或者全不选中
+   6. 点击某个爱好时, 必要时更新'全选/全不选'的选中状态
+   */
+  var $checkedAllBox = $('#checkedAllBox');
+  var $items = $(':checkbox[name=items]');
+
+  // 1. 点击'全选': 选中所有爱好
+  $('#checkedAllBtn').click(function () {
+    $items.prop('checked', true);
+    $checkedAllBox.prop('checked', true);
+  })
+
+  // 2. 点击'全不选': 所有爱好都不勾选
+  $('#checkedNoBtn').click(function () {
+    $items.prop('checked', false);
+    $checkedAllBox.prop('checked', false);
+  })
+
+  // 3. 点击'反选': 改变所有爱好的勾选状态
+  $('#checkedRevBtn').click(function () {
+    $items.each(function () {
+      this.checked = !this.checked;
+    })
+    // $checkedAllBox.prop('checked', $items.filter(':not(:checked)').length===0);
+    $checkedAllBox.prop('checked', $items.not(':checked').length===0);
+  })
+
+  //4. 点击'提交': 提示所有勾选的爱好
+  $('#sendBtn').click(function () {
+    $items.filter(':checked').each(function () {
+      alert(this.value);
+    })
+  })
+
+  // 5. 点击'全选/全不选': 选中所有爱好, 或者全不选中
+  $checkedAllBox.click(function () {
+    $items.prop('checked', this.checked);
+  })
+
+  // 6. 点击某个爱好时, 必要时更新'全选/全不选'的选中状态
+  $items.click(function () {
+    // $checkedAllBox.prop('checked', $items.filter(':not(:checked)').length===0);
+    $checkedAllBox.prop('checked', $items.not(':checked').length===0);
+  })
+</script>
+</body>
+
+</html>

@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>带图标的新闻列表</title>
+	<style type="text/css">
+		.news_list_con{
+			width: 600px;
+			height: 290px;
+			border: 1px solid #ddd;/* 外盒边框线 */
+			margin: 50px auto 0;/* 居中 */
+			overflow: hidden;/* 隐藏超出范围的最后一条新闻的下分割线 */
+		}
+		.news_list_con h3{
+			width: 560px;/* 比父元素少40px，居中后有两端各20边距的效果 */
+			height: 50px;
+			border-bottom: 1px solid #ddd;/* 标题下横线 */
+			margin: 0px auto;/* h3有默认的margin，能用F12观察到，需要去掉 */
+		}
+		/* 为了做红线效果，给标题加一个span */
+		.news_list_con h3 span{
+			float: left;
+			height: 50px;
+			border-bottom: 2px solid red;
+			font: 18px/50px 'Microsoft Yahei';
+			padding: 0 15px;
+			/* h3高50，span高50+边2比h3高，低版本浏览器可能不兼容，为了兼容，可设置相对定位 */
+			position: relative;
+		}
+		.news_list_con h3 a{
+			float: right;
+			font: 14px/14px 'Microsoft Yahei';/* 行高跟字号一样大，即不使用居中，因为一般更多在垂直方向上稍微偏下一点，设置margin-top即可 */
+			color: #666;
+			text-decoration: none;
+			margin-top: 25px;/* 使更多垂直方向偏下一点 */
+		}
+		.news_list_con h3 a:hover{
+			color: red;
+		}
+		.news_list_con ul{
+			list-style: none;
+			padding: 0;
+			width: 560px;
+			height: 238px;/* 290-52=238 */
+			margin: 7px auto 0;/* 第一个新闻与标题之间加7px间距，会导致最后一条新闻的下分割线超出外盒范围 */
+		}
+		.news_list_con ul li{
+			height: 38px;/* 238/6=39=38+1 */
+			border-bottom: 1px solid #ddd;
+			background: url(images/dot.gif) left center no-repeat;
+		}
+		.news_list_con ul a{
+			float: left;
+			height: 38px;
+			font: 14px/38px 'Microsoft Yahei';/* 行高居中 */
+			text-decoration: none;/* 去掉下划线 */
+			color: #000;
+			text-indent: 30px;/* 设置首行缩进，避免遮挡小点 */
+			background: url(images/icon.jpg) 5px center no-repeat;/* 使用left center图标会遮挡小点，所以用5px避让 */
+		}
+		.news_list_con ul a:hover{
+			color: red;
+		}
+		.news_list_con ul span{
+			float: right;
+			height: 38px;
+			font: 14px/38px 'Microsoft Yahei';/* 行高居中 */
+			color: #000;
+		}
+	</style>
+</head>
+<body>
+	<div class="news_list_con">
+		<h3><span>新闻列表</span><a href="#">更多&gt;&gt;</a></h3>
+		<ul>
+			<li><a href="">苹果要放大招了！用户齐吐槽iPhone X续航烂到家</a><span>2017-11-13</span></li>
+			<li><a href="">钟嘉欣将约满称首选还是 TVB 自曝想再生小宝宝</a><span>2017-11-13</span></li>
+			<li><a href="">共享单车押金难退用户求助黄牛 退298元要收130元</a><span>2017-11-13</span></li>
+			<li><a href="">两伊边境发生7级以上强震 盘点近年全球重大地震</a><span>2017-11-13</span></li>
+			<li><a href="">拍网剧、做直播、玩社交，50岁的TVB能否“华丽转身”？</a><span>2017-11-13</span></li>
+			<li><a href="">学习App涉黄抄袭问题多 “小黄文”被贴优秀作文标签</a><span>2017-11-13</span></li>
+		</ul>
+	</div>
+</body>
+</html>
