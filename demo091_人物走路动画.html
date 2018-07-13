@@ -7,31 +7,43 @@
 		.box{
 			width: 120px;
 			height: 182px;
-			border: 1px solid #000;
+			/*border: 1px solid black;*/
 			margin: 50px auto 0;
 			overflow: hidden;
 			position: relative;
+			animation: moving 2s linear infinite;
 		}
 		.box img{
 			position: absolute;
 			left: 0;
 			top: 0;
 			/*steps动画步数，图片有8帧，所以设置为8步*/
-			animation: walking 1s steps(8) infinite;
+			animation: walking 2s steps(16) infinite;
+		}
+		@keyframes moving{
+			0%{
+				transform: translate(0px,0px);/*位移*/
+			}
+			50%{
+				transform: translate(200px,0px);
+			}
+			100%{
+				transform: translate(0px,0px);
+			}
 		}
 		@keyframes walking{
 			from{
 				left: 0px;
 			}
 			to{
-				left: -960px;
+				left: -1920px;
 			}
 		}
 	</style>
 </head>
 <body>
 	<div class="box">
-		<img src="img/walking.png" alt="人物走路">
+		<img src="img/walking1.png" alt="人物走路">
 	</div>
 </body>
 </html>

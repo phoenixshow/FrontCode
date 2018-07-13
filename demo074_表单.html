@@ -16,6 +16,8 @@
 		form标签中必须指定一个action属性，该属性指向的是一个服务器的地址
 		当我们提交表单时将会提交到action属性对应的地址
 	 -->
+	<!--  设置请求方式：method="post" -->
+	<!--  需要上传文件时要加属性： enctype="multipart/form-data" -->
 	<form action="demo075_target.html">
 		<!-- 
 		使用form创建的仅仅是一个空白的表单，我们还需要向form中添加不同的表单项
@@ -44,6 +46,7 @@
 			该标签可以指定一个for属性，该属性的值需要指定一个表单项的id值
 			 -->
 			<label for="um">用户名</label>
+			<!-- value是默认值，提示信息用：placeholder="用户名/邮箱/手机号" -->
 			<input id="um" type="text" name="username" value="我是value"><br><br>
 
 			<!-- 
