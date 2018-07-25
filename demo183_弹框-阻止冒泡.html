@@ -2,18 +2,80 @@
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
-	<title>弹框-阻止冒泡</title>
+	<title>定时器弹框</title>
 	<style type="text/css">
-		
+		.pop_con{
+			display: none;/*默认不显示，用定时器显示*/
+		}
+		.pop{
+			width: 400px;
+			height: 300px;
+			background-color: #fff;
+			border: 1px solid #000;
+			position: fixed;/*使用固定定位*/
+			left: 50%;/*左上角位于页面中心*/
+			top: 50%;
+			margin-left: -200px;/*让div向左偏移半个宽度、向上偏移半个高度，使div位于页面中心*/
+			margin-top: -150px;
+			z-index: 9999;/*弹窗在最前面*/
+		}
+		/*遮罩样式*/
+		.mask{
+			position: fixed;
+			width: 100%;
+			height: 100%;
+			background-color: #000;
+			left: 0;
+			top: 0;
+			/*设置透明度30%，兼容IE6、7、8*/
+			opacity: 0.3;
+			filter: alpha(opacity=30);
+			z-index: 9990;/*遮罩在弹窗后面*/
+		}
 	</style>
 	<script type="text/javascript" src="js/jquery-1.12.4.min.js"></script>
 	<script type="text/javascript">
 		$(function(){
+			$('#btn').click(function() {
+				$('#pop').show();
+				return false;
+			});
+			$('#shutoff').click(function() {
+				$('#pop').hide();
+			});
+			//点弹框以外的地方，也能让弹框消失
+			$(document).click(function(){
+				// setTimeout(function(){
+				// 	$('#pop').hide();
+				// },2000);
 
+				$('#pop').hide();
+			});
+			$('.pop').click(function() {
+				return false;
+			});
+			
+			//阻止默认行为（原来超链接可跳转到百度，阻止后无法跳转）
+			$('#link1').click(function() {
+				return false;
+			});
 		})
 	</script>
 </head>
 <body>
-	
+	<h1>首页标题</h1>
+	<p>页面内容</p>
+	<a href="http://www.baidu.com" id="link1">百度网</a>
+	<input type="button" name="" value="弹出" id="btn">
+
+	<div class="pop_con" id="pop">
+		<div class="pop">
+			<h3>提示信息！</h3>
+			<a href="#" id="shutoff">关闭</a>
+			<input type="text" name="">
+		</div>
+		<!-- 遮罩层 -->
+		<div class="mask"></div>
+	</div>
 </body>
 </html>
