@@ -85,7 +85,10 @@
 				//根据class属性的值判断点的是删除还是排序
 				switch(handler){
 					case 'del'://删除
-						$(this).parent().remove();
+						var txt = $(this).parent().children(':first').html();
+						if(confirm('你确定要删除"'+txt+'"吗？')){
+							$(this).parent().remove();
+						}
 						break;
 					case 'up'://向上
 						//如果当前元素之前的元素长度为0，说明前边没有其它元素了
