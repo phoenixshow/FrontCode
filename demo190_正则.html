@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>正则</title>
+	<style type="text/css">
+		
+	</style>
+	<script type="text/javascript" src="js/jquery-1.12.4.min.js"></script>
+	<script type="text/javascript">
+		//校验QQ
+		/*
+		//JS的方式比较麻烦
+		function checkQQ(qq){
+			var flag = true;//默认符合要求
+			if(qq.length>=5 && qq.length<=15){
+				if(qq.indexOf("0")){
+					if(isNaN(qq)){
+						flag = false;//不是数字
+					}
+				}else{
+					flag = false;//以0开头，不符合QQ标准
+				}
+			}else{
+				flag = false;//长度不符合
+			}
+			return flag;
+		}
+
+		console.log(checkQQ("012345"));
+		console.log(checkQQ("a12b345"));
+		console.log(checkQQ("123456"));//true
+		console.log(checkQQ("1234567890987654321"));
+		*/
+
+		//正则匹配简单高效
+		var regex = /^[1-9]\d{4,14}$/;
+		
+		console.log(regex.test("012345"));
+		console.log(regex.test("a12b345"));
+		console.log(regex.test("123456"));//true
+		console.log(regex.test("1234567890987654321"));
+	</script>
+</head>
+<body>
+	
+</body>
+</html>

@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>正则表达式</title>
+	<style type="text/css">
+		
+	</style>
+	<script type="text/javascript" src="js/jquery-1.12.4.min.js"></script>
+	<script type="text/javascript">
+		//匹配字母a，i表示忽略大小写，g表示全文检索
+		var re = new RegExp('a', 'ig');
+		var re2 = /a/ig;
+
+		var str = 'abc';
+		//调用test方法进行匹配，匹配成功返回true，否则返回false
+		// alert(re2.test(str));//true
+
+		//匹配字母ac，忽略大小写，全文检索
+		re2 = /ac/ig;
+		// alert(re2.test(str));//false
+
+		//匹配数字
+		var re3 = /\d/;
+		var str3 = '123';
+		// alert(re3.test(str3));//true
+
+		str3 = '123ab1';
+		// alert(re3.test(str3));//true
+
+		//匹配数字，全文检索
+		re3 = /\d/g;
+		// alert(re3.test(str3));//true
+
+		//匹配数字开头并结尾
+		re3 = /^\d$/;
+		// alert(re3.test(str3));//false
+
+		//匹配从开头到结尾有一个或多个数字
+		re3 = /^\d+$/;
+		// alert(re3.test(str3));//false
+
+		//匹配数字、字母、下划线
+		var re4 = /\w/;
+		var str4 = '@asd';
+		// alert(re4.test(str4));//true
+
+		//匹配数字、字母、下划线开头
+		re4 = /^\w/;
+		// alert(re4.test(str4));//false
+
+		str4 = 'as&d';
+		// alert(re4.test(str4));//true
+
+		//匹配从开头到结尾有一个或多个数字、字母、下划线
+		re4 = /^\w+$/;
+		// alert(re4.test(str4));//false
+
+		var str5 = '123adfas894fasdfas15122dfad85';
+		var re5 = /\d+/g;//全文检索一个或多个数字
+		var arr = str5.match(re5);
+		// alert(arr);//123,894,15122,85
+
+		var re6 = /d/;//匹配字母d
+		// alert(str5.search(re6));//4//search相当于indexOf()函数
+
+		//replace函数用于替换
+		var str6 = str5.replace(re5, '*');
+		// alert(str6);//*adfas*fasdfas*dfad*
+
+		//正则表达式的替换功能
+		var s = "Once111a22wolf,3always4a5wolf!";
+		var regex = /\d+/g;
+		var s2 = s.replace(regex, " ");
+		// console.log(s2);
+
+		/*叠词*/
+		//快快乐乐、高高兴兴
+		regex = /(.)\1(.)\2/;//()表示分组，.表示任意字符，匹配第一组任意字符再出现一次、第二组任意字符再出现一次
+		// console.log(regex.test("快快乐乐"));//true
+		// console.log(regex.test("快乐乐乐"));
+		// console.log(regex.test("高高兴兴"));//true
+		// console.log(regex.test("快乐快乐"));
+
+		//快乐快乐、高兴高兴
+		regex = /(..)\1/;//匹配两个任意字符再出现一次
+		// console.log(regex.test("快乐快乐"));//true
+		// console.log(regex.test("高兴高兴"));//true
+		// console.log(regex.test("快快快快"));//true
+		// console.log(regex.test("快快乐乐"));
+
+		//叠词切割
+		// s = 'sdqqfgkkkhjppppkl';
+		// regex = /(.)\1+/;
+		// var arr = s.split(regex);
+		// console.log(arr);//由于()中的是子表达式，会导致保留一个叠词字母，不符合要求
+
+		s = 'sdqqfgkkkhjppppkl';
+		regex = /(.)\1+/g;//匹配叠词，即多个重复的字母
+		var s2 = s.replace(regex, " ");//将叠词替换为空格
+		var arr = s2.split(' ');//再按照空格进行切割
+		// console.log(arr);//返回["sd","fg","hj","kl"]，符合要求
+
+		//字符串替换
+		var s = "我我....我...我.要...要要...要学....学学..学.编..编编.编.程.程.程..程";
+		var s2 = s.replace(/\.+/g, "");//删除所有的点
+		// console.log(s2);
+		var s3 = s2.replace(/(.)\1+/g, "$1");//全文检索叠词，替换为单个字符，例如多个“我”替换成一个“我”
+		// console.log(s3);
+
+		//提取手机号
+		//regex = /^1[3578]\d{9}$/;手机号的正则，只能匹配17688888888
+		var s = '我的手机号码是17688888888，曾经用过13187654321，还用过13512345678';
+		var regex = /1[3578]\d{9}/g;//第一位是1，第二位是3578中的一个，后面9位是任意数字，并全文检索
+		var arr = s.match(regex);//match方法返回匹配成功的数组
+		console.log(arr);//["17688888888","13187654321","13512345678"]
+	</script>
+</head>
+<body>
+	
+</body>
+</html>
