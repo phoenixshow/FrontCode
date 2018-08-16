@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+	<title>别克汇——购物车</title>
+
+	<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="css/index.css">
+	<link rel="stylesheet" type="text/css" href="css/list.css">
+
+	<script type="text/javascript" src="js/jquery.min.js"></script>
+	<script type="text/javascript" src="js/bootstrap.min.js"></script>
+
+	<script type="text/javascript">
+		$(function(){
+			$('#order_submit').click(function() {
+				window.location.href = "create_order.html";
+			});
+		})
+	</script>
+</head>
+<body>
+	<div class="titlebar">
+		<div class="container">
+			<div class="row">
+				<div class="col-lg-4 col-lg-offset-2 col-md-4 col-md-offset-2 col-sm-4 col-sm-offset-2 col-xs-4 col-xs-offset-2">
+					<span class="glyphicon glyphicon-map-marker"></span>北京
+				</div>
+
+				<div class="col-lg-4 col-md-4 col-sm-4 col-xs-4 text-right hidden">
+					<a href="#">欢迎你，安以轩</a> | 
+					<a href="#">我的订单</a> | 
+					<a href="#">退出</a>
+				</div>
+
+				<div class="col-lg-4 col-md-4 col-sm-4 col-xs-4 text-right show">
+					<a href="#">你好，请登陆</a> | 
+					<a href="#" class="style-red">免费注册</a>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div class="container">
+		<form class="navbar-form navbar-left margin-center top-seach" action="list.html">
+  			<div class="form-group">
+  				<div class="input-group">
+					<input type="text" class="form-control" placeholder="搜索别克汇商城商品">
+					<span class="input-group-btn">
+			        	<button class="btn btn-danger">
+			        		<span class="glyphicon glyphicon-search"></span>
+			        	</button>
+			    	</span>
+				</div>
+  			</div>
+  		</form>
+	</div>
+
+	<div class="container">
+		<div class="row order_content cart-main">
+			<div class="col-md-2">
+				<input type="checkbox"> 全选
+			</div>
+			<div class="col-md-4">商品</div>
+			<div class="col-md-1">单价</div>
+			<div class="col-md-2">数量</div>
+			<div class="col-md-3">小计</div>
+
+			<div class="col-md-12 cart-item-list">
+				<div class="col-md-2">
+					<input type="checkbox">
+					<img class="p-img" src="img/8.jpg" alt="商品图片">
+				</div>
+				<div class="col-md-4">
+					<p>飞利浦（PHILIPS）电动剃须刀 多功能理容 刮胡刀礼盒装（配胡须修剪器 鼻毛修剪器）S5082/61</p>
+				</div>
+				<div class="col-md-1">￥599</div>
+				<div class="col-md-2">
+					<div class="input-group">
+						<span class="input-group-btn">
+							<button class="btn btn-default">-</button>
+						</span>
+						<input type="text" class="form-control" readonly="true" value="2">
+						<span class="input-group-btn">
+							<button class="btn btn-default">+</button>
+						</span>
+					</div>
+				</div>
+				<div class="col-md-3">￥1198.00</div>
+			</div>
+
+			<div class="col-md-12 cart-item-list">
+				<div class="col-md-2">
+					<input type="checkbox">
+					<img class="p-img" src="img/8.jpg" alt="商品图片">
+				</div>
+				<div class="col-md-4">
+					<p>飞利浦（PHILIPS）电动剃须刀 多功能理容 刮胡刀礼盒装（配胡须修剪器 鼻毛修剪器）S5082/61</p>
+				</div>
+				<div class="col-md-1">￥599</div>
+				<div class="col-md-2">
+					<div class="input-group">
+						<span class="input-group-btn">
+							<button class="btn btn-default">-</button>
+						</span>
+						<input type="text" class="form-control" readonly="true" value="2">
+						<span class="input-group-btn">
+							<button class="btn btn-default">+</button>
+						</span>
+					</div>
+				</div>
+				<div class="col-md-3">￥1198.00</div>
+			</div>
+
+			<div class="col-md-12 cart-item-list">
+				<div class="col-md-2">
+					<input type="checkbox">
+					<img class="p-img" src="img/8.jpg" alt="商品图片">
+				</div>
+				<div class="col-md-4">
+					<p>飞利浦（PHILIPS）电动剃须刀 多功能理容 刮胡刀礼盒装（配胡须修剪器 鼻毛修剪器）S5082/61</p>
+				</div>
+				<div class="col-md-1">￥599</div>
+				<div class="col-md-2">
+					<div class="input-group">
+						<span class="input-group-btn">
+							<button class="btn btn-default">-</button>
+						</span>
+						<input type="text" class="form-control" readonly="true" value="2">
+						<span class="input-group-btn">
+							<button class="btn btn-default">+</button>
+						</span>
+					</div>
+				</div>
+				<div class="col-md-3">￥1198.00</div>
+			</div>
+
+			<div class="col-md-12 cart-toolbar">
+				<input type="checkbox"> 全选
+
+				<div class="order_right">
+					<span class="order_price">总价： <em>￥3594.00</em></span>
+
+					<button id="order_submit" class="order_submit">去结算</button>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div class="container best_seller">
+		<h3>畅销单品</h3>
+
+		<div class="row">
+			<ul class="col-md-12 p-list">
+				<li class="col-lg-3 col-md-4 col-sm-4 col-xs-6 best_seller_product">
+					<div class="col-md-6 best_seller_img">
+						<img src="img/9.jpg" alt="商品图片">
+					</div>
+					<div class="col-md-6">
+						<div class="p-name">
+							<a href="#">飞利浦（PHILIPS）电吹风机家用大功率6档冷热风恒温护发小巧可折叠HP8200</a>
+						</div>
+						<p>￥159</p>
+
+						<button class="btn btn-default">
+							<span class="glyphicon glyphicon-shopping-cart"></span>&nbsp;加入购物车
+						</button>
+					</div>
+				</li>
+				<li class="col-lg-3 col-md-4 col-sm-4 col-xs-6 best_seller_product">
+					<div class="col-md-6 best_seller_img">
+						<img src="img/9.jpg" alt="商品图片">
+					</div>
+					<div class="col-md-6">
+						<div class="p-name">
+							<a href="#">飞利浦（PHILIPS）电吹风机家用大功率6档冷热风恒温护发小巧可折叠HP8200</a>
+						</div>
+						<p>￥159</p>
+
+						<button class="btn btn-default">
+							<span class="glyphicon glyphicon-shopping-cart"></span>&nbsp;加入购物车
+						</button>
+					</div>
+				</li>
+				<li class="col-lg-3 col-md-4 col-sm-4 col-xs-6 best_seller_product">
+					<div class="col-md-6 best_seller_img">
+						<img src="img/9.jpg" alt="商品图片">
+					</div>
+					<div class="col-md-6">
+						<div class="p-name">
+							<a href="#">飞利浦（PHILIPS）电吹风机家用大功率6档冷热风恒温护发小巧可折叠HP8200</a>
+						</div>
+						<p>￥159</p>
+
+						<button class="btn btn-default">
+							<span class="glyphicon glyphicon-shopping-cart"></span>&nbsp;加入购物车
+						</button>
+					</div>
+				</li>
+				<li class="col-lg-3 col-md-4 col-sm-4 col-xs-6 best_seller_product">
+					<div class="col-md-6 best_seller_img">
+						<img src="img/9.jpg" alt="商品图片">
+					</div>
+					<div class="col-md-6">
+						<div class="p-name">
+							<a href="#">飞利浦（PHILIPS）电吹风机家用大功率6档冷热风恒温护发小巧可折叠HP8200</a>
+						</div>
+						<p>￥159</p>
+
+						<button class="btn btn-default">
+							<span class="glyphicon glyphicon-shopping-cart"></span>&nbsp;加入购物车
+						</button>
+					</div>
+				</li>
+			</ul>
+		</div>
+	</div>
+</body>
+</html>

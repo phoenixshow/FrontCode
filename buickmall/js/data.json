@@ -5,7 +5,7 @@
 		"age":18,
 		"info":
 		[
-			"female",
+			"male",
 			"student",
 			{
 				"front":["js","css","html"],
