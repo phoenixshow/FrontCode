@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>图片文字遮罩</title>
+	<style type="text/css">
+		.box{
+			width: 200px;
+			height: 300px;
+			margin: 0px auto 0;
+			border: 1px solid #000;
+			position: relative;
+			/*overflow: hidden;*/
+		}
+		.box img{
+			width: 200px;
+			height: 300px;
+		}
+		.box .pic_info{
+			width: 200px;
+			height: 200px;
+			background-color: #000;
+			color: #fff;
+			position: absolute;
+			left: 200px;
+			top: 0px;
+			transition: all 500ms cubic-bezier(0.470, -0.600, 0.475, 1.605);
+			background-color: rgba(0,0,0,0.5);
+			display: none;
+		}
+		.box:hover .pic_info{
+			/*top: 150px;*/
+			display: block;
+		}
+		.box .pic_info p{
+			margin: 20px;
+			line-height: 30px;
+		}
+	</style>
+</head>
+<body>
+	<div class="box">
+		<img src="img/location_bg.jpg" alt="花朵">
+		<div class="pic_info">
+			<p>图片说明：这是一朵花图片说明：这是一朵花图片说明：这是一朵花图片说明：这是一朵花</p>
+		</div>
+	</div>
+	<div class="box">
+		<img src="img/location_bg.jpg" alt="花朵">
+		<div class="pic_info">
+			<p>图片说明：这是一朵花图片说明：这是一朵花图片说明：这是一朵花图片说明：这是一朵花</p>
+		</div>
+	</div>
+</body>
+</html>
