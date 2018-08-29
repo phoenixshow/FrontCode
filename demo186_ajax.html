@@ -10,20 +10,31 @@
 	<script type="text/javascript">
 		$.ajax({
 			url: 'data.json',//请求的服务器路径，实际开发中写文档接口的路径
-			type: 'get',//分get/post请求
-			dataType: 'json',//要读取什么格式的数据，xml script html upload
+			type: 'get',//分get/post请求，涉及隐私或安全性要求较高的用post、安全要求不高及数据量较小的用get
+			dataType: 'json',//要读取什么格式的数据，还可以是xml script html upload等
 			// data:{page:1}//请求时要携带的参数
 		})
-		.done(function(data){//成功的时候会执行的函数
+		.done(function(data){//成功的时候会执行的函数，参数data是从后台接收到的数据，这里是json格式的字符串
 			alert(data.name);
 			console.log(data);
 		})
-		.fail(function(){//失败的时候
+		.fail(function(){//失败的时候会执行的函数
 			console.log("error");
 		})
-		/*.always(function(){//不论成功与否都会执行
+		/*
+		.fail(function(XMLHttpRequest, textStatus, errorThrown) {//失败（带参数）
+			console.log("error");
+			// 状态码
+            console.log(XMLHttpRequest.status);
+            // 状态
+            console.log(XMLHttpRequest.readyState);
+            // 错误信息   
+            console.log(textStatus);
+		})
+		.always(function(){//不论成功与否都会执行
 			console.log("always");
-		})*/;
+		})
+		*/;
 	</script>
 </head>
 <body>
