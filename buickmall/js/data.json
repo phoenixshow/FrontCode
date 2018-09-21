@@ -3,6 +3,7 @@
 	"data":{
 		"name":"李念",
 		"age":18,
+		"imgUrl":"img/4-4.jpg",
 		"info":
 		[
 			"male",

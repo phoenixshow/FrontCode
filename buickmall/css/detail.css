@@ -1,6 +1,7 @@
 .info-style{
 	margin-bottom:3em;
 	padding: 15px;
+	/* box-shadow: #999 0px 0px 2px; */
 	border-top: #e51d23 solid 1px;
 	border-bottom: #999 solid 1px;
 }
@@ -8,6 +9,9 @@
 	line-height: 30px;
 	color: #666;
 }
+/* .info-style img{
+	width: 70%;
+} */
 .main-img{
 	width: 350px;
 }

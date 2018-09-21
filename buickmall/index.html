@@ -11,6 +11,17 @@
 	<script type="text/javascript" src="js/jquery.min.js"></script>
 	<script type="text/javascript" src="js/bootstrap.min.js"></script>
 	<script type="text/javascript">
+		$(function(){
+			$('#login').addClass('show');
+			$('#logout').addClass('hidden');
+
+			$('#def_head').addClass('show');
+			$('#usr_head').addClass('hidden');
+
+			$('#register').addClass('show');
+			$('#usr_center').addClass('hidden');
+		})
+		
 		$.ajax({
 			url: 'js/data.json',
 			type: 'get',
@@ -25,7 +36,7 @@
 				$('#logout').addClass('show');
 
 				$('#def_head').addClass('hidden');
-				$('#usr_head').addClass('show');
+				$('#usr_head').addClass('show').children().attr({src: data.data.imgUrl});
 
 				$('#register').addClass('hidden');
 				$('#usr_center').addClass('show');
@@ -159,7 +170,7 @@
 			</div>
 
 			<div class="col-md-2 modify-padding white_bg">
-				<div id="def_head>
+				<div id="def_head">
 					<img class="center-block img-circle" src="img/4.jpg" alt="头像">
 				</div>
 
