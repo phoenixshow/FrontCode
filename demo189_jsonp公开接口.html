@@ -3,41 +3,57 @@
 <head>
 	<meta charset="UTF-8">
 	<title>jsonp公开接口</title>
-	<style type="text/css">
-		
-	</style>
 	<script type="text/javascript" src="js/jquery-1.12.4.min.js"></script>
 	<script type="text/javascript">
 		//360搜索的公开接口
 		//https://sug.so.360.cn/suggest?callback=suggest_so&encodein=utf-8&encodeout=utf-8&format=json&fields=word&word=s
 
 		$(function(){
-			$('#txt01').keyup(function(){
+			$('#txt01').keyup(function() {
 				var val = $(this).val();
-
 				$.ajax({
-					url: 'https://sug.so.360.cn/suggest?',//请求360搜索的公开接口
+					url: 'https://sug.so.360.cn/suggest?encodein=utf-8&encodeout=utf-8&format=json&fields=word',//请求360搜索的公开接口
 					type: 'get',
 					dataType: 'jsonp',//跨域请求
-					data: {word: val}//携带参数
+					data: {word: val},//携带参数
+					jsonpCallback:'suggest_so'//指定360提供的jsonp的回调函数
 				})
 				.done(function(data) {
 					console.log(data);
-					// alert(data.s.length);//10条数据
+					// alert(data.result.length);//10条数据
 
 					$('.list').empty();//先清空列表
 
 					//模拟搜索联想，循环插入新列表
-					for(var i=0; i<data.s.length; i++){
-						var $li = $('<li>'+data.s[i]+'</li>');
-						$li.prependTo('.list');
+					for(var i=0; i<data.result.length; i++){
+						var $li = $('<li>'+data.result[i].word+'</li>');
+						$li.appendTo('.list');
 					}
 				})
-				.fail(function() {
+				/*.fail(function(XMLHttpRequest, textStatus, errorThrown) {//失败
 					console.log("error");
+					// 状态码
+		            console.log(XMLHttpRequest.status);
+		            // 状态
+		            console.log(XMLHttpRequest.readyState);
+		            // 错误信息   
+		            console.log(textStatus);
+				});*/
+				.fail(function(jqXHR, textStatus, errorThrown) {//失败
+					console.log("error");
+					/*弹出jqXHR对象的信息*/
+		            console.log(jqXHR.responseText);
+		            console.log(jqXHR.status);
+		            console.log(jqXHR.readyState);
+		            console.log(jqXHR.statusText);
+		            /*弹出其他两个参数的信息*/
+		            console.log(textStatus);
+		            console.log(errorThrown);
+
 				});
-			})
+			});
 		})
+
 		
 	</script>
 </head>
