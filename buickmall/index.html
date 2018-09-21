@@ -11,17 +11,6 @@
 	<script type="text/javascript" src="js/jquery.min.js"></script>
 	<script type="text/javascript" src="js/bootstrap.min.js"></script>
 	<script type="text/javascript">
-		$(function(){
-			$('#login').addClass('show');
-			$('#logout').addClass('hidden');
-
-			$('#def_head').addClass('show');
-			$('#usr_head').addClass('hidden');
-
-			$('#register').addClass('show');
-			$('#usr_center').addClass('hidden');
-		})
-		
 		$.ajax({
 			url: 'js/data.json',
 			type: 'get',
@@ -33,13 +22,13 @@
 			if(data.code == 200){
 				$('#logout em').html(data.data.name);
 				$('#login').addClass('hidden');
-				$('#logout').addClass('show');
+				$('#logout').removeClass('hidden').addClass('show');
 
 				$('#def_head').addClass('hidden');
-				$('#usr_head').addClass('show').children().attr({src: data.data.imgUrl});
+				$('#usr_head').removeClass('hidden').addClass('show').children().attr({src: data.data.imgUrl});
 
 				$('#register').addClass('hidden');
-				$('#usr_center').addClass('show');
+				$('#usr_center').removeClass('hidden').addClass('show');
 			}
 		})
 		.fail(function() {
@@ -55,7 +44,7 @@
 					<span class="glyphicon glyphicon-map-marker"></span>北京
 				</div>
 
-				<div id="logout" class="col-lg-4 col-md-4 col-sm-4 col-xs-4 text-right">
+				<div id="logout" class="col-lg-4 col-md-4 col-sm-4 col-xs-4 text-right hidden">
 					<a href="#">欢迎你，<em>安以轩</em></a> | 
 					<a href="#">我的订单</a> | 
 					<a href="#">退出</a>
@@ -174,7 +163,7 @@
 					<img class="center-block img-circle" src="img/4.jpg" alt="头像">
 				</div>
 
-				<div id="usr_head">
+				<div id="usr_head" class="hidden">
 					<img class="center-block img-circle" src="img/4-4.jpg" alt="头像">
 				</div>
 
@@ -183,7 +172,7 @@
 					<a href="#" class="btn btn-danger">注册</a>
 				</div>
 
-				<div id="usr_center" class="margin-center info-order">
+				<div id="usr_center" class="margin-center info-order hidden">
 					<a href="#" class="btn btn-primary">个人中心</a>
 					<a href="#" class="btn btn-danger">我的订单</a>
 				</div>
