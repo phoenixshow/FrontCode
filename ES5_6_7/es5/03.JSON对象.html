@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>JSON对象</title>
+</head>
+<body>
+<!--
+1. JSON.stringify(obj/arr)
+  * js对象(数组)转换为json对象(数组)
+2. JSON.parse(json)
+  * json对象(数组)转换为js对象(数组)
+-->
+<script type="text/javascript">
+	var obj = {username: 'kobe'};
+	obj = JSON.stringify(obj);
+	console.log(typeof obj);
+
+	obj = JSON.parse(obj);
+	console.log(typeof obj);
+</script>
+</body>
+</html>
