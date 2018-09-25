@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>隐藏类</title>
+	<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+	<style type="text/css">
+		div[class*='col-']{
+			background-color: gold;
+			border: 1px solid black;
+			height: 50px;
+		}
+	</style>
+	<script type="text/javascript" src="js/jquery-1.12.4.min.js"></script>
+	<script type="text/javascript" src="js/bootstrap.min.js"></script>
+	<script type="text/javascript">
+		
+	</script>
+</head>
+<body>
+	<div class="container">
+		<h1>隐藏类</h1>
+		<div class="row">
+			<div class="col-lg-3">col-lg-3===1</div>
+			<div class="col-lg-3">col-lg-3===2</div>
+			<div class="col-lg-3 hidden-md hidden-sm hidden-xs">col-lg-3===3</div>
+			<div class="col-lg-3 hidden-lg">col-lg-3===4</div>
+		</div>
+	</div>
+</body>
+</html>

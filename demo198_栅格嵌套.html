@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>栅格嵌套</title>
+	<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+	<style type="text/css">
+		div[class*='col-']{
+			/*height: 60px;*/
+			background-color: gold;
+			border: 1px solid black;
+		}
+		.row .box{
+			/*height: 180px;*/
+		}
+	</style>
+	<script type="text/javascript" src="js/jquery-1.12.4.min.js"></script>
+	<script type="text/javascript" src="js/bootstrap.min.js"></script>
+	<script type="text/javascript">
+	</script>
+</head>
+<body>
+	<div class="container">
+		<div class="row">
+			<div class="col-lg-4 box">
+				<div class="row">
+					<div class="col-sm-3">01</div>
+					<div class="col-sm-3">02</div>
+					<div class="col-sm-3">03</div>
+					<div class="col-sm-3">04</div>
+				</div>
+			</div>
+			<div class="col-lg-4">2</div>
+			<div class="col-lg-4">3</div>
+		</div>
+	</div>
+</body>
+</html>

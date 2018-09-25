@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>模态框</title>
+	<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+	<style type="text/css">
+		
+	</style>
+	<script type="text/javascript" src="js/jquery-1.12.4.min.js"></script>
+	<script type="text/javascript" src="js/bootstrap.min.js"></script>
+	<script type="text/javascript">
+		$(function(){
+			$('#btn1').click(function(){
+				//写一些业务逻辑，然后弹出
+				$('#modal01').modal('show');
+			})
+		})
+	</script>
+</head>
+<body>
+	<div class="container">
+		<h1>模态框</h1>
+		<button class="btn btn-success" id="btn1">js控制弹出</button>
+
+		<button class="btn btn-primary" data-toggle="modal" data-target="#modal01">大模态框</button>
+		<button class="btn btn-primary" data-toggle="modal" data-target="#modal02">一般模态框</button>
+		<button class="btn btn-primary" data-toggle="modal" data-target="#modal03">小模态框</button>
+	</div>
+
+	<div class="modal fade" id="modal01">
+		<div class="modal-dialog modal-lg">
+   			<div class="modal-content">
+   				<div class="modal-header">
+   					<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+   						<span aria-hidden="true">&times;</span>
+   					</button>
+   					弹框的标题
+   				</div>
+   				<div class="modal-body">
+   					弹框主体
+   				</div>
+   				<div class="modal-footer">
+   					<button type="button" class="btn btn-primary">确定</button>
+   					<button type="button" class="btn btn-warning" data-dismiss="modal">取消</button>
+   				</div>
+   			</div>
+   		</div>
+	</div>
+	<div class="modal fade" id="modal02">
+		<div class="modal-dialog">
+   			<div class="modal-content">
+   				<div class="modal-header">
+   					<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+   						<span aria-hidden="true">&times;</span>
+   					</button>
+   					弹框的标题
+   				</div>
+   				<div class="modal-body">
+   					弹框主体
+   				</div>
+   				<div class="modal-footer">
+   					<button type="button" class="btn btn-primary">确定</button>
+   					<button type="button" class="btn btn-warning" data-dismiss="modal">取消</button>
+   				</div>
+   			</div>
+   		</div>
+	</div>
+	<div class="modal fade" id="modal03">
+		<div class="modal-dialog modal-sm">
+   			<div class="modal-content">
+   				<div class="modal-header">
+   					<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+   						<span aria-hidden="true">&times;</span>
+   					</button>
+   					弹框的标题
+   				</div>
+   				<div class="modal-body">
+   					弹框主体
+   				</div>
+   				<div class="modal-footer">
+   					<button type="button" class="btn btn-primary">确定</button>
+   					<button type="button" class="btn btn-warning" data-dismiss="modal">取消</button>
+   				</div>
+   			</div>
+   		</div>
+	</div>
+</body>
+</html>

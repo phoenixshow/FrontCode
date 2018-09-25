@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>栅格系统</title>
+	<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+	<style type="text/css">
+		div[class*='col-']{
+			height: 50px;
+			border: 1px solid black;
+			background-color: gold;
+		}
+	</style>
+	<script type="text/javascript" src="js/jquery-1.12.4.min.js"></script>
+	<script type="text/javascript" src="js/bootstrap.min.js"></script>
+	<script type="text/javascript">
+		
+	</script>
+</head>
+<body>
+	<div class="container" style="background: cyan;">
+		container样式左右有15px的padding
+	</div>
+	<div class="container">
+		<div class="row">
+			<div class="col-lg-3">col-lg-3</div>
+			<div class="col-lg-3">col-lg-3</div>
+			<div class="col-lg-3">col-lg-3</div>
+			<div class="col-lg-3">col-lg-3</div>
+		</div>
+		<br>
+		<br>
+		<div class="row">
+			<div class="col-md-4">col-md-4</div>
+			<div class="col-md-4">col-md-4</div>
+			<div class="col-md-4">col-md-4</div>
+		</div>
+		<br>
+		<br>
+		<div class="row">
+			<div class="col-sm-3">col-sm-3</div>
+			<div class="col-sm-6">col-sm-6</div>
+			<div class="col-sm-3">col-sm-3</div>
+		</div>
+		<br>
+		<br>
+		<div class="row">
+			<div class="col-xs-1">col-xs-1</div>
+			<div class="col-xs-7">col-xs-7</div>
+			<div class="col-xs-4">col-xs-4</div>
+		</div>
+	</div>
+</body>
+</html>

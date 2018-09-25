@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>导航条</title>
+	<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+	<style type="text/css">
+		
+	</style>
+	<script type="text/javascript" src="js/jquery-1.12.4.min.js"></script>
+	<script type="text/javascript" src="js/bootstrap.min.js"></script>
+	<script type="text/javascript">
+	</script>
+</head>
+<body>
+	<!-- navbar声明导航条，navbar-default默认样式 -->
+	<div class="navbar navbar-default">
+		<div class="container">
+			<!-- navbar-header声明Logo的容器 -->
+			<div class="navbar-header">
+				<a href="#" class="navbar-brand">LOGO</a>
+			</div>
+			<!-- 定义导航条中的菜单 -->
+			<ul class="nav navbar-nav">
+				<li class="active"><a href="#">首页</a></li>
+				<li><a href="#">公司新闻</a></li>
+				<li><a href="#">行业动态</a></li>
+				<li><a href="#">招贤纳才</a></li>
+				<li><a href="#">关于我们</a></li>
+			</ul>
+		</div>
+	</div>
+	<br>
+	<br>
+	<!-- 反白导航条 -->
+	<div class="navbar navbar-inverse navbar-static-top">
+		<div class="container">
+			<!-- navbar-header声明Logo的容器 -->
+			<div class="navbar-header">
+				<!-- data-toggle指以什么事件触发，data-target指事件的目标 -->
+				<button class="navbar-toggle" data-toggle="collapse" data-target="#togglemenu">
+					<span class="icon-bar"></span>
+			        <span class="icon-bar"></span>
+			        <span class="icon-bar"></span>
+				</button>
+				<a href="#" class="navbar-brand">LOGO</a>
+			</div>
+
+			<!-- collapse navbar-collapse包裹的内容在屏宽缩小时可以隐藏 -->
+			<div class="collapse navbar-collapse" id="togglemenu">
+				<!-- 定义导航条中的菜单 -->
+				<ul class="nav navbar-nav">
+					<li class="active"><a href="#">首页</a></li>
+					<li><a href="#">公司新闻</a></li>
+					<li><a href="#">行业动态</a></li>
+					<li><a href="#">招贤纳才</a></li>
+					<li><a href="#">关于我们</a></li>
+				</ul>
+
+				<!-- <button class="btn btn-default navbar-btn">按钮</button> -->
+
+				<form action="" class="navbar-form navbar-right">
+					<div class="form-group">
+						<!-- 表单控件组 -->
+						<div class="input-group">
+							<input type="text" class="form-control">
+							<!-- 字体图标按钮控件组 -->
+							<span class="input-group-btn" id="basic-addon1">
+								<button class="btn btn-default">
+									<span class="glyphicon glyphicon-search"></span>
+								</button>
+							  </span>
+						</div>
+					</div>
+				</form>
+			</div>
+		</div>
+	</div>
+	<br>
+	<br>
+	<!-- 路径导航 -->
+	<ol class="breadcrumb">
+	  <li><a href="#">Home</a></li>
+	  <li><a href="#">Library</a></li>
+	  <li class="active">Data</li>
+	</ol>
+</body>
+</html>
