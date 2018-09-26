@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Generator函数</title>
+</head>
+<body>
+
+  <!--
+   Generator函数
+    概念：
+      1、ES6提供的解决异步编程的方案之一
+      2、Generator函数是一个状态机，内部封装了不同状态的数据，
+      3、用来生成遍历器对象
+      4、可暂停函数(惰性求值), yield可暂停，next方法可启动。每次返回的是yield后的表达式结果
+    特点：
+      1、function 与函数名之间有一个星号
+      2、内部用yield表达式来定义不同的状态
+      例如：
+        function* generatorExample(){
+          let result = yield 'hello';  // 状态值为hello
+          yield 'generator'; // 状态值为generator
+        }
+      3、generator函数返回的是指针对象(即iterator)，而不会执行函数内部逻辑
+      4、调用next方法函数内部逻辑开始执行，遇到yield表达式停止，返回{value: yield后的表达式结果/undefined, done: false/true}
+      5、再次调用next方法会从上一次停止时的yield处开始，直到最后
+      6、yield语句返回结果通常为undefined， 当调用next方法时传参内容会作为启动时yield语句的返回值。
+  -->
+<script type="text/javascript" src="./js/jquery-1.12.4.min.js"></script>
+<script type="text/javascript">
+	/*
+	function* myGenerator(){
+		console.log('开始执行');
+		let result = yield 'hello';
+		console.log('result = ' + result);
+		console.log('暂停后，再次执行');
+		yield 'generator';
+		console.log('遍历完毕');
+		return '返回的结果';
+	}
+
+	let MG = myGenerator();//返回的是指针对象
+	console.log(MG);
+	console.log(MG.next());
+	console.log(MG.next('aaaaaaaaa'));
+	console.log(MG.next());
+	*/
+    
+    /*
+    // 对象的symbol.iterator属性  指向遍历器对象
+    let obj = {username: 'kobe', age: 40};
+
+    obj[Symbol.iterator] = function* myTest(){
+    	yield 1;
+    	yield 2;
+    	yield 3;
+    }
+    
+    for(let i of obj){
+    	console.log(i);
+    }
+    */
+  
+    // 案例练习
+    /*
+    * 需求：
+    * 1、发送ajax请求获取新闻内容
+    * 2、新闻内容获取成功后再次发送请求，获取对应的新闻评论内容
+    * 3、新闻内容获取失败则不需要再次发送请求。
+    */ 
+
+    function getNews(url){
+    	$.get(url, function(data){
+    		console.log(data);
+    		let url = 'http://localhost:3000' + data.commentsUrl;
+    		SX.next(url);
+    	})
+    }
+
+    function* sendXml(){
+    	let url = yield getNews('http://localhost:3000/news?id=3');
+    	yield getNews(url);
+    }
+
+    //获取遍历器对象
+    let SX = sendXml();
+    SX.next();
+</script>
+
+
+</body>
+</html>
