@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>04_模板字符串</title>
+</head>
+<body>
+<!--
+1. 模板字符串 : 简化字符串的拼接
+  * 模板字符串必须用 `` 包含
+  * 变化的部分使用${xxx}定义
+-->
+<script type="text/javascript">
+	let obj = {username: 'kobe', age: 40};
+	let str = '我的名字叫：' + obj.username + '，我的年龄：' + obj.age;
+	console.log(str);
+	str = `我的名字叫：${obj.username}，我的年龄：${obj.age}`;
+	console.log(str);
+
+	/*
+	商品列表的url：
+	https://s.taobao.com/search?q=锅&refpid=430275_1006&source=tbsy&style=grid&tab=all&pvid=4aed0d3046100602f268a24859e5bb44&clk1=b7e8112df80f92354fd6562fa21256ed&spm=a21bo.2017.201856-sline.10.5af911d9vwLBmw
+	*/
+</script>
+</body>
+</html>

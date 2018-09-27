@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>对象的深度克隆</title>
+</head>
+<body>
+
+
+<!--
+  1、数据类型：
+    * 数据分为基本的数据类型(String, Number, boolean, Null, Undefined)和对象数据类型
+    - 基本数据类型：
+      特点： 存储的是该对象的实际数据
+    - 对象数据类型：
+      特点： 存储的是该对象在栈中引用，真实的数据存放在堆内存里
+  2、复制数据
+    - 基本数据类型存放的就是实际的数据，可直接复制
+      let number2 = 2;
+      let number1 = number2;
+    - 克隆数据：对象/数组
+      1、区别： 浅拷贝/深度拷贝
+         判断： 拷贝是否产生了新的数据还是拷贝的是数据的引用
+         知识点：对象数据存放的是对象在栈内存的引用，直接复制的是对象的引用
+         let obj = {username: 'kobe'}
+         let obj1 = obj; // obj1 复制了obj在栈内存的引用
+      2、常用的拷贝技术
+        1). arr.concat(): 数组浅拷贝
+        2). arr.slice(): 数组浅拷贝
+        3). JSON.parse(JSON.stringify(arr/obj)): 数组或对象深拷贝, 但不能处理函数数据
+        4). 浅拷贝包含函数数据的对象/数组
+        5). 深拷贝包含函数数据的对象/数组
+-->
+<script type="text/javascript">
+	/*
+	// 不会影响原数据
+	let str = 'abcd';
+	let str2 = str;
+	console.log(str2);
+
+	str2 = '';
+	console.log(str);
+
+	let bool1 = true;
+	let bool2 = bool1;
+	bool2 = false;
+	console.log(bool1);
+
+	// 拷贝数组/对象时，没有生成新的数据，而是克隆了一份引用
+	let obj = {username: 'kobe', age:40};
+	let obj1 = obj;
+	console.log(obj1);
+	obj1.username = 'wade';
+	console.log(obj.username);
+
+	let arr = [1, 4, {username: 'kobe', age: 40}];
+	let arr2 = arr;
+	arr2[0] = 'abcd';
+	console.log(arr, arr2);
+	*/
+
+	/*
+	拷贝数据：
+		基本数据类型：
+			拷贝后会生成一份新的数据，修改拷贝以后的数据不会影响原数据
+		对象/数组：
+			拷贝后不会生成新的数据，而是拷贝了引用。修改拷贝以后的数据会影响原数据
+	拷贝数据的方法：
+		1、直接赋值给一个变量		//浅拷贝
+		2、Object.assign()		//浅拷贝
+		3、Array.prototype.concat()	//浅拷贝
+		4、Array.prototype.slice()	//浅拷贝
+		5、JSON.parse(JSON.stringify())	//深拷贝（深度克隆），拷贝的数据里不能有函数，因为它处理不了
+	浅拷贝（对象/数组）：
+		特点：拷贝的引用，修改拷贝以后的数据会影响原数据，使得原数据不安全
+	深拷贝（深度克隆）
+		特点：拷贝的时候生成新数据，修改拷贝以后的数据不会影响原数据
+	*/
+
+	/*
+	let obj = {username: 'kobe'};
+	let obj2 = Object.assign(obj);
+	console.log(obj2);
+	obj2.username = 'wade';
+	console.log(obj);
+
+	let arr = [1, 3, {username: 'kobe'}, function fun(){}];
+	let testArr = [2,4];
+	// let arr2 = arr.concat(testArr);
+	let arr2 = arr.concat();
+	// arr2[0] = 1;
+	console.log(arr2);
+	arr2[2].username = 'wade';
+	console.log(arr);
+
+	let arr3 = arr.slice();
+	arr3[2].username = 'iverson';
+	console.log(arr);
+
+	let arr4 = JSON.parse(JSON.stringify(arr));
+	console.log(arr4);
+	arr4[2].username = 'duncan';
+	console.log(arr, arr4);
+	*/
+
+	/*
+	思考：
+		如何实现深度克隆
+		拷贝的数据里有对象/数组会发生浅拷贝
+		深拷贝的数据里不能有对象/数组，即使有，还可以继续遍历对象/数组，拿到每一项的值，直到拿到的都是基本数据类型，然后再赋值，就是深度克隆
+	知识点储备
+		如何判断数据类型： arr-->Array  null-->Null
+			1、typeof返回的数据类型： String、Number、Boolean、Undefined、Object、Function
+			2、Object.prototype.toString.call(obj)
+		for in循环 对象（属性名）、数组（下标）
+	*/
+	// 判断数据类型
+	let result = 'abcd';
+	result = null;
+	result = [1,3];
+	console.log(Object.prototype.toString.call(result).slice(8, -1));
+	// console.log(typeof Object.prototype.toString.call(result));
+
+	// for in循环
+	let obj = {username: 'kobe', age:40};
+	for(let i in obj){
+		console.log(i);
+	}
+	let arr = [1,3,'abc'];
+	for(let i in arr){
+		console.log(i);
+	}
+
+	// 定义检测数据类型的功能函数
+	function checkedType(target){
+		return Object.prototype.toString.call(target).slice(8, -1);
+	}
+	// console.log(checkedType(result));
+
+	//实现深度克隆 --> 对象/数组
+	function clone(target){
+		// 判断拷贝的数据类型
+		// 初始化变量result成为最终克隆的数据
+		let result, targetType = checkedType(target);
+		if(targetType === 'Object'){
+			result = {};
+		}else if(targetType === 'Array'){
+			result = [];
+		}else{
+			return target;
+		}
+
+		//遍历目标数据
+		for(let i in target){
+			// 获取遍历数据结构的每一项值
+			let value = target[i];
+			//判断目标结构里的每一项值是否存在对象/数组
+			if(checkedType(value) === 'Object' || checkedType(value) === 'Array' ){//对象/数组里嵌套了对象/数组
+				// 继续遍历获取到的value值
+				result[i] = clone(value);
+			}else{//获取到的value值是基本的数据类型或者是函数
+				result[i] = value;
+			}
+		}
+
+		return result;
+	}
+
+	let arr3 = [1,2,{username: 'kobe', age:40}];
+	let arr4 = clone(arr3);
+	console.log(arr4);
+	arr4[2].username = 'wade';
+	console.log(arr3, arr4);
+
+	let obj3 = {username: 'kobe', age: 40};
+	let obj4 = clone(obj3);
+	console.log(obj4);
+	obj4.username = 'wade';
+	console.log(obj3, obj4);
+</script> 
+</body>
+</html>
