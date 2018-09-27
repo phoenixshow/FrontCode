@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>01_HelloWorld</title>
+</head>
+<body>
+
+<!--
+	1. 引入Vue.js
+	2. 创建Vue对象
+		el : 指定根element(选择器)
+		data : 初始化数据(页面可以访问)
+	3. 双向数据绑定 : v-model
+	4. 显示数据 : {{xxx}}
+	5. 理解vue的mvvm实现
+-->
+
+<!-- View -->
+<div id="app">
+	<input type="text" v-model="username">
+	<p>Hello {{username}}</p>
+</div>
+
+<script type="text/javascript" src="js/vue.js"></script>
+<script type="text/javascript">
+	// 创建Vue实例（Vue是一个vue.js库提供的构建函数）
+	const vm = new Vue({//配置对象（属性名必须是指定的一些名称）
+		el: '#app',//element:选择器，表明将页面哪个元素交给Vue管理
+		data: {//数据（Model）
+			username: 'Vue'
+		}
+	})
+	vm.username = 'kobe';
+</script>
+
+<!-- 
+MVVM：
+Model：模型，数据对象（data）
+View：视图，模板页面
+ViewModel：视图模型（Vue的实例）
+ -->
+</body>
+</html>
