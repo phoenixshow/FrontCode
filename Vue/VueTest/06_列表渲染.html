@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>06_列表渲染</title>
+</head>
+<body>
+
+<!--
+1. 列表显示
+  数组: v-for / index
+  对象: v-for / key
+2. 列表的更新显示
+  删除item
+  替换item
+-->
+
+<div id="demo">
+	<h2>测试: v-for 遍历数组</h2>
+	<ul>
+		<li v-for="(p, index) in persons" :key="index">
+			{{index}}---{{p.name}}---{{p.age}}
+			---<button @click="deleteP(index)">删除</button>
+			---<button @click="updateP(index, {name: 'Lucy', age: 20})">更新</button>
+		</li>
+	</ul>
+
+	<h2>测试: v-for 遍历对象</h2>
+	<ul>
+		<li v-for="(value, key) in persons[1]" :key="key">
+			{{value}}---{{key}}
+		</li>
+	</ul>
+</div>
+
+<script type="text/javascript" src="js/vue.js"></script>
+<script type="text/javascript">
+	/*
+	vue本身只是监视了persons的改变，没有监视数组内部数据的改变
+	vue重写了数组中的一系列改变数组内部数据的方法（先调用原生，再更新界面）-->数组内部改变，界面自动变化
+	*/
+	new Vue({
+		el: '#demo',
+		data: {
+			persons: [
+				{name: 'Tom', age:18},
+				{name: 'Jack', age:16},
+				{name: 'Bob', age:19},
+				{name: 'Rose', age:17}
+			]
+		},
+		methods: {
+			deleteP(index){
+				// 删除persons中指定index的p
+				this.persons.splice(index, 1);
+			},
+			updateP(index, newP){
+				// 并没有改变persons本身，数组内部发生变化，但并没调用变异方法，Vue不会更新界面
+				// this.persons[index] = newP;
+				// this.persons = [];
+				this.persons.splice(index, 1, newP);
+			}
+		}
+	})
+</script>
+</body>
+</html>
