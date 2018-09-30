@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>16_插件</title>
+</head>
+<body>
+
+<div id="test">
+	<p v-my-directive="msg"></p>
+</div>
+
+<script type="text/javascript" src="js/vue.js"></script>
+<script type="text/javascript" src="js/vue-myPlugin.js"></script>
+<script type="text/javascript">
+	// 声明使用插件
+	Vue.use(MyPlugin);//内部会执行MyPlugin.install(Vue)
+
+	Vue.myGlobalMethod();
+
+	const vm = new Vue({
+		el: '#test',
+		data: {
+			msg: 'I Like You!'
+		}
+	})
+
+	vm.$myMethod();
+</script>
+</body>
+</html>
