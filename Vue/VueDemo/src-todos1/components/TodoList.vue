@@ -1,6 +1,6 @@
 <template>
 	<ul class="todo-main">
-		<TodoItem v-for="(todo, index) in todos" :key="index" :todo="todo" :index="index" :deleteTodo="deleteTodo"/>
+		<TodoItem v-for="(todo, index) in todos" :key="index" :todo="todo" :index="index" :deleteTodo="deleteTodo" />
 	</ul>
 </template>
 
@@ -19,7 +19,6 @@
 </script>
 
 <style>
-	/*main*/
 	.todo-main {
 		margin-left: 0px;
 		border: 1px solid #ddd;

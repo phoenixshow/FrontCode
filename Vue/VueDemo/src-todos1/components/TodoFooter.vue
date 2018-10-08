@@ -3,8 +3,10 @@
 		<label>
 			<input type="checkbox" v-model="isAllCheck"/>
 		</label>
-		<span>已完成{{compleSize}} / 全部{{todos.length}}</span>
-		<button class="btn btn-danger" v-show="compleSize" @click="deleteComletedTodos">清除已完成任务</button>
+		<span>
+			<span>已完成{{completeSize}}</span> / 全部{{todos.length}}
+		</span>
+		<button class="btn btn-danger" v-show="completeSize" @click="deleteCompletedTodos">清除已完成任务</button>
 	</div>
 </template>
 
@@ -12,16 +14,16 @@
 	export default{
 		props: {
 			todos: Array,
-			deleteComletedTodos: Function,
+			deleteCompletedTodos: Function,
 			selectAllTodos: Function
 		},
 		computed: {
-			compleSize(){
+			completeSize(){
 				return this.todos.reduce((preTotal, todo) => preTotal + (todo.complete ? 1 : 0), 0);
 			},
 			isAllCheck: {
 				get(){
-					return this.compleSize === this.todos.length && this.compleSize>0;
+					return this.completeSize===this.todos.length && this.completeSize > 0;
 				},
 				set(value){ // value是当前checkbox最新的值
 					this.selectAllTodos(value);
@@ -32,7 +34,6 @@
 </script>
 
 <style>
-	/*footer*/
 	.todo-footer {
 		height: 40px;
 		line-height: 40px;

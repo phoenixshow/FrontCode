@@ -1,61 +1,58 @@
 <template>
-	<div class="todo-container">
-		<div class="todo-wrap">
-			<TodoHeader :addTodo="addTodo"/>
-			<TodoList :todos="todos" :deleteTodo="deleteTodo"/>
-			<todo-footer :todos="todos" :deleteComletedTodos="deleteComletedTodos" :selectAllTodos="selectAllTodos"/>
-		</div>
+	<div>
+		<div v-if="!repoUrl">loading</div>
+		<div v-else>most star repo is <a :href="repoUrl">{{repoName}}</a></div>
 	</div>
 </template>
 
 <script>
-	import TodoHeader from './components/TodoHeader.vue';
-	import TodoList from './components/TodoList.vue';
-	import TodoFooter from './components/TodoFooter.vue';
+	import axios from 'axios'
 
 	export default{
 		data(){
 			return{
-				todos: [
-					{title: '吃饭', complete:false},
-					{title: '睡觉', complete:true},
-					{title: 'coding', complete:false}
-				]
+				repoUrl: '',
+				repoName: ''
 			}
 		},
-		methods: {
-			addTodo(todo){
-				this.todos.unshift(todo);
-			},
-			deleteTodo(index){
-				this.todos.splice(index, 1);
-			},
-			// 删除所有选中的todo
-			deleteComletedTodos(){
-				this.todos = this.todos.filter(todo => !todo.complete);
-			},
-			// 全选/全不选
-			selectAllTodos(isCheck){
-				this.todos.forEach(todo => todo.complete = isCheck)
-			}
-		},
-		components: {
-			TodoHeader,
-			TodoList,
-			TodoFooter
+		mounted(){
+			// 发ajax请求获取数据
+			const url = `https://api.github.com/search/repositories?q=v&sort=stars`
+			/*
+			this.$http.get(url).then(
+					response => {
+						// 成功了
+						const result = response.data
+						// 得到最受欢迎的repo
+						const mostRepo = result.items[0]
+						this.repoUrl = mostRepo.html_url
+						this.repoName = mostRepo.name
+					},
+					response => {
+						alert('请求失败')
+					}
+				)
+			*/
+
+			// 使用axios发送ajax请求
+			axios.get(url).then(
+					response => {
+						// 成功了
+						const result = response.data
+						// 得到最受欢迎的repo
+						const mostRepo = result.items[0]
+						this.repoUrl = mostRepo.html_url
+						this.repoName = mostRepo.name
+					}
+				).catch(
+					error => {
+						alert('请求失败2222');
+					}
+				)
 		}
 	}
 </script>
 
 <style>
-	/*app*/
-	.todo-container {
-		width: 600px;
-		margin: 0 auto;
-	}
-	.todo-container .todo-wrap {
-		padding: 10px;
-		border: 1px solid #ddd;
-		border-radius: 5px;
-	}
+	
 </style>

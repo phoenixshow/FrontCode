@@ -1,7 +1,7 @@
 <template>
 	<li @mouseenter="handleShow(true)" @mouseleave="handleShow(false)" :style="{background: bgColor}">
 		<label>
-			<input type="checkbox" v-model="todo.complete"/>
+			<input type="checkbox" v-model="todo.complete" />
 			<span>{{todo.title}}</span>
 		</label>
 		<button class="btn btn-danger" v-show="isShow" @click="deleteItem">删除</button>
@@ -18,7 +18,7 @@
 		data(){
 			return{
 				bgColor: 'white', // 默认的背景颜色
-				isShow: false // 按钮默认不显示
+				isShow: false // 按钮默认是否显示
 			}
 		},
 		methods: {
