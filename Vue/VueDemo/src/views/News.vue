@@ -9,7 +9,7 @@
 <script>
 	export default{
 		data(){
-			return{
+			return {
 				newsArr: ['news001', 'news002', 'news003', 'news004']
 			}
 		}

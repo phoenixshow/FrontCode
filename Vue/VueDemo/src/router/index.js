@@ -3,6 +3,7 @@
 */
 import Vue from 'vue'
 import VueRouter from 'vue-router'
+
 import About from '../views/About.vue'
 import Home from '../views/Home.vue'
 import News from '../views/News.vue'
@@ -12,11 +13,9 @@ import MessageDetail from '../views/MessageDetail.vue'
 Vue.use(VueRouter)
 
 export default new VueRouter({
-	
-	// linkActiveClass: 'myactive',
-
+	linkActiveClass: 'myactive',
 	// n个路由
-	routes: [
+	routes:[
 		{
 			path: '/about',
 			component: About
@@ -26,7 +25,7 @@ export default new VueRouter({
 			component: Home,
 			children: [
 				{
-					//path: '/news', //path最左侧的/永远代表根路由，不对
+					// path: '/news', // path最左侧的/永远代表根路由，不对
 					path: '/home/news',
 					component: News
 				},

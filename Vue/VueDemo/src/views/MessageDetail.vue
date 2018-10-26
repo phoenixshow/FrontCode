@@ -18,24 +18,25 @@
 		},
 		mounted(){
 			setTimeout(() => {
-				const allMessageDetails= [
+				const allMessageDetails = [
 					{
 						id: 1,
 						title: 'message001',
-						content: 'message content00111....'
+						content: 'message001 content...'
 					},
 					{
 						id: 3,
 						title: 'message003',
-						content: 'message content00333....'
+						content: 'message003 content...'
 					},
 					{
 						id: 5,
 						title: 'message005',
-						content: 'message content00555....'
+						content: 'message005 content...'
 					}
 				]
-				this.allMessageDetails = allMessageDetails;
+
+				this.allMessageDetails = allMessageDetails
 				const id = +this.$route.params.id
 				this.messageDetail = allMessageDetails.find(detail => detail.id===id)
 			}, 1000)

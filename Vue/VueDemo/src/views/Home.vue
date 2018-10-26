@@ -3,7 +3,7 @@
 		<h2>Home组件</h2>
 		<div>
 			<ul class="nav nav-tabs">
-				<li class="active">
+				<li>
 					<router-link to="/home/news">News</router-link>
 				</li>
 				<li>

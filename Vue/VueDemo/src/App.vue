@@ -11,10 +11,6 @@
 		<div class="row">
 			<div class="col-xs-2 col-xs-offset-2">
 				<div class="list-group">
-					<!-- 
-					<a href="about.html" class="list-group-item router-link-active">About</a>
-					<a href="home.html" class="list-group-item">Home</a>
-					 -->
 					<router-link to="/about" class="list-group-item">About</router-link>
 					<router-link to="/home" class="list-group-item">Home</router-link>
 				</div>
