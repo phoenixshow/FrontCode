@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>02_数据代理_vue</title>
+</head>
+<body>
+
+<div id="test"></div>
+
+<script type="text/javascript" src="js/vue.js"></script>
+<script type="text/javascript">
+	const vm = new Vue({
+		el: '#test',
+		data: {
+			name: '狮王'
+		}
+	})
+
+	console.log(vm.name, vm);//狮王  vm代理对data数据的读操作
+	vm.name = '火山';// vm代理对data数据的写操作
+	console.log(vm._data.name, vm.name);//火山
+</script>
+</body>
+</html>
