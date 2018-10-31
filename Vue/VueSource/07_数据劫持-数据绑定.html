@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>07_数据劫持-数据绑定</title>
+  <!--
+    1. 数据绑定
+      * 初始化显示: 页面(表达式/指令)能从data读取数据显示 (编译/解析)
+      * 更新显示: 更新data中的属性数据==>页面更新
+  -->
+</head>
+<body>
+<div id="test">
+  <p>{{name}}</p><!-- w1--d0 -->
+  <p v-text="name"></p><!-- w2--d0 -->
+  <p v-text="wife.name"></p><!-- w3--{d1, d2} -->
+  <!-- d0--[w1, w2] -->
+  <!-- d1--[w3] -->
+  <!-- d2--[w3] -->
+  <button v-on:click="update">更新</button>
+</div>
+
+<script type="text/javascript" src="js/mvvm/compile.js"></script>
+<script type="text/javascript" src="js/mvvm/mvvm.js"></script>
+<script type="text/javascript" src="js/mvvm/observer.js"></script>
+<script type="text/javascript" src="js/mvvm/watcher.js"></script>
+<script type="text/javascript">
+  new MVVM({
+    el: '#test',
+    data: {
+      name: '淡定',
+      wife: {
+        name: '淡然',
+        age: 28
+      }
+    },
+    methods: {
+      update(){
+        // 更新数据
+        this.name = '老鼠';
+        this.wife.name = '老猫';
+      }
+    }
+  })
+</script>
+</body>
+
+</html>
+
+<!-- 
+Dep
+  1、它的实例什么时候创建？
+    初始化的时候，给data中的属性进行数据劫持时创建的
+  2、创建了多少个？
+    与data中的属性一一对应
+  3、每个Dep的结构？
+    id：标识
+    subs：[] n个相关的Watcher对象的容器
+Watcher
+  1、它的实例什么时候创建？
+    初始化的时候，解析大括号表达式/一般指令时创建
+  2、创建了多少个？
+    与模板中表达式（不包含事件指令）一一对应
+  3、每个Watcher的结构？
+    this.cb = cb; // 用于更新界面的回调
+    this.vm = vm; // vm
+    this.expOrFn = expOrFn; // 对应的表达式
+    this.depIds = {depid: dep}; // 相关的n个dep的容器对象
+    this.getter = expOrFn 或 this.parseGetter(expOrFn); // 表达式的get方法
+    this.value = this.get(); // 当前表达式对应的value
+Dep与Watcher之间的关系
+  1、是什么关系？
+    多对多的关系
+    data中的属性 -> Dep -> n个watcher（属性在模板中多次被使用）
+      例如：{{name}}  v-text="name"
+    表达式 -> Watcher -> n个Dep（多层表达式）
+      例如：{{a.b}} -> w -> 2个Dep
+  2、关系是如何建立的？
+    data中属性的get()方法中建立的
+  3、什么时候建立的？
+    初始化的时候，解析模块中的表达式创建Watcher对象时建立的
+
+vm.name = 'abc' -> data中的name属性值变化 -> name的set()调用 -> dep -> 相关的所有watcher -> cb() -> updater
+
+
+ -->

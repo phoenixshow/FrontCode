@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>06_模板解析_一般指令</title>
+  <style type="text/css">
+    .aa{
+      color: red;
+    }
+    .bb{
+      font-size: 30px;
+    }
+  </style>
+</head>
+<body>
+<div id="test">
+  <p v-text="msg"></p>
+  <p v-html="msg"></p>
+  <p class="bb" v-class="myClass">国庆结束等春节再嗨皮！</p>
+</div>
+
+<script type="text/javascript" src="js/mvvm/compile.js"></script>
+<script type="text/javascript" src="js/mvvm/mvvm.js"></script>
+<script type="text/javascript" src="js/mvvm/observer.js"></script>
+<script type="text/javascript" src="js/mvvm/watcher.js"></script>
+<script type="text/javascript">
+  new MVVM({
+    el: '#test',
+    data: {
+      msg: '<a href="http://www.baidu.com">百度</a>',
+      myClass: 'aa'
+    }
+  })
+</script>
+</body>
+</html>
