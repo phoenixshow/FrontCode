@@ -37,7 +37,7 @@
 	<script type="text/javascript" src="js/jquery-1.12.4.min.js"></script>
 	<script type="text/javascript">
 		$(function(){
-			$('#btns input').click(function() {
+			$('#box1 #btns input').click(function() {
 				//失去焦点，避免出现默认的蓝框
 				$(this).blur();
 				//this是原生的对象
@@ -49,21 +49,32 @@
 
 				//$(this).index()获取当前按钮所在层级范围的索引值
 				//显示对应索引的内容区，隐藏其它兄弟内容区
-				$('#contents div').eq($(this).index()).addClass('active').siblings().removeClass('active');
+				$('#box1 #contents div').eq($(this).index()).addClass('active').siblings().removeClass('active');
+			});
+			
+			$('#box2 #btns input').click(function() {
+				$(this).blur();
+				$(this).addClass('cur').siblings().removeClass('cur');
+				$('#box2 #contents div').eq($(this).index()).addClass('active').siblings().removeClass('active');
 			});
 		})
 	</script>
 </head>
 <body>
-	<div class="btns" id="btns">
-		<input type="button" value="tab01" class="cur">
-		<input type="button" value="tab02">
-		<input type="button" value="tab03">
+	<div id="box1">
+		<div class="btns" id="btns">
+			<input type="button" value="tab01" class="cur">
+			<input type="button" value="tab02">
+			<input type="button" value="tab03">
+		</div>
 	</div>
-	<div class="contents" id="contents">
-		<div class="active">tab文字内容一</div>
-		<div>tab文字内容二</div>
-		<div>tab文字内容三</div>
+	<br><br>
+	<div id="box2">
+		<div class="contents" id="contents">
+			<div class="active">tab文字内容一</div>
+			<div>tab文字内容二</div>
+			<div>tab文字内容三</div>
+		</div>
 	</div>
 </body>
 </html>
