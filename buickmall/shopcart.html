@@ -14,9 +14,63 @@
 
 	<script type="text/javascript">
 		$(function(){
+			// 跳转到去结算
 			$('#order_submit').click(function() {
 				window.location.href = "create_order.html";
 			});
+
+			// 购物车+-
+			var total = $('#total');
+
+			$('button[class*=decrease]').click(function() {
+				$(this).blur();
+				var $li = $(this).closest('li');
+				var $input = $li.find('input:last');
+				var price = $li.find('.price').children('span').html();
+				var count = +($input.val());
+
+				if(--count <= 0){
+					count = 1;
+				}
+
+				$input.val(count);
+				$li.children(':last').children('span').html(new Number(price * count).toFixed(2));
+				totalPrice();
+
+			});
+			$('button[class*=increase]').click(function() {
+				$(this).blur();
+				var $li = $(this).closest('li');
+				var $input = $li.find('input:last');
+				var price = $li.find('.price').children('span').html();
+				var count = +($input.val());
+
+				$input.val(Math.round((++count*100)/100));
+				$li.children(':last').children('span').html(new Number(price * count).toFixed(2));
+				totalPrice();
+			});
+
+			function totalPrice(){
+				$li = $('.list-unstyled li');
+				var sum = 0;
+				$li.each(function(index, el) {
+					sum += parseFloat($(this).children(':last').children("span").html());
+				});
+				$('#total').html(new Number(sum).toFixed(2));
+			}
+
+			// 全选
+			var $checkedAllBox = $('.checkedAllBox');
+			var $items = $(':checkbox[name=items]');
+			
+			$checkedAllBox.click(function () {
+				$items.prop('checked', this.checked);
+				$checkedAllBox.prop('checked', $items.not(':checked').length===0);
+			})
+			
+			$items.click(function () {
+				$checkedAllBox.prop('checked', $items.not(':checked').length===0);
+			})
 		})
 	</script>
 </head>
@@ -60,87 +114,65 @@
 	<div class="container">
 		<div class="row order_content cart-main">
 			<div class="col-md-2">
-				<input type="checkbox"> 全选
+				<input type="checkbox" class="checkedAllBox"> 全选
 			</div>
 			<div class="col-md-4">商品</div>
 			<div class="col-md-1">单价</div>
 			<div class="col-md-2">数量</div>
 			<div class="col-md-3">小计</div>
 
-			<div class="col-md-12 cart-item-list">
-				<div class="col-md-2">
-					<input type="checkbox">
-					<img class="p-img" src="img/8.jpg" alt="商品图片">
-				</div>
-				<div class="col-md-4">
-					<p>飞利浦（PHILIPS）电动剃须刀 多功能理容 刮胡刀礼盒装（配胡须修剪器 鼻毛修剪器）S5082/61</p>
-				</div>
-				<div class="col-md-1">￥599</div>
-				<div class="col-md-2">
-					<div class="input-group">
-						<span class="input-group-btn">
-							<button class="btn btn-default">-</button>
-						</span>
-						<input type="text" class="form-control" readonly="true" value="2">
-						<span class="input-group-btn">
-							<button class="btn btn-default">+</button>
-						</span>
+			<ul class="list-unstyled">
+				<li class="col-md-12 cart-item-list">
+					<div class="col-md-2">
+						<input type="checkbox" name="items">
+						<img class="p-img" src="img/8.jpg" alt="商品图片">
 					</div>
-				</div>
-				<div class="col-md-3">￥1198.00</div>
-			</div>
-
-			<div class="col-md-12 cart-item-list">
-				<div class="col-md-2">
-					<input type="checkbox">
-					<img class="p-img" src="img/8.jpg" alt="商品图片">
-				</div>
-				<div class="col-md-4">
-					<p>飞利浦（PHILIPS）电动剃须刀 多功能理容 刮胡刀礼盒装（配胡须修剪器 鼻毛修剪器）S5082/61</p>
-				</div>
-				<div class="col-md-1">￥599</div>
-				<div class="col-md-2">
-					<div class="input-group">
-						<span class="input-group-btn">
-							<button class="btn btn-default">-</button>
-						</span>
-						<input type="text" class="form-control" readonly="true" value="2">
-						<span class="input-group-btn">
-							<button class="btn btn-default">+</button>
-						</span>
+					<div class="col-md-4">
+						<p>飞利浦（PHILIPS）电动剃须刀 多功能理容 刮胡刀礼盒装（配胡须修剪器 鼻毛修剪器）S5082/61</p>
 					</div>
-				</div>
-				<div class="col-md-3">￥1198.00</div>
-			</div>
-
-			<div class="col-md-12 cart-item-list">
-				<div class="col-md-2">
-					<input type="checkbox">
-					<img class="p-img" src="img/8.jpg" alt="商品图片">
-				</div>
-				<div class="col-md-4">
-					<p>飞利浦（PHILIPS）电动剃须刀 多功能理容 刮胡刀礼盒装（配胡须修剪器 鼻毛修剪器）S5082/61</p>
-				</div>
-				<div class="col-md-1">￥599</div>
-				<div class="col-md-2">
-					<div class="input-group">
-						<span class="input-group-btn">
-							<button class="btn btn-default">-</button>
-						</span>
-						<input type="text" class="form-control" readonly="true" value="2">
-						<span class="input-group-btn">
-							<button class="btn btn-default">+</button>
-						</span>
+					<div class="col-md-1 price">￥<span>600.00</span></div>
+					<div class="col-md-2">
+						<div class="input-group">
+							<span class="input-group-btn">
+								<button class="btn btn-default decrease">-</button>
+							</span>
+							<input type="text" class="form-control" readonly="true" value="1">
+							<span class="input-group-btn">
+								<button class="btn btn-default increase">+</button>
+							</span>
+						</div>
 					</div>
-				</div>
-				<div class="col-md-3">￥1198.00</div>
-			</div>
+					<div class="col-md-3">￥<span>600.00</span></div>
+				</li>
+				<li class="col-md-12 cart-item-list">
+					<div class="col-md-2">
+						<input type="checkbox" name="items">
+						<img class="p-img" src="img/8.jpg" alt="商品图片">
+					</div>
+					<div class="col-md-4">
+						<p>飞利浦（PHILIPS）电动剃须刀 多功能理容 刮胡刀礼盒装S5082/61</p>
+					</div>
+					<div class="col-md-1 price">￥<span>300.00</span></div>
+					<div class="col-md-2">
+						<div class="input-group">
+							<span class="input-group-btn">
+								<button class="btn btn-default decrease">-</button>
+							</span>
+							<input type="text" class="form-control" readonly="true" value="1">
+							<span class="input-group-btn">
+								<button class="btn btn-default increase">+</button>
+							</span>
+						</div>
+					</div>
+					<div class="col-md-3">￥<span>300.00</span></div>
+				</li>
+			</ul>
 
 			<div class="col-md-12 cart-toolbar">
-				<input type="checkbox"> 全选
+				<input type="checkbox" class="checkedAllBox"> 全选
 
 				<div class="order_right">
-					<span class="order_price">总价： <em>￥3594.00</em></span>
+					<span class="order_price">总价： ￥<em id="total">900.00</em></span>
 
 					<button id="order_submit" class="order_submit">去结算</button>
 				</div>
