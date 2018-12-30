@@ -6,6 +6,21 @@
 	<style type="text/css">
 
 	</style>
+	<script type="text/javascript">
+		/*
+		window.onload = function(){
+			var qq = document.getElementById('qq');
+			qq.onfocus = function(){
+				this.placeholder='';
+			}
+			qq.onblur = function(){
+				if(qq.value == ""){
+					this.placeholder='邮箱/手机号/QQ号';
+				}
+			}
+		}
+		*/
+	</script>
 </head>
 <body>
 	<!-- 
@@ -46,8 +61,14 @@
 			该标签可以指定一个for属性，该属性的值需要指定一个表单项的id值
 			 -->
 			<label for="um">用户名</label>
-			<!-- value是默认值，提示信息用：placeholder="用户名/邮箱/手机号" -->
-			<input id="um" type="text" name="username" value="我是value"><br><br>
+			<!-- 
+				value是默认值，
+				提示信息用：placeholder="用户名/邮箱/手机号"
+				autocomplete="off"不保存缓存记录
+			 -->
+			<input id="um" type="text" name="username" value="我是value" autocomplete="off"><br><br>
+			<label for="qq">账号</label>
+			<input id="qq" type="text" name="loginName" placeholder="邮箱/手机号/QQ号" onfocus="this.placeholder=''" onblur="this.placeholder='邮箱/手机号/QQ号'"><br><br>
 
 			<!-- 
 			密码框
