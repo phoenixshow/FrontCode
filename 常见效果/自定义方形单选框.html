@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>自定义方形单选框</title>
+	<style type="text/css">
+		.out{
+			width: 10px;
+			height: 10px;
+			padding: 10px;
+			border: 1px solid #000;
+		}
+		.inner{
+			width: 10px;
+			height: 10px;
+			background-color: #000;
+			display: block;
+		}
+		.no{
+			display: none;
+		}
+	</style>
+	<script type="text/javascript" src="js/jquery-1.12.4.min.js"></script>
+	<script type="text/javascript">
+		$(function(){
+			$('.out').click(function(){
+				$('.inner').toggleClass('no');
+			})
+		})
+	</script>
+</head>
+<body>
+	<div class="out" id="out">
+		<div class="inner"></div>
+	</div>
+</body>
+</html>
