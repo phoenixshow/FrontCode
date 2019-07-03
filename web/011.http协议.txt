@@ -1,0 +1,47 @@
+浏览器-->服务器发送的请求格式如下：
+
+  # 表示请求的目标、协议版本
+  GET / HTTP/1.1
+  # 表示服务器的IP地址和端口
+  Host: 127.0.0.1:8080
+  # 表示是长链接
+  Connection: keep-alive
+  # 表示谷歌浏览器告诉服务器，浏览器可以处理https协议
+  Upgrade-Insecure-Requests: 1
+  # 表示浏览器的版本
+  User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/75.0.3770.80 Safari/537.36
+  # 表示浏览器可以接收什么样的格式
+  Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3
+  # 表示能够接收的压缩格式
+  Accept-Encoding: gzip, deflate, br
+  # 表示能接收的语言，能接收中文
+  Accept-Language: zh-CN,zh;q=0.9
+
+服务器-->浏览器回送的数据格式如下：
+  HTTP/1.1 200 OK
+  Bdpagetype: 1
+  Bdqid: 0x9dd09c83000204a0
+  # 表示你的缓存是共享的、还是私有的，现在是私有的
+  Cache-Control: private
+  Connection: Keep-Alive
+  # 编码格式，浏览器就按照这个格式来解压
+  Content-Encoding: gzip
+  # 服务器传回的内容格式、字符集
+  Content-Type: text/html; charset=utf-8
+  Cxy_all: baidu+34491ab9ca3c8ba32cebe1d26059f593
+  # 表示服务器当前的时间
+  Date: Sun, 23 Jun 2019 03:38:04 GMT
+  Expires: Sun, 23 Jun 2019 03:37:52 GMT
+  # 服务器：BWS是百度服务器的一个简称
+  Server: BWS/1.1
+  # 设置Cookie
+  Set-Cookie: delPer=0; path=/; domain=.baidu.com
+  Set-Cookie: BDSVRTM=0; path=/
+  Set-Cookie: BD_HOME=0; path=/
+  Set-Cookie: H_PS_PSSID=1441_21127_29135_29237_28518_29099_29131_29369_28833_29220_26350; path=/; domain=.baidu.com
+  Strict-Transport-Security: max-age=172800
+  Vary: Accept-Encoding
+  X-Ua-Compatible: IE=Edge,chrome=1
+  Transfer-Encoding: chunked
+
+  <h1>hahaha</h1>
