@@ -1,0 +1,71 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+<title>抽奖</title>
+<!-- <script>
+var zhuohao_zuixiao=1;//最小桌号
+var zhuohao_zuida=50;//最大桌号
+
+
+var zuohao_zuixiao=1;//最小座号
+var zuohao_zuida=8;//最大座号
+
+</script> -->
+<link rel="stylesheet" href="css/cp_public.css">
+<script src="js/jquery-1.12.4.min.js"></script>
+<script src="js/easing.min.js"></script>
+<script src="js/cp_mejs.js"></script>
+
+
+</head>
+<body>
+
+
+<section>
+  <div class="machine">
+    <dl class="rotate_box clear">
+      <dd id="a_1">
+        <div id="a_1_num" class="num" style="color:#ff3e6a">1</div>
+        <div id="a_1_txt" class="txt" style="color:#46bcf6"><b>排号</b></div>
+      </dd>
+      <dd id="a_2">
+        <div id="a_2_num" class="num" style="color:#e02ca2">1</div>
+        <div id="a_2_txt" class="txt" style="color:#11bf31"><b>座号</b></div>
+      </dd> 
+    </dl>
+    <a class="poiner" href="">
+    <img src="images/poiner.png" alt="">
+    </a>
+    <a class="rotate_btn" href="javascript: void(0);">
+    <img src="images/rocker.png" alt="">
+    </a>
+    <div class="btn_box">
+    <a class="share_btn" href="javascript: void(0);">
+      <img src="images/share_btn.png" alt="">
+    </a>
+    </div>
+  </div>
+</section>
+
+<div class="mask">
+  <img src="images/alert_img.png" alt="">
+</div>
+
+<div class="cp_setting">
+<a id="cp_setting" href="javascript: void(0);">设置</a>
+</div>
+
+<div id="cp_setting_body">
+  <div>最小排号:<input type="text" id="zhuohao_zuixiao_text" value="1"></div>
+  <div>最大排号:<input type="text" id="zhuohao_zuida_text" value="80"></div>
+  <div>最小座号:<input type="text" id="zuohao_zuixiao_text" value="1"></div>
+  <div>最大座号:<input type="text" id="zuohao_zuida_text" value="8"></div>
+  <div><input type="submit" id="cp_save" value="确定"></div>
+</div>
+
+</body>
+</html>
