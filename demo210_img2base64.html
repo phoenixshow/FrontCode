@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>图片的Base64转码</title>
+  <script type="text/javascript">
+    var imgUrl = "http://5b0988e595225.cdn.sohucs.com/a_auto,c_cut,x_48,y_1,w_201,h_201/images/20180106/2bdb161df6644b538b61658620feeaf3.jpeg";
+
+    var image = new Image();
+    //设置跨域
+    image.crossOrigin = 'anonymous';
+    //设置图片路径
+    image.src = imgUrl;
+    //确保图片加载成功后再进行编码操作
+    image.onload = function(){
+       var base64 = getBase64Image(image);
+       console.log(base64);
+    }
+
+    function getBase64Image(img) {
+        //创建画板
+       var canvas = document.createElement("canvas");
+       //设置画板的宽高为图片的宽高
+       canvas.width = img.width;
+       canvas.height = img.height;
+
+       //用2D环境来绘制平面图片
+       var ctx = canvas.getContext("2d");
+       //绘制图片（图片对象，X轴起始，Y轴起始，X轴结束，Y轴结束）
+       ctx.drawImage(img, 0, 0, img.width, img.height);
+       //获取扩展名
+       var ext = img.src.substring(img.src.lastIndexOf(".")+1).toLowerCase();
+       //通过canvas.toDataURL将图片转换成base64
+       //注意，在转之前必须先确保图片成功加载到，所以toDataURL()方法应该写在的onload异步事件中
+       var dataURL = canvas.toDataURL("image/"+ext);
+       //返回的就是编码好的了
+       return dataURL;
+    }
+  </script>
+</head>
+<body>
+  
+</body>
+</html>
