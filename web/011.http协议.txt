@@ -1,7 +1,7 @@
 浏览器-->服务器发送的请求格式如下：
 
   # 表示请求的目标、协议版本
-  GET / HTTP/1.1
+  POST / HTTP/1.1
   # 表示服务器的IP地址和端口
   Host: 127.0.0.1:8080
   # 表示是长链接
@@ -17,6 +17,9 @@
   # 表示能接收的语言，能接收中文
   Accept-Language: zh-CN,zh;q=0.9
 
+  username:tom
+  password:123
+
 服务器-->浏览器回送的数据格式如下：
   HTTP/1.1 200 OK
   Bdpagetype: 1
@@ -28,6 +31,7 @@
   Content-Encoding: gzip
   # 服务器传回的内容格式、字符集
   Content-Type: text/html; charset=utf-8
+  Content-Length: 123456789
   Cxy_all: baidu+34491ab9ca3c8ba32cebe1d26059f593
   # 表示服务器当前的时间
   Date: Sun, 23 Jun 2019 03:38:04 GMT
