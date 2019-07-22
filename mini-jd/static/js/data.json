@@ -1,0 +1,18 @@
+{
+	"code":200,
+	"data":{
+		"name":"李念",
+		"age":18,
+		"imgUrl":"img/4-4.jpg",
+		"info":
+		[
+			"female",
+			"student",
+			{
+				"front":["js","css","html"],
+				"back":["Python"]
+			}
+		]
+	},
+	"msg":"成功"
+}

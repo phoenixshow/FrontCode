@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+	<title>别克汇——商品列表</title>
+	<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="css/index.css">
+	<link rel="stylesheet" type="text/css" href="css/list.css">
+
+	<script type="text/javascript" src="js/jquery.min.js"></script>
+	<script type="text/javascript" src="js/bootstrap.min.js"></script>
+	<script type="text/javascript">
+		$(function(){
+			$(".add_cart_btn").click(function() {
+				$.get("/add/12.html?uid=2", function(data, status){
+            alert("数据: " + data + "\n状态: " + status);
+            // window.location.href="index.html";
+        });
+			});
+		})
+	</script>
+</head>
+<body class="index_bg">
+	<div class="titlebar">
+		<div class="container">
+			<div class="row">
+				<div class="col-lg-4 col-lg-offset-2 col-md-4 col-md-offset-2 col-sm-4 col-sm-offset-2 col-xs-4 col-xs-offset-2">
+					<span class="glyphicon glyphicon-map-marker"></span>北京
+				</div>
+
+				<div class="col-lg-4 col-md-4 col-sm-4 col-xs-4 text-right hidden">
+					<a href="#">欢迎你，安以轩</a> | 
+					<a href="#">我的订单</a> | 
+					<a href="#">退出</a>
+				</div>
+
+				<div class="col-lg-4 col-md-4 col-sm-4 col-xs-4 text-right show">
+					<a href="login.html">你好，请登陆</a> | 
+					<a href="register.html" class="style-red">免费注册</a>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div class="container">
+		<form class="navbar-form navbar-left margin-center top-seach" action="list.html">
+  			<div class="form-group">
+  				<div class="input-group">
+					<input type="text" class="form-control" placeholder="搜索别克汇商城商品">
+					<span class="input-group-btn">
+			        	<button class="btn btn-danger">
+			        		<span class="glyphicon glyphicon-search"></span>
+			        	</button>
+			    	</span>
+				</div>
+  			</div>
+  		</form>
+	</div>
+
+	<div class="container">
+		<div class="row">
+			<div class="col-md-3 filter-list">
+				<form action="list.html" method="get">
+					<h4>内存</h4>
+					<label class="checkbox-inline"><input type="checkbox" name="ram" value="4G"> 4G</label>
+					<label class="checkbox-inline"><input type="checkbox" name="ram" value="4G*2"> 4G*2</label>
+					<label class="checkbox-inline"><input type="checkbox" name="ram" value="8G"> 8G</label>
+					<label class="checkbox-inline"><input type="checkbox" name="ram" value="8G*2"> 8G*2</label>
+					<label class="checkbox-inline"><input type="checkbox" name="ram" value="16G"> 16G</label>
+					<label class="checkbox-inline"><input type="checkbox" name="ram" value="32G"> 32G</label>
+					<hr>
+
+					<h4>硬盘</h4>
+					<label class="checkbox-inline"><input type="checkbox" name="disk" value="500G"> 500G</label>
+					<label class="checkbox-inline"><input type="checkbox" name="disk" value="128GSSD+500G"> 128GSSD+500G</label>
+					<label class="checkbox-inline"><input type="checkbox" name="disk" value="256GSSD"> 256GSSD</label>
+					<label class="checkbox-inline"><input type="checkbox" name="disk" value="256GSSD+1T"> 256GSSD+1T</label>
+					<label class="checkbox-inline"><input type="checkbox" name="disk" value="128GSSD+2T"> 128GSSD+2T</label>
+					<hr>
+
+					<h4>CPU</h4>
+					<label class="radio-inline"><input type="radio" name="cpu" value="i3"> i3</label>
+					<label class="radio-inline"><input type="radio" name="cpu" value="i3"> i5</label>
+					<label class="radio-inline"><input type="radio" name="cpu" value="i3"> i7</label>
+					<label class="radio-inline"><input type="radio" name="cpu" value="i3"> E3</label>
+					<label class="radio-inline"><input type="radio" name="cpu" value="i3"> E5</label>
+					<hr>
+
+					<h4>价格</h4>
+					<select class="form-control" name="price">
+						<option value="0~999999">请选择</option>
+						<option value="0~3999">￥0~3999</option>
+						<option value="4000~6999">￥4000~6999</option>
+						<option value="7000~8999">￥7000~8999</option>
+						<option value="9000~11999">￥9000~11999</option>
+						<option value="12000及以上">￥12000及以上</option>
+					</select>
+					<hr>
+
+					<button type="submit" class="btn btn-default center-block">提交</button>
+				</form>
+			</div>
+
+			<div class="col-md-9">
+				<div class="col-lg-3 col-md-4 col-sm-4 col-xs-6 modify-padding product_info">
+					<div class="thumbnail modify-border">
+						<a href="#">
+							<img src="img/5.jpg" alt="商品图片">
+							<div class="caption">
+								<h4>￥5499</h4>
+								<em>华硕（ASUS） 华硕笔记本电脑游戏本FX63VD四核15.6英寸飞行堡垒 i5-7300HQ/4G/1T/2G独显</em>
+							</div>
+						</a>
+						<div class="clearfix">
+							<a href="javascript:;" class="btn btn-danger active pull-right add_cart_btn">添加到购物车</a>
+						</div>
+					</div>
+				</div>
+
+				<div class="col-lg-3 col-md-4 col-sm-4 col-xs-6 modify-padding product_info">
+					<div class="thumbnail modify-border">
+						<a href="#">
+							<img src="img/5.jpg" alt="商品图片">
+							<div class="caption">
+								<h4>￥5499</h4>
+								<em>华硕（ASUS） 华硕笔记本电脑游戏本FX63VD四核15.6英寸飞行堡垒 i5-7300HQ/4G/1T/2G独显</em>
+							</div>
+						</a>
+						<div class="clearfix">
+							<a href="javascript:;" class="btn btn-danger active pull-right add_cart_btn">添加到购物车</a>
+						</div>
+					</div>
+				</div>
+
+				<div class="col-lg-3 col-md-4 col-sm-4 col-xs-6 modify-padding product_info">
+					<div class="thumbnail modify-border">
+						<a href="#">
+							<img src="img/5.jpg" alt="商品图片">
+							<div class="caption">
+								<h4>￥5499</h4>
+								<em>华硕（ASUS） 华硕笔记本电脑游戏本FX63VD四核15.6英寸飞行堡垒 i5-7300HQ/4G/1T/2G独显</em>
+							</div>
+						</a>
+						<div class="clearfix">
+							<a href="javascript:;" class="btn btn-danger active pull-right add_cart_btn">添加到购物车</a>
+						</div>
+					</div>
+				</div>
+
+				<div class="col-lg-3 col-md-4 col-sm-4 col-xs-6 modify-padding product_info">
+					<div class="thumbnail modify-border">
+						<a href="#">
+							<img src="img/5.jpg" alt="商品图片">
+							<div class="caption">
+								<h4>￥5499</h4>
+								<em>华硕（ASUS） 华硕笔记本电脑游戏本FX63VD四核15.6英寸飞行堡垒 i5-7300HQ/4G/1T/2G独显</em>
+							</div>
+						</a>
+						<div class="clearfix">
+							<a href="javascript:;" class="btn btn-danger active pull-right add_cart_btn">添加到购物车</a>
+						</div>
+					</div>
+				</div>
+
+				<div class="col-lg-3 col-md-4 col-sm-4 col-xs-6 modify-padding product_info">
+					<div class="thumbnail modify-border">
+						<a href="#">
+							<img src="img/5.jpg" alt="商品图片">
+							<div class="caption">
+								<h4>￥5499</h4>
+								<em>华硕（ASUS） 华硕笔记本电脑游戏本FX63VD四核15.6英寸飞行堡垒 i5-7300HQ/4G/1T/2G独显</em>
+							</div>
+						</a>
+						<div class="clearfix">
+							<a href="javascript:;" class="btn btn-danger active pull-right add_cart_btn">添加到购物车</a>
+						</div>
+					</div>
+				</div>
+
+				<div class="col-lg-3 col-md-4 col-sm-4 col-xs-6 modify-padding product_info">
+					<div class="thumbnail modify-border">
+						<a href="#">
+							<img src="img/5.jpg" alt="商品图片">
+							<div class="caption">
+								<h4>￥5499</h4>
+								<em>华硕（ASUS） 华硕笔记本电脑游戏本FX63VD四核15.6英寸飞行堡垒 i5-7300HQ/4G/1T/2G独显</em>
+							</div>
+						</a>
+						<div class="clearfix">
+							<a href="javascript:;" class="btn btn-danger active pull-right add_cart_btn">添加到购物车</a>
+						</div>
+					</div>
+				</div>
+
+				<div class="col-lg-3 col-md-4 col-sm-4 col-xs-6 modify-padding product_info">
+					<div class="thumbnail modify-border">
+						<a href="#">
+							<img src="img/5.jpg" alt="商品图片">
+							<div class="caption">
+								<h4>￥5499</h4>
+								<em>华硕（ASUS） 华硕笔记本电脑游戏本FX63VD四核15.6英寸飞行堡垒 i5-7300HQ/4G/1T/2G独显</em>
+							</div>
+						</a>
+						<div class="clearfix">
+							<a href="javascript:;" class="btn btn-danger active pull-right add_cart_btn">添加到购物车</a>
+						</div>
+					</div>
+				</div>
+
+				<div class="col-lg-3 col-md-4 col-sm-4 col-xs-6 modify-padding product_info">
+					<div class="thumbnail modify-border">
+						<a href="#">
+							<img src="img/5.jpg" alt="商品图片">
+							<div class="caption">
+								<h4>￥5499</h4>
+								<em>华硕（ASUS） 华硕笔记本电脑游戏本FX63VD四核15.6英寸飞行堡垒 i5-7300HQ/4G/1T/2G独显</em>
+							</div>
+						</a>
+						<div class="clearfix">
+							<a href="javascript:;" class="btn btn-danger active pull-right add_cart_btn">添加到购物车</a>
+						</div>
+					</div>
+				</div>
+
+				<div class="col-lg-3 col-md-4 col-sm-4 col-xs-6 modify-padding product_info">
+					<div class="thumbnail modify-border">
+						<a href="#">
+							<img src="img/5.jpg" alt="商品图片">
+							<div class="caption">
+								<h4>￥5499</h4>
+								<em>华硕（ASUS） 华硕笔记本电脑游戏本FX63VD四核15.6英寸飞行堡垒 i5-7300HQ/4G/1T/2G独显</em>
+							</div>
+						</a>
+						<div class="clearfix">
+							<a href="javascript:;" class="btn btn-danger active pull-right add_cart_btn">添加到购物车</a>
+						</div>
+					</div>
+				</div>
+
+				<div class="col-lg-3 col-md-4 col-sm-4 col-xs-6 modify-padding product_info">
+					<div class="thumbnail modify-border">
+						<a href="#">
+							<img src="img/5.jpg" alt="商品图片">
+							<div class="caption">
+								<h4>￥5499</h4>
+								<em>华硕（ASUS） 华硕笔记本电脑游戏本FX63VD四核15.6英寸飞行堡垒 i5-7300HQ/4G/1T/2G独显</em>
+							</div>
+						</a>
+						<div class="clearfix">
+							<a href="javascript:;" class="btn btn-danger active pull-right add_cart_btn">添加到购物车</a>
+						</div>
+					</div>
+				</div>
+
+				<div class="col-lg-3 col-md-4 col-sm-4 col-xs-6 modify-padding product_info">
+					<div class="thumbnail modify-border">
+						<a href="#">
+							<img src="img/5.jpg" alt="商品图片">
+							<div class="caption">
+								<h4>￥5499</h4>
+								<em>华硕（ASUS） 华硕笔记本电脑游戏本FX63VD四核15.6英寸飞行堡垒 i5-7300HQ/4G/1T/2G独显</em>
+							</div>
+						</a>
+						<div class="clearfix">
+							<a href="javascript:;" class="btn btn-danger active pull-right add_cart_btn">添加到购物车</a>
+						</div>
+					</div>
+				</div>
+
+				<div class="col-lg-3 col-md-4 col-sm-4 col-xs-6 modify-padding product_info">
+					<div class="thumbnail modify-border">
+						<a href="#">
+							<img src="img/5.jpg" alt="商品图片">
+							<div class="caption">
+								<h4>￥5499</h4>
+								<em>华硕（ASUS） 华硕笔记本电脑游戏本FX63VD四核15.6英寸飞行堡垒 i5-7300HQ/4G/1T/2G独显</em>
+							</div>
+						</a>
+						<div class="clearfix">
+							<a href="javascript:;" class="btn btn-danger active pull-right add_cart_btn">添加到购物车</a>
+						</div>
+					</div>
+				</div>
+
+				<div class="col-md-12">
+					<ul class="pagination margin-center">
+						<li class="disabled">
+							<a href="#">&laquo;</a>
+						</li>
+						<li class="active">
+							<a href="#">1</a>
+						</li>
+						<li>
+							<a href="#">2</a>
+						</li>
+						<li>
+							<a href="#">3</a>
+						</li>
+						<li>
+							<a href="#">4</a>
+						</li>
+						<li>
+							<a href="#">5</a>
+						</li>
+						<li>
+							<a href="#">&raquo;</a>
+						</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</div>
+</body>
+</html>

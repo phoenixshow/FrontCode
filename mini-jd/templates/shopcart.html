@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+	<title>别克汇——购物车</title>
+
+	<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="css/index.css">
+	<link rel="stylesheet" type="text/css" href="css/list.css">
+
+	<script type="text/javascript" src="js/jquery.min.js"></script>
+	<script type="text/javascript" src="js/bootstrap.min.js"></script>
+
+	<script type="text/javascript">
+		$(function(){
+			// 跳转到去结算
+			$('#order_submit').click(function() {
+				window.location.href = "create_order.html";
+			});
+
+			// 购物车+-
+			var total = $('#total');
+			totalPrice();
+
+			$('button[class*=decrease]').click(function() {
+				$(this).blur();
+				var $li = $(this).closest('li');
+				var $input = $li.find('input:last');
+				var price = $li.find('.price').children('span').html();
+				var count = +($input.val());
+
+				if(--count <= 0){
+					count = 1;
+				}
+
+				$input.val(count);
+				$li.children(':last').children('span').html(new Number(price * count).toFixed(2));
+				totalPrice();
+
+			});
+			$('button[class*=increase]').click(function() {
+				$(this).blur();
+				var $li = $(this).closest('li');
+				var $input = $li.find('input:last');
+				var price = $li.find('.price').children('span').html();
+				var count = +($input.val());
+
+				$input.val(Math.round((++count*100)/100));
+				$li.children(':last').children('span').html(new Number(price * count).toFixed(2));
+				totalPrice();
+			});
+
+			function totalPrice(){
+				$li = $('.list-unstyled li');
+				var sum = 0;
+				$li.each(function(index, el) {
+					sum += parseFloat($(this).children(':last').children("span").html());
+				});
+				$('#total').html(new Number(sum).toFixed(2));
+			}
+
+			// 全选
+			var $checkedAllBox = $('.checkedAllBox');
+			var $items = $(':checkbox[name=items]');
+			
+			$checkedAllBox.click(function () {
+				$items.prop('checked', this.checked);
+				$checkedAllBox.prop('checked', $items.not(':checked').length===0);
+			})
+			
+			$items.click(function () {
+				$checkedAllBox.prop('checked', $items.not(':checked').length===0);
+			})
+		})
+	</script>
+</head>
+<body>
+	<div class="titlebar">
+		<div class="container">
+			<div class="row">
+				<div class="col-lg-4 col-lg-offset-2 col-md-4 col-md-offset-2 col-sm-4 col-sm-offset-2 col-xs-4 col-xs-offset-2">
+					<span class="glyphicon glyphicon-map-marker"></span>北京
+				</div>
+
+				<div class="col-lg-4 col-md-4 col-sm-4 col-xs-4 text-right hidden">
+					<a href="#">欢迎你，安以轩</a> | 
+					<a href="#">我的订单</a> | 
+					<a href="#">退出</a>
+				</div>
+
+				<div class="col-lg-4 col-md-4 col-sm-4 col-xs-4 text-right show">
+					<a href="#">你好，请登陆</a> | 
+					<a href="#" class="style-red">免费注册</a>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div class="container">
+		<form class="navbar-form navbar-left margin-center top-seach" action="list.html">
+  			<div class="form-group">
+  				<div class="input-group">
+					<input type="text" class="form-control" placeholder="搜索别克汇商城商品">
+					<span class="input-group-btn">
+			        	<button class="btn btn-danger">
+			        		<span class="glyphicon glyphicon-search"></span>
+			        	</button>
+			    	</span>
+				</div>
+  			</div>
+  		</form>
+	</div>
+
+	<div class="container">
+		<div class="row order_content cart-main">
+			<div class="col-md-2">
+				<input type="checkbox" class="checkedAllBox"> 全选
+			</div>
+			<div class="col-md-4">商品</div>
+			<div class="col-md-1">单价</div>
+			<div class="col-md-2">数量</div>
+			<div class="col-md-3">小计</div>
+
+			<ul class="list-unstyled">
+				{%content%}
+			</ul>
+
+			<div class="col-md-12 cart-toolbar">
+				<input type="checkbox" class="checkedAllBox"> 全选
+
+				<div class="order_right">
+					<span class="order_price">总价： ￥<em id="total">900.00</em></span>
+
+					<button id="order_submit" class="order_submit">去结算</button>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div class="container best_seller">
+		<h3>畅销单品</h3>
+
+		<div class="row">
+			<ul class="col-md-12 p-list">
+				{%bestseller%}
+			</ul>
+		</div>
+	</div>
+</body>
+</html>

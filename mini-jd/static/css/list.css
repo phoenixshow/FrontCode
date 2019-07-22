@@ -1,0 +1,260 @@
+/*=================列表页=================*/
+.modify-border{
+	border:0px !important;/*!important是提高指定样式规则的应用优先权*/
+}
+
+.modify-border:hover{
+	-webkit-box-shadow: #999 0px 0px 2px;
+    -moz-box-shadow: #999 0px 0px 2px;
+    box-shadow: #999 0px 0px 2px;
+}
+
+.filter-list{
+	border: 1px solid #C0C0C0;
+	padding-bottom: 2em;
+}
+
+
+.filter-list .checkbox-inline,.filter-list .radio-inline{
+	margin-left: 0px;
+	margin-right: 10px;
+}
+.product_info a {
+    text-decoration: none;
+	margin-right: 10px;
+	margin-bottom: 6px;
+}
+.product_info .caption{
+	padding: 4px 9px;
+}
+.product_info em{
+	/*不使用斜体，用正常字体*/
+	font-style: normal;
+	/*单行显示，超出隐藏*/
+	display: block;
+	height: 20px;
+    line-height: 20px;
+	overflow: hidden;
+}
+.product_info h4,.product_info em:hover{
+    color: #e4393c;
+}
+.thumbnail{
+	padding: 0;
+}
+/*分页居中，先左填充50%，再相对于自身左移自身的50%，即可居中*/
+.pagination{
+	margin-left: 50%;
+	transform: translate(-50%,0);
+}
+
+
+
+
+/*=================添加到购物车页面=================*/
+.add_info{
+	border-top: 2px solid #B1191A;
+	padding-bottom: 10px;
+}
+/*
+baseline	默认。元素放置在父元素的基线上。
+sub	垂直对齐文本的下标。
+super	垂直对齐文本的上标
+top	把元素的顶端与行中最高元素的顶端对齐
+text-top	把元素的顶端与父元素字体的顶端对齐
+middle	把此元素放置在父元素的中部。
+bottom	把元素的顶端与行中最低的元素的顶端对齐。
+text-bottom	把元素的底端与父元素字体的底端对齐。
+length	 
+%	使用 "line-height" 属性的百分比值来排列此元素。允许使用负值。
+inherit	规定应该从父元素继承 vertical-align 属性的值
+*/
+.ftx-02{
+	color:#71b247;
+}
+.ftx-02 span{
+	vertical-align: top;
+}
+.img_con{
+	padding-left:0px;
+}
+.img_con img{
+	width:100%;
+	height:100%;
+	object-fit: cover;/*兼容各大浏览器不变形，但图片不是完整显示的*/
+}
+.also_buy{
+	margin-top:2em;
+}
+.p-list{
+	padding:0px;
+	list-style: none;
+}
+.p-name{
+	height: 54px;
+	line-height: 18px;
+    overflow: hidden;
+    margin: 4px 0;
+}
+.p-name a {
+    color: #333;
+    text-decoration: none;
+}
+
+.p-name a:hover {
+    color: #e4393c;
+}
+.p-list p{
+	color: #d91f20;
+	margin-bottom: 15px;
+}
+.p-list .btn-default:hover {
+    border-color: #e4393c;
+    background: #e4393c;
+    color: #fff
+}
+
+
+
+
+/*=================购物车页面=================*/
+.cart-main{
+	border-bottom:2px solid #c5c5c5;
+}
+.cart-item-list{
+	padding: 10px 0px 10px 0px;
+	border:1px solid  #f1f1f1;
+}
+.cart-item-list p{
+	line-height: 20px;
+}
+.cart-item-list .form-control{
+	float: unset;
+	height: unset;
+}
+.p-img{
+	width: 60%;
+	border: 1px solid #f1f1f1;
+	margin-left: 20px;
+}
+.cart-toolbar{
+	border-top: 2px;
+	margin:20px 0px;
+	border:1px solid  #f1f1f1;
+	padding-right:0px;
+}
+
+
+
+
+/*=================结算页面=================*/
+.main-order{
+	padding:20px;
+	border:1px solid #f1f1f1;
+}
+.order_list{
+	line-height: 50px;
+}
+.order_product{
+	padding: 10px 0px 10px 0px;
+}
+.order_product img{
+	width: 60%;
+	border: 1px solid #f1f1f1;
+	margin-left: 15px;
+}
+.order_pay{
+	border-top: 1px solid #f1f1f1;
+	border-bottom: 1px solid  #f1f1f1;
+	margin:20px 0px;
+	padding:0px;
+}
+.order_right{
+	float:right;
+	width:30%;
+}
+.order_price em{
+	font-style: normal;
+	font-size: 20px;
+    color: #e4393c;
+    font-weight: 700;/*设置字体加粗。400相当于normal，700等价于bold*/
+}
+.order_submit{
+	border: 0px;
+	background-color: #e54346;
+	float:right;
+	width: 45%;
+	color: #fff;
+	font-size: 18px;
+}
+
+
+
+/*=================畅销单品=================*/
+.best_seller{
+	margin-top:2em;
+	margin-bottom:2em;
+}
+.best_seller h3{
+	color: #D9534F;
+	margin-top: 0px;
+	width: 120px;
+	padding: 5px 0px 5px 0px;
+	text-align: center;
+	border-bottom: 2px solid #D9534F;
+}
+.best_seller_product{
+	/*padding-left:0px;*/
+	margin-top:15px;
+	margin-bottom:15px;
+}
+.best_seller_img{
+	padding:0px;
+}
+.best_seller_img img{
+	height:100%;
+	width:100%;
+	object-fit: none;
+	border: 1px solid #eee;
+}
+
+
+
+/*=================我的订单=================*/
+.my_order{
+	border: 1px solid #f1f1f1;
+	margin-bottom:50px;
+}
+.order_content{
+	height: 50px;
+	background-color: #f5f5f5;
+	line-height: 50px;
+}
+.my_product{
+	padding:0px;
+	border-right:1px solid #f1f1f1;
+}
+.my_product .container-fluid{
+	padding: 15px 0px;
+	border-top: 1px solid #f1f1f1;
+}
+.my_product img{
+	width: 60%;
+	border: 1px solid #f1f1f1;
+	margin-left: 20px;
+}
+.my_product p{
+	font-size: 14px;
+	line-height: 2em;
+}
+.top_border{
+	border-top: 1px solid #f1f1f1;
+}
+
+
+
+/*=================404、500=================*/
+.server_message{
+	background-color:#f5f5f5;
+	border-top: 2px solid #B1191A;
+}

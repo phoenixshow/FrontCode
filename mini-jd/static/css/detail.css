@@ -1,0 +1,130 @@
+.info-style{
+	margin-bottom:3em;
+	padding: 15px;
+	/* box-shadow: #999 0px 0px 2px; */
+	border-top: #e51d23 solid 1px;
+	border-bottom: #999 solid 1px;
+}
+.info-style>div{
+	line-height: 30px;
+	color: #666;
+}
+/* .info-style img{
+	width: 70%;
+} */
+.main-img{
+	width: 350px;
+}
+.p-price{
+	color: #E4393C;
+}
+.price{
+	font-size: 22px;
+}
+.main-info h4{
+	line-height: 3.0rem;
+	color: #666;
+	font: 700 18px Arial,"microsoft yahei";
+}
+.main-info label,.main-info span{
+	line-height: 3.0rem;
+}
+.main-info .form-group label{
+	padding-top: 0px;
+	color: #999;
+}
+.good_ad {
+    font-size: 14px;
+    padding-top: 4px;
+    padding-bottom: 7px;
+    color: #e60012;
+    border-bottom: 1px solid #e0e0e0
+}
+.delete{
+	text-decoration: line-through;
+}
+.good_choose {
+    margin-bottom: 20px;
+    padding: 15px 15px 15px 0px;
+    background-color: #f8f8f8
+}
+.good_btn button {
+    font-size: 18px;
+    line-height: 46px;
+    width: 30%;
+    height: 8%;
+    margin-right: 20px;
+    padding: 0;
+    cursor: pointer;
+    text-align: center;
+    border: 0;
+    outline: 0
+}
+
+.good_btn button.disabled {
+    border: 1px solid #cbcbcb
+}
+
+.good_btn .add_car {
+    color: #fff;
+    background: #e51d23
+}
+.good_btn .buy_good {
+    color: #e51d23;
+    border: 1px solid #e45a5e;
+    background: #f3e6e6
+}
+.good-warn {
+    font-size: 14px;
+    color: #666
+}
+.good_center{
+	position: relative;
+	left: 19%;
+	display: block;
+}
+.btn_number {
+    border: 1px solid #e3e3e3;
+    background-color: #fff;
+    display: inline-block;
+}
+.btn_number a {
+    text-decoration: none;
+    line-height: 28px;
+    height: 28px;
+    padding: 0 5px;
+    text-align: center;
+    color: #757575;
+    display: inline-block;
+}
+.btn_number a:hover {
+    text-decoration: none;
+}
+
+.btn_number a:first-child {
+    float: left
+}
+
+.btn_number input {
+    width: 50px;
+    height: 18px;
+    padding: 5px 15px;
+    text-align: center;
+    vertical-align: baseline;
+    color: #333;
+    border: 0;
+    border-right: 1px solid #e3e3e3;
+    border-left: 1px solid #e3e3e3;
+    background-color: #fff
+}
+.hot_sell h4{
+	color: #e4393c;
+	font-weight: bold;
+}
+.hot_sell p{
+	color: #999;
+	margin: 0px;
+}
+.hot_sell:hover{
+	text-decoration: none;
+}
