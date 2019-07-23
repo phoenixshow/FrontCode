@@ -93,24 +93,34 @@
 # # print(cursor.fetchone(), "---->");
 # # count = cursor.execute("select * from goods;")
 
-from pymysql import connect
+# from pymysql import connect
 
-# 创建Connection连接
-conn = connect(host='localhost',port=3306,database='jing_dong',user='root',password='123456',charset='utf8')
-# 获得Cursor对象
-cs1 = conn.cursor()
+# # 创建Connection连接
+# conn = connect(host='localhost',port=3306,database='jing_dong',user='root',password='123456',charset='utf8')
+# # 获得Cursor对象
+# cs1 = conn.cursor()
 
-# print(cs1.execute("""insert into goods_cates (name) values ("硬盘")"""))
-# print(cs1.execute("""insert into goods_cates (name) values ("硬盘2")"""))
+# # print(cs1.execute("""insert into goods_cates (name) values ("硬盘")"""))
+# # print(cs1.execute("""insert into goods_cates (name) values ("硬盘2")"""))
+# # print(cs1.execute("""insert into goods_cates (name) values ("硬盘3")"""))
+
+# # conn.commit()
+
 # print(cs1.execute("""insert into goods_cates (name) values ("硬盘3")"""))
+# print(cs1.execute("""insert into goods_cates (name) values ("硬盘4")"""))
+
+# conn.rollback()
+
+# print(cs1.execute("""insert into goods_cates (name) values ("硬盘4")"""))
 
 # conn.commit()
 
-print(cs1.execute("""insert into goods_cates (name) values ("硬盘3")"""))
-print(cs1.execute("""insert into goods_cates (name) values ("硬盘4")"""))
 
-conn.rollback()
 
-print(cs1.execute("""insert into goods_cates (name) values ("硬盘4")"""))
 
-conn.commit()
+import urllib.parse
+
+print(urllib.parse.quote("@"))
+print(urllib.parse.quote("中国"))
+
+print(urllib.parse.unquote("%E4%B8%AD%E5%9B%BD"))

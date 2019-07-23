@@ -1,0 +1,34 @@
+2019-07-21 14:58:51,935 - 033.log2.py[line:10] - WARNING: 这是 loggging a warning message
+2019-07-21 14:58:51,936 - 033.log2.py[line:11] - ERROR: 这是 an loggging error message
+2019-07-21 14:58:51,936 - 033.log2.py[line:12] - CRITICAL: 这是 loggging critical message
+2019-07-21 15:04:50,038 - 033.log2.py[line:10] - WARNING: 这是 loggging a warning message
+2019-07-21 15:04:50,038 - 033.log2.py[line:11] - ERROR: 这是 an loggging error message
+2019-07-21 15:04:50,038 - 033.log2.py[line:12] - CRITICAL: 这是 loggging critical message
+2019-07-21 15:05:00,859 - 033.log2.py[line:10] - WARNING: 这是 loggging a warning message
+2019-07-21 15:05:00,859 - 033.log2.py[line:11] - ERROR: 这是 an loggging error message
+2019-07-21 15:05:00,859 - 033.log2.py[line:12] - CRITICAL: 这是 loggging critical message
+2019-07-21 15:05:02,301 - 033.log2.py[line:10] - WARNING: 这是 loggging a warning message
+2019-07-21 15:05:02,301 - 033.log2.py[line:11] - ERROR: 这是 an loggging error message
+2019-07-21 15:05:02,301 - 033.log2.py[line:12] - CRITICAL: 这是 loggging critical message
+2019-07-21 15:39:41,216 - 034.log3.py[line:27] - INFO: 这是 logger info message
+2019-07-21 15:39:41,217 - 034.log3.py[line:28] - WARNING: 这是 logger warning message
+2019-07-21 15:39:41,217 - 034.log3.py[line:29] - ERROR: 这是 logger error message
+2019-07-21 15:39:41,217 - 034.log3.py[line:30] - CRITICAL: 这是 logger critical message
+2019-07-21 15:41:45,907 - 034.log3.py[line:27] - INFO: 杩欐槸 logger info message
+2019-07-21 15:41:45,907 - 034.log3.py[line:28] - WARNING: 杩欐槸 logger warning message
+2019-07-21 15:41:45,907 - 034.log3.py[line:29] - ERROR: 杩欐槸 logger error message
+2019-07-21 15:41:45,908 - 034.log3.py[line:30] - CRITICAL: 杩欐槸 logger critical message
+2019-07-21 15:42:29,851 - 034.log3.py[line:27] - INFO: 这是 logger info message
+2019-07-21 15:42:29,851 - 034.log3.py[line:28] - WARNING: 这是 logger warning message
+2019-07-21 15:42:29,852 - 034.log3.py[line:29] - ERROR: 这是 logger error message
+2019-07-21 15:42:29,852 - 034.log3.py[line:30] - CRITICAL: 这是 logger critical message
+2019-07-21 15:42:55,290 - 034.log3.py[line:27] - INFO: 这是 logger info message
+2019-07-21 15:42:55,290 - 034.log3.py[line:28] - WARNING: 这是 logger warning message
+2019-07-21 15:42:55,291 - 034.log3.py[line:29] - ERROR: 这是 logger error message
+2019-07-21 15:42:55,291 - 034.log3.py[line:30] - CRITICAL: 这是 logger critical message
+2019-07-21 16:25:18,633 - 033.log2.py[line:10] - WARNING: 杩欐槸 loggging a warning message
+2019-07-21 16:25:18,633 - 033.log2.py[line:11] - ERROR: 杩欐槸 an loggging error message
+2019-07-21 16:25:18,633 - 033.log2.py[line:12] - CRITICAL: 杩欐槸 loggging critical message
+2019-07-21 16:27:30,948 - 033.log2.py[line:10] - WARNING: 杩欐槸 loggging a warning message
+2019-07-21 16:27:30,948 - 033.log2.py[line:11] - ERROR: 杩欐槸 an loggging error message
+2019-07-21 16:27:30,948 - 033.log2.py[line:12] - CRITICAL: 杩欐槸 loggging critical message
