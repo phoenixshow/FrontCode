@@ -1,0 +1,6 @@
+2019-07-21 15:58:25,286 - mini_frame.py[line:242] - INFO: ·ÃÎÊµÄÊÇ£º/index.html
+2019-07-21 16:01:44,021 - mini_frame.py[line:242] - INFO: ·ÃÎÊµÄÊÇ£º/index.html
+2019-07-21 16:05:37,224 - mini_frame.py[line:242] - INFO: è®¿é—®çš„æ˜¯ï¼š/index.html
+2019-07-21 16:49:26,550 - mini_frame.py[line:242] - INFO: ·ÃÎÊµÄÊÇ£º/indeasfasdfx.html
+2019-07-21 16:49:26,551 - mini_frame.py[line:261] - WARNING: Ã»ÓĞ¶ÔÓ¦µÄº¯Êı¡­¡­
+2019-07-23 10:39:29,660 - mini_frame.py[line:242] - INFO: ·ÃÎÊµÄÊÇ£º/shopcart.html
