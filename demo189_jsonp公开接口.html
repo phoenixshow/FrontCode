@@ -25,10 +25,16 @@
 					$('.list').empty();//先清空列表
 
 					//模拟搜索联想，循环插入新列表
+					/*原生JS循环
 					for(var i=0; i<data.result.length; i++){
 						var $li = $('<li>'+data.result[i].word+'</li>');
 						$li.appendTo('.list');
-					}
+					}*/
+					// JQ循环
+					$(data.result).each(function (index, item) {
+						var $li = $('<li>'+item.word+'</li>');
+            $li.appendTo('.list');
+          })
 				})
 				/*.fail(function(XMLHttpRequest, textStatus, errorThrown) {//失败
 					console.log("error");
