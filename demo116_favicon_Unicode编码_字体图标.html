@@ -5,7 +5,28 @@
 	<title>Unicode编码</title>
 	<link rel="icon" href="img/favicon.ico" type="image/x-icon" />
 	<link rel="stylesheet" type="text/css" href="css/iconfont.css">
-	
+	<style type="text/css">
+		ul{
+			list-style: none;
+		}
+		li{
+			float: left;
+		}
+		li .box{
+			background-color: blue;
+		}
+		li:hover .box{
+			background-color: red;
+		}
+		li .jt{
+			/*文字无法旋转，改成块再旋转即可*/
+			display: block;
+			transition: all 500ms ease;
+		}
+		li:hover .jt{
+			transform: rotate(180deg);
+		}
+	</style>
 	<script type="text/javascript">
 		/*
 		在字符串中使用转义字符输入Unicode编码
@@ -27,5 +48,15 @@
 
 	<h3>1500+字体图标</h3>
 	<i class="iconfont">&#xe673;</i>
+
+	<hr>
+
+	<ul>
+		<li>
+			<div class="box">
+				<i class="iconfont jt">&#xe673;</i>
+			</div>
+		</li>
+	</ul>
 </body>
 </html>
