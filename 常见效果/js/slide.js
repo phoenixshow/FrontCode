@@ -5,8 +5,7 @@ $(function(){
 	var $next = $('.next');//右按钮
 	var nextli = 0;//将要运动过来的li
 	var nowli = 0;//当前要离开的li
-	var timer = null;
-
+	var timer = null;//声明定时器
 
 	//除第一个li，都定位到右侧
 	$li.not(':first').css({left:600});
