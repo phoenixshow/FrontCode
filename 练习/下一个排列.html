@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>下一个排列</title>
+  <script type="text/javascript">
+    /*
+排列步骤
+让函数PermutationStep（num）接受 传递的num参数，
+并使用相同的数字返回大于num的下一个数字。
+
+例如：
+
+如果num为123 ，则返回132；
+如果为12453，则返回12534。
+如果一个数字没有更大的排列，则返回-1（即 999）
+    */
+    function PermutationStep(num){
+      if(isNaN(num)){
+        return "非数字";
+      }
+
+      var len = (num+"").length;
+      console.log("长度：" + len);
+
+      
+      if(len <= 1){
+        return -1;
+      }
+
+      nums = (num+"").split("");
+      console.log("字符数组：" + nums);
+
+      var i = len - 1;
+      while(i!=0 && nums[i]<=nums[i-1]){
+        i--;
+      }
+
+      if (i==0){
+        return -1;
+      }
+
+      i--;
+      var j = len - 1;
+      while(nums[j]<=nums[i]){
+        j--;
+      }
+      var temp = nums[i];
+      nums[i] = nums[j];
+      nums[j] = temp;
+      // return nums.join("")-0;
+      console.log("交换后：" + nums);
+
+      var arrs = nums.slice(i+1).reverse();
+      console.log("arrs:" + arrs);
+      nums.splice(i+1, len-i-1, arrs);
+      console.log("nums:" + nums);
+      return nums.join("").replace(/,/g, "")-0;
+    }
+
+    // var result = PermutationStep(123);
+    // var result = PermutationStep(12453);
+    // var result = PermutationStep(321);
+    var result = PermutationStep(999);
+    console.log("结果：" + result);
+  </script>
+</head>
+<body>
+  
+</body>
+</html>
