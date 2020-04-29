@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>正则</title>
+    <meta charset="utf-8" />
+  </head>
+  <body>
+    <script type="text/javascript">
+      //用户输入
+      // var value = 'a*';//["a", ""]
+      // var value = 'a*e';//["a", "e"]
+      // var value = 'a*e*';//["a", "e", ""]
+      var value = '*a*e*';//["", "a", "e", ""]
+
+      //按*号切割成数组
+      var arr = value.split('*');
+      console.log(arr);
+
+      //测试数据
+      var strArr = ["access2.log-2019.12",
+                  "alarm-log-2019.12",
+                  "alarm_history_index",
+                  "alarm_real_time",
+                  "alarm_realtime_index",
+                  "alert-log-2019.12",
+                  "apache-error",
+                  "basddf.txt",
+                  "basdedf.txt"
+                  ];
+
+      //直接量创建
+      // var regex = /^[a].*$/;
+      // var regex = /^[a].*[e].*$/;
+      // var regex = /^.*[a].*[e].*$/;
+
+      //拼接正则
+      var pattern = "";
+      for(var i=0; i<arr.length; i++){
+        if(arr[i] != ""){
+          pattern += "[" + arr[i] + "].*";
+        }
+      }
+
+      //如果用户输入以*开头
+      if(arr[0] == ""){
+        pattern = ".*" + pattern;
+      }
+
+      //如果用户输入以非*结尾（例如字母结尾）
+      if(arr[arr.length-1] != "" && arr[arr.length-1] != undefined){
+        pattern = pattern.substr(0,pattern.length-2);
+      }
+
+      //拼接^和&
+      pattern = "^" + pattern + "$";
+      console.log(pattern);
+      
+      //对象方式创建正则
+      var regex = new RegExp(pattern);
+
+      //匹配
+      for(var i=0; i<strArr.length; i++){
+        var str = strArr[i];
+        console.log(str, regex.test(str));
+      }
+    </script>
+  </body>
+</html>
